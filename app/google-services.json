@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "969782324174",
+    "project_id": "aguapol-45c73",
+    "storage_bucket": "aguapol-45c73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969782324174:android:950b86b28a765cfc54999f",
+        "android_client_info": {
+          "package_name": "com.espol.aguapol"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969782324174-39ur7fq7lgubrncjd6hm6jqroivmt2hh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.espol.aguapol",
+            "certificate_hash": "358fe3950f68275036cbb9b2021a253cc172d35f"
+          }
+        },
+        {
+          "client_id": "969782324174-uod3gj59rs6k7vn88fmsmnd8kbfgqa6s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBalWcVhE1nyq0wE7yLtJAdRtNs9QKGlXs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "969782324174-uod3gj59rs6k7vn88fmsmnd8kbfgqa6s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

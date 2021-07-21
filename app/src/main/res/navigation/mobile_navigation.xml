@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/mainMenu">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.espol.aguapol.ui.home.HomeFragment"
+        android:label="@string/menu_alarma"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.espol.aguapol.ui.gallery.GalleryFragment"
+        android:label="@string/menu_monitoreo_tanques"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.espol.aguapol.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_tablero_control"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/mainMenu"
+        android:name="com.espol.aguapol.MainMenu"
+        android:label="fragment_main_menu"
+        tools:layout="@layout/fragment_main_menu" >
+        <action
+            android:id="@+id/action_mainMenu_to_datosFragment"
+            app:destination="@id/datosFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainMenu_to_controlFragment"
+            app:destination="@id/tuberiaFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainMenu_to_nav_gallery"
+            app:destination="@id/nav_gallery"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainMenu_to_nav_home"
+            app:destination="@id/nav_home"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainMenu_to_nav_slideshow"
+            app:destination="@id/nav_slideshow"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainMenu_to_riegoFragment"
+            app:destination="@id/riegoFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainMenu_to_tuberiaFragment"
+            app:destination="@id/tuberiaFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/tuberiaFragment"
+        android:name="com.espol.aguapol.TuberiaFragment"
+        android:label="fragment_tuberia"
+        tools:layout="@layout/fragment_tuberia" />
+    <fragment
+        android:id="@+id/riegoFragment"
+        android:name="com.espol.aguapol.RiegoFragment"
+        android:label="fragment_riego"
+        tools:layout="@layout/fragment_riego" />
+    <fragment
+        android:id="@+id/controlFragment"
+        android:name="com.espol.aguapol.ControlFragment"
+        android:label="fragment_control"
+        tools:layout="@layout/fragment_control" />
+    <fragment
+        android:id="@+id/datosFragment"
+        android:name="com.espol.aguapol.DatosFragment"
+        android:label="fragment_datos"
+        tools:layout="@layout/fragment_datos" >
+        <action
+            android:id="@+id/action_datosFragment_to_mainMenu"
+            app:destination="@id/mainMenu"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@android:anim/slide_out_right" />
+    </fragment>
+</navigation>

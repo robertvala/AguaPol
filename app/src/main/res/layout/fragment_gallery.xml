@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.gallery.GalleryFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardBackgroundColor="#0091EA">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/tanks" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_margin="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/llEstado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="ESTADO DE TANQUES BAJOS"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/menu_text_size"
+                            android:textStyle="bold" />
+
+                        <ImageButton
+                            android:id="@+id/imageView6"
+                            style="@android:style/Widget.DeviceDefault.ImageButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginLeft="20dp"
+                            android:background="#00FFFAFA"
+                            android:forceHasOverlappingRendering="@color/black"
+                            android:src="@android:drawable/ic_lock_silent_mode_off"
+                            android:tint="#C51162" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llNivel1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/llEstado"
+                        android:layout_alignParentBottom="false"
+                        android:layout_marginTop="40dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nivel de tanque"
+                            android:textColor="#050505"
+                            android:textSize="@dimen/submenu_text_size" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:background="@drawable/shape">
+
+                            <TextView
+                                android:id="@+id/txtNivelTanqueBajo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="Medio"
+                                android:textSize="20sp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/llNivel1"
+                        android:layout_alignParentBottom="false"
+                        android:layout_marginTop="35dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <Button
+                                android:id="@+id/btnS3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginTop="0dp"
+                                android:layout_marginEnd="30dp"
+                                android:layout_toStartOf="@+id/progressBarTanquesBajos"
+                                android:text="S3"
+                                android:textColor="#050505"
+                                app:backgroundTint="#00FFFFFF" />
+
+                            <Button
+                                android:id="@+id/btnS1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/btnS2"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginEnd="30dp"
+                                android:layout_toStartOf="@+id/progressBarTanquesBajos"
+                                android:text="S1"
+                                android:textColor="#050505"
+                                app:backgroundTint="#FFD600" />
+
+                            <Button
+                                android:id="@+id/btnS2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/btnS3"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginEnd="30dp"
+                                android:layout_toStartOf="@+id/progressBarTanquesBajos"
+                                android:text="S2"
+                                android:textColor="#050505"
+                                app:backgroundTint="#FFD600" />
+
+                            <ProgressBar
+                                android:id="@+id/progressBarTanquesBajos"
+                                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                                android:layout_width="200dp"
+                                android:layout_height="230dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginEnd="20dp"
+                                android:max="100"
+                                android:maxHeight="200dp"
+                                android:minHeight="200dp"
+                                android:mirrorForRtl="false"
+                                android:progress="60"
+                                android:rotation="-90"
+                                android:scaleY="50" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/videoViewCaudal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="100dp"
+                        android:layout_below="@id/llTanqueElevado" />
+
+                    <LinearLayout
+                        android:id="@+id/llTanqueElevado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/llNivePorcenTE"
+                        android:layout_alignParentBottom="false"
+                        android:layout_marginTop="40dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <Button
+                                android:id="@+id/btnN1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignStart="@+id/progressBarTanquesAlto"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginTop="15dp"
+                                android:rotation="90"
+                                android:text="N1"
+                                android:textColor="#050505"
+                                app:backgroundTint="#FF6D00" />
+
+                            <ProgressBar
+                                android:id="@+id/progressBarTanquesAlto"
+                                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                                android:layout_width="200dp"
+                                android:layout_height="230dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="30dp"
+                                android:max="100"
+                                android:maxHeight="200dp"
+                                android:minHeight="200dp"
+                                android:mirrorForRtl="false"
+                                android:progress="60"
+                                android:rotation="-90"
+                                android:scaleY="50" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llNivePorcenTE"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/llNivelTanqueElevado"
+                        android:layout_alignParentBottom="false"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txtPNTA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="%Nivel de tanque"
+                            android:textColor="#050505"
+                            android:textSize="@dimen/submenu_text_size" />
+
+                        <LinearLayout
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:background="@drawable/shape">
+
+                            <TextView
+                                android:id="@+id/txtPorNivelTanqueAlto"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="10dp"
+                                android:gravity="center"
+                                android:text="90%"
+                                android:textSize="16sp"
+                                app:autoSizeTextType="uniform" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llNivelTanqueElevado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/llEstadoTanqueAlto"
+                        android:layout_marginTop="40dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txtNTA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nivel de  tanque "
+                            android:textColor="#050505"
+                            android:textSize="@dimen/submenu_text_size" />
+
+                        <LinearLayout
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="30dp"
+                            android:background="@drawable/shape">
+
+                            <TextView
+                                android:id="@+id/txtNivelTanqueAlto"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginBottom="10dp"
+                                android:gravity="center"
+                                android:text="15.6m"
+                                android:textSize="16sp"
+                                app:autoSizeTextType="uniform" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llEstadoTanqueAlto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/txtETA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="ESTADO DE TANQUE ELEVADO"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/menu_text_size"
+                            android:textStyle="bold" />
+
+                        <ImageButton
+                            android:id="@+id/imgSoundAlto"
+                            style="@android:style/Widget.DeviceDefault.ImageButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginLeft="20dp"
+                            android:background="#00FFFAFA"
+                            android:forceHasOverlappingRendering="@color/black"
+                            android:src="@android:drawable/ic_lock_silent_mode_off"
+                            android:tint="#C51162" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
