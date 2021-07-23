@@ -16,6 +16,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.espol.aguapol.Modelo.Alarma;
+import com.espol.aguapol.Modelo.Herramientas;
 import com.espol.aguapol.R;
 
 
@@ -30,6 +32,11 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
+
 public class GalleryFragment extends Fragment {
 
     private GalleryViewModel galleryViewModel;
@@ -39,6 +46,7 @@ public class GalleryFragment extends Fragment {
     private ProgressBar pbTanquesBajos,pbTanqueAlto;
     private TextView txtNivelTanqueBajos,txtNivelTanqueAlto,txtPorNivelTanqueAlto;
     private View root;
+    private Herramientas herramientas;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -59,6 +67,7 @@ public class GalleryFragment extends Fragment {
 
         getDataTanquesBajos();
         getDataTanqueAlto();
+         herramientas= new Herramientas(root.getContext());
 
         /*final TextView textView = binding.textGallery;
         galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
@@ -86,9 +95,22 @@ public class GalleryFragment extends Fragment {
                 txtPorNivelTanqueAlto.setText(String.valueOf(roundPor));
 
                 if(roundPor>100){
-                    Snackbar snackbar= Snackbar.make(root,"Fallo en sensor tanque elevado ", BaseTransientBottomBar.LENGTH_INDEFINITE);
+                    Snackbar snackbar= Snackbar.make(root,getResources().getString(R.string.titulo_fallo_tanquelevado), BaseTransientBottomBar.LENGTH_INDEFINITE);
                     snackbar.show();
+                    SimpleDateFormat format= new SimpleDateFormat("hh:mm a:dd/MM/yyyy");
+                    Calendar calendar=Calendar.getInstance();
+                    Date hoy=calendar.getTime();
+                    String fechaHora=format.format(hoy);
+
                     pbTanqueAlto.getProgressDrawable().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
+                    Alarma alarma= new Alarma(getResources().getString(R.string.titulo_fallo_tanquelevado),getResources().getString(R.string.mensaje_fallo_tanquelevado),fechaHora,R.drawable.tanquesbajos);
+                    DatabaseReference refAlarma=database.getReference("Alarmas");
+                    DatabaseReference newRef= refAlarma.push();
+                    newRef.setValue(alarma);
+
+                    herramientas.generarNotifiacion(root.getContext(),getString(R.string.titulo_fallo_tanquelevado),getString(R.string.mensaje_fallo_tanquelevado),R.drawable.tanquesbajos,1);
+
+
                 }
                 else{
                     pbTanqueAlto.getProgressDrawable().setColorFilter(Color.CYAN, PorterDuff.Mode.SRC_IN);
