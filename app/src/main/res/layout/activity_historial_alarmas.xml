@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".HistorialAlarmasActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,6 +17,11 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -40,17 +45,8 @@
                 android:textSize="20sp"
                 android:visibility="gone" />
 
-            <Button
-                android:id="@+id/btnHistorial"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="Historial"
-                android:textColor="#000000" />
-
             <ListView
-                android:id="@+id/lvAlarmas"
+                android:id="@+id/lvAlarmasGuardadas"
                 android:layout_width="match_parent"
                 android:layout_height="500dp"
                 android:layout_marginTop="10dp" />

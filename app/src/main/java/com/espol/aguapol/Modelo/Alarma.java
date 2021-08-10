@@ -6,12 +6,14 @@ public class Alarma {
     String mensaje;
     String fechaHora;
     int urlIcon;
+    String id;
 
-    public Alarma(String titulo, String mensaje, String fechaHora, int urlIcon) {
+    public Alarma(String titulo, String mensaje, String fechaHora, int urlIcon,String id) {
         this.titulo = titulo;
         this.mensaje = mensaje;
         this.fechaHora = fechaHora;
         this.urlIcon = urlIcon;
+        this.id=id;
     }
 
     public Alarma() {
@@ -47,5 +49,13 @@ public class Alarma {
 
     public void setUrlIcon(int urlIcon) {
         this.urlIcon = urlIcon;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

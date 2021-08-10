@@ -28,6 +28,10 @@
 
     <string name="titulo_fallo_tanquelevado">"Fallo en sensor tanque elevado "</string>
     <string name="mensaje_fallo_tanquelevado">"El sensor detecta un nivel mayor al maximo"</string>
+    <string name="titulo_tanque_elevado_medio">"Tanque elevado en nivel medio "</string>
+    <string name="titulo_tanque_elevado_bajo">"Tanque elevado en nivel bajo "</string>
+    <string name="titulo_tanque_bajo_medio">"Tanques bajos se encuentran en nivel medio "</string>
+    <string name="titulo_tanque_bajo_bajo">"Tanque bajos se encuentra en nivel bajo "</string>
     <string name="channel_name">AguaPol Channel</string>
     <string name="channel_description">Alarm</string>
 </resources>
