@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -71,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        View header= navigationView.getHeaderView(0);
+        TextView txtUserEmail= header.findViewById(R.id.txtEmailUser);
+        txtUserEmail.setText(firebaseAuth.getCurrentUser().getEmail());
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 

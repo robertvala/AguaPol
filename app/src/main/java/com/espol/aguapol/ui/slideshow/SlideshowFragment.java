@@ -59,7 +59,7 @@ public class SlideshowFragment extends Fragment {
     private Switch switchManual;
     private View root;
     FirebaseDatabase database;
-    WebView webView;
+
 
     private SlideshowViewModel slideshowViewModel;
     private FragmentSlideshowBinding binding;
@@ -78,9 +78,9 @@ public class SlideshowFragment extends Fragment {
         tietTEA=binding.tietTiempoEncendidoA;
         tietTEB=binding.tietTiempoEncendidoB;
         switchManual=binding.switchManual;
-        webView=binding.webViewRequest;
+
         database=FirebaseDatabase.getInstance();
-        webView.setVisibility(View.INVISIBLE);
+
 
         cargarDatos();
         activacionManual();

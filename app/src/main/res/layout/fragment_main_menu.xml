@@ -14,7 +14,7 @@
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:scaleType="fitXY"
             android:src="@drawable/obelisco" />
 
@@ -155,7 +155,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoSizeTextType="uniform"
-                    android:text="TABLEROS DE CONTROL"
+                    android:text="CONTROL BOMBAS TANQUE ELEVADO"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -191,7 +191,7 @@
                     android:id="@+id/textTuberias"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="MONITOREO TUBERIAS"
+                    android:text="CONTROL DE CAUDAL"
                     android:textStyle="bold" />
 
             </LinearLayout>

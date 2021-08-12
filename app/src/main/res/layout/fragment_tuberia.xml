@@ -1,14 +1,539 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TuberiaFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardBackgroundColor="#0091EA">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/tuberias" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/llEstado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="CONTROL DE CAUDAL"
+                            android:textColor="#000000"
+                            android:textSize="@dimen/menu_text_size"
+                            android:textStyle="bold" />
+
+                        <ImageButton
+                            android:id="@+id/imageView6"
+                            style="@android:style/Widget.DeviceDefault.ImageButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginLeft="20dp"
+                            android:background="#00FFFAFA"
+                            android:forceHasOverlappingRendering="@color/black"
+                            android:src="@android:drawable/ic_lock_silent_mode_off"
+                            android:tint="#C51162" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/mapContainerView"
+                android:name="com.espol.aguapol.MapsFragment"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:visibility="gone"
+                android:tag="map_container"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilAB"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:isScrollContainer="false"
+                        app:endIconDrawable="@android:drawable/ic_menu_edit"
+                        app:endIconMode="custom"
+                        app:endIconTint="#000000"
+                        app:errorEnabled="false"
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:startIconCheckable="true"
+                        app:startIconContentDescription="Mapa"
+                        app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                        app:startIconTint="#000000"
+                        app:startIconTintMode="src_in">
+
+                        <TextView
+                            android:id="@+id/txtHoraCaudal1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="TextView" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tietlAB"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:editable="false"
+                            android:gravity="center"
+                            android:hint="Tramo 1"
+                            android:text="19.5"
+                            android:textSize="18sp" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilBC"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:isScrollContainer="false"
+                        app:endIconDrawable="@android:drawable/ic_menu_edit"
+                        app:endIconMode="custom"
+                        app:endIconTint="#000000"
+                        app:errorIconDrawable="@drawable/alarmas"
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:startIconCheckable="true"
+                        app:startIconContentDescription="Mapa"
+                        app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                        app:startIconTint="#000000"
+                        app:startIconTintMode="src_in">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tietlBC"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:gravity="center"
+                            android:hint="Tramo 2"
+                            android:text="19.5"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/txtHoraCaudal2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="TextView" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilCD"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:isScrollContainer="false"
+                        app:endIconDrawable="@android:drawable/ic_menu_edit"
+                        app:endIconMode="custom"
+                        app:endIconTint="#000000"
+                        app:errorIconDrawable="@drawable/alarmas"
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:startIconCheckable="true"
+                        app:startIconContentDescription="Mapa"
+                        app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                        app:startIconTint="#000000"
+                        app:startIconTintMode="src_in">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tietlCD"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:gravity="center"
+                            android:hint="Tramo 3"
+                            android:text="19.5"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/txtHoraCaudal3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="TextView" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilDE"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:isScrollContainer="false"
+                        app:endIconDrawable="@android:drawable/ic_menu_edit"
+                        app:endIconMode="custom"
+                        app:endIconTint="#000000"
+                        app:errorIconDrawable="@drawable/alarmas"
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:startIconCheckable="true"
+                        app:startIconContentDescription="Mapa"
+                        app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                        app:startIconTint="#000000"
+                        app:startIconTintMode="src_in">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tietlDE"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:gravity="center"
+                            android:hint="Tramo 4"
+                            android:text="19.5"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/txtHoraCaudal4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="TextView" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilEF"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:isScrollContainer="false"
+                        app:endIconDrawable="@android:drawable/ic_menu_edit"
+                        app:endIconMode="custom"
+                        app:endIconTint="#000000"
+                        app:errorIconDrawable="@drawable/alarmas"
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:startIconCheckable="true"
+                        app:startIconContentDescription="Mapa"
+                        app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                        app:startIconTint="#000000"
+                        app:startIconTintMode="src_in">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tietEF"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:gravity="center"
+                            android:hint="Tramo 5"
+                            android:text="19.5"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/txtHoraCaudal5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="TextView" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilFG"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:isScrollContainer="false"
+                        app:endIconDrawable="@android:drawable/ic_menu_edit"
+                        app:endIconMode="custom"
+                        app:endIconTint="#000000"
+                        app:errorIconDrawable="@drawable/alarmas"
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:startIconCheckable="true"
+                        app:startIconContentDescription="Mapa"
+                        app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                        app:startIconTint="#000000"
+                        app:startIconTintMode="src_in">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tietFG"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:gravity="center"
+                            android:hint="Tramo 6"
+                            android:text="19.5"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/txtHoraCaudal6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="TextView" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilGH"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:isScrollContainer="false"
+                        app:endIconDrawable="@android:drawable/ic_menu_edit"
+                        app:endIconMode="custom"
+                        app:endIconTint="#000000"
+                        app:errorIconDrawable="@drawable/alarmas"
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:startIconCheckable="true"
+                        app:startIconContentDescription="Mapa"
+                        app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                        app:startIconTint="#000000"
+                        app:startIconTintMode="src_in">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tietGH"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:gravity="center"
+                            android:hint="Tramo 7"
+                            android:text="19.5"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/txtHoraCaudal7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="TextView" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilHI"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:isScrollContainer="false"
+                        app:endIconDrawable="@android:drawable/ic_menu_edit"
+                        app:endIconMode="custom"
+                        app:endIconTint="#000000"
+                        app:errorIconDrawable="@drawable/alarmas"
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:startIconCheckable="true"
+                        app:startIconContentDescription="Mapa"
+                        app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                        app:startIconTint="#000000"
+                        app:startIconTintMode="src_in">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tietHI"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:gravity="center"
+                            android:hint="Tramo 8"
+                            android:text="19.5"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/txtHoraCaudal8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="TextView" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilIJ"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="1"
+                        android:gravity="left"
+                        android:isScrollContainer="false"
+                        app:endIconDrawable="@android:drawable/ic_menu_edit"
+                        app:endIconMode="custom"
+                        app:endIconTint="#000000"
+                        app:errorIconDrawable="@drawable/alarmas"
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
+                        app:startIconCheckable="true"
+                        app:startIconContentDescription="Mapa"
+                        app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                        app:startIconTint="#000000"
+                        app:startIconTintMode="src_in">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tietIJ"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:editable="false"
+                            android:gravity="center"
+                            android:hint="Tramo 9"
+                            android:text="19.5"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/txtHoraCaudal9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="TextView" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

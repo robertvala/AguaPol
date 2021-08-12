@@ -54,7 +54,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:gravity="center"
-                            android:text="ESTADO DE TANQUES BAJOS"
+                            android:text="TANQUES PROSPERINA"
                             android:textColor="#000000"
                             android:textSize="@dimen/menu_text_size"
                             android:textStyle="bold" />
@@ -117,18 +117,29 @@
                         android:layout_alignParentBottom="false"
                         android:layout_marginTop="35dp"
                         android:gravity="center"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
 
+
+                            <TextView
+                                android:id="@+id/textViewSensores"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginEnd="46dp"
+                                android:layout_toStartOf="@+id/progressBarTanquesBajos"
+                                android:gravity="center"
+                                android:text="Sensores" />
+
                             <Button
                                 android:id="@+id/btnS3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentTop="true"
-                                android:layout_marginTop="0dp"
+                                android:layout_below="@+id/textViewSensores"
+                                android:layout_marginTop="10dp"
                                 android:layout_marginEnd="30dp"
                                 android:layout_toStartOf="@+id/progressBarTanquesBajos"
                                 android:text="S3"
@@ -164,7 +175,9 @@
                                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                                 android:layout_width="200dp"
                                 android:layout_height="230dp"
+                                android:layout_alignTop="@id/textViewSensores"
                                 android:layout_alignParentEnd="true"
+                                android:layout_marginTop="15dp"
                                 android:layout_marginEnd="20dp"
                                 android:max="100"
                                 android:maxHeight="200dp"
@@ -205,7 +218,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:gravity="center"
-                            android:text="ESTADO DE TANQUE ALTO"
+                            android:text="TANQUE ELEVADO"
                             android:textColor="#000000"
                             android:textSize="@dimen/menu_text_size"
                             android:textStyle="bold" />
@@ -274,12 +287,23 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
 
+
+                            <TextView
+                                android:id="@+id/textViewSensores2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginEnd="46dp"
+                                android:layout_toStartOf="@+id/progressBarTanqueAlto"
+                                android:gravity="center"
+                                android:text="Sensores" />
+
                             <Button
                                 android:id="@+id/btnS3Alto"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_alignParentTop="true"
-                                android:layout_marginTop="0dp"
+                                android:layout_below="@+id/textViewSensores2"
+                                android:layout_marginTop="10dp"
                                 android:layout_marginEnd="30dp"
                                 android:layout_toStartOf="@+id/progressBarTanqueAlto"
                                 android:text="S3"
@@ -315,8 +339,10 @@
                                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                                 android:layout_width="200dp"
                                 android:layout_height="230dp"
+                                android:layout_alignTop="@id/textViewSensores2"
                                 android:layout_alignParentEnd="true"
-                                android:layout_marginEnd="20dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="23dp"
                                 android:max="100"
                                 android:maxHeight="200dp"
                                 android:minHeight="200dp"
