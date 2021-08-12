@@ -151,5 +151,10 @@
         android:enabled="false"
         android:text="Cargar datos" />
 
+    <ListView
+        android:id="@+id/listHistorico"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 
 </LinearLayout>

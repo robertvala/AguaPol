@@ -3,6 +3,7 @@ package com.espol.aguapol;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -19,9 +20,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.espol.aguapol.Modelo.HistorialCaudal;
+import com.espol.aguapol.adapters.adapterListCaudal;
+import com.espol.aguapol.adapters.adapterlista;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -72,7 +77,8 @@ public class DatosFragment extends Fragment {
     List<Integer> selectIndex;
     List<String> tramosSeleccionados;
     Button btnImportar;
-
+    Context context;
+    ListView listView;
     public DatosFragment() {
         // Required empty public constructor
     }
@@ -117,6 +123,9 @@ public class DatosFragment extends Fragment {
         checkedItems=new boolean[selectTramos.length];
         tramosSeleccionados=new ArrayList<>();
         selectIndex= new ArrayList<>();
+        listView=root.findViewById(R.id.listHistorico);
+
+        context=root.getContext();
 
        
 
@@ -124,6 +133,9 @@ public class DatosFragment extends Fragment {
         importarCSV();
         pickDates();
         pickTramos();
+
+
+
         return root;
     }
 
@@ -182,6 +194,11 @@ public class DatosFragment extends Fragment {
                 }
             }
         });
+    }
+
+    void displaylist(ArrayList<HistorialCaudal> list){
+        adapterlista adaptador= new adapterlista(list,context);
+        listView.setAdapter(adaptador);
     }
 
     private void pickDates() {
