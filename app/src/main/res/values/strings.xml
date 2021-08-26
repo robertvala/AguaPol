@@ -89,5 +89,11 @@
         <item>FIMCM</item>
     </string-array>
 
+    <string-array name="estadoAlarmas">
+        <item>Visto</item>
+        <item>En proceso</item>
+        <item>Solucionado</item>
+    </string-array>
+
 
 </resources>
