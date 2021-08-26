@@ -13,15 +13,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.opencsv.CSVReader;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 
 public class ImportarCsv extends AppCompatActivity {
     Button btnImportar;
@@ -35,6 +40,7 @@ public class ImportarCsv extends AppCompatActivity {
     HashMap<String,HashMap<String,String>> tramo7=new HashMap<>();
     HashMap<String,HashMap<String,String>> tramo8=new HashMap<>();
     HashMap<String,HashMap<String,String>> tramo9=new HashMap<>();
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
 
@@ -72,8 +78,7 @@ public class ImportarCsv extends AppCompatActivity {
         try {
             FileReader fileReader = new FileReader(context.getExternalFilesDir(null) + "/fakedata.csv");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-            while((cadena = bufferedReader.readLine()) != null) {
+            while((cadena = bufferedReader.readLine()) != null ) {
 
                 arreglo = cadena.split(",");
                 String fechaYhora=arreglo[10];
@@ -90,18 +95,20 @@ public class ImportarCsv extends AppCompatActivity {
                 String valorT7=arreglo[7];
                 String valorT8=arreglo[8];
                 String valorT9=arreglo[9];
-                /*
+
 
                 if (!tramo2.containsKey(fecha)){
                     HashMap<String,String> v2=new HashMap<>();
-                    v2.put(hora,valorT2);
+                    v2.put(hora,valorT6);
                     tramo2.put(fecha,v2);
+
                 }
                 else{
                     HashMap<String,String> v1=tramo2.get(fecha);
-                    v1.put(hora,valorT2);
+                    v1.put(hora,valorT6);
 
                 }
+                /*
 
 
                 if (!tramo3.containsKey(fecha)){
@@ -145,8 +152,17 @@ public class ImportarCsv extends AppCompatActivity {
                     v6.put(hora,valorT6);
                 }
 
+
+
+
+
                 if (!tramo7.containsKey(fecha)){
                     HashMap<String,String> v7=new HashMap<>();
+                    String[ ]date=fecha.split("-");
+                    v7.put("year",date[0]);
+                    v7.put("month",date[1]);
+                    v7.put("day",date[2]);
+                    v7.put("date",fecha);
                     v7.put(hora,valorT7);
                     tramo7.put(fecha,v7);
                 }
@@ -154,6 +170,9 @@ public class ImportarCsv extends AppCompatActivity {
                     HashMap<String,String> v7=tramo7.get(fecha);
                     v7.put(hora,valorT7);
                 }
+
+
+
 
 
 
@@ -167,7 +186,8 @@ public class ImportarCsv extends AppCompatActivity {
                     v5.put(hora,valorT8);
                 }
 
-                 */
+
+
 
                 if (!tramo9.containsKey(fecha)){
                     HashMap<String,String> v5=new HashMap<>();
@@ -178,12 +198,38 @@ public class ImportarCsv extends AppCompatActivity {
                     HashMap<String,String> v9=tramo9.get(fecha);
                     v9.put(hora,valorT9);
                 }
+                 */
+
+
+
 
 
 
 
             }
-            FirebaseDatabase database= FirebaseDatabase.getInstance();
+
+            CollectionReference tramo_9= db.collection("tramo 6");
+            for(Map.Entry<String,HashMap<String,String>> entry:tramo2.entrySet()){
+                String fecha=entry.getKey();
+                String[ ]date=fecha.split("-");
+                HashMap<String,Object> data = new HashMap<>();
+                data.put("year",date[0]);
+                data.put("month",date[1]);
+                data.put("day",date[2]);
+                data.put("date",fecha);
+                data.put("valores",entry.getValue());
+
+
+                tramo_9.document(fecha).set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+
+                    }
+                });
+            }
+            Toast.makeText(context, "Datos cargados", Toast.LENGTH_SHORT).show();
+
+            //FirebaseDatabase database= FirebaseDatabase.getInstance();
             /*DatabaseReference ref2= database.getReference("Control caudal").child("tramo B-C").child("historial");
             ref2.setValue(tramo2);
             DatabaseReference ref3= database.getReference("Control caudal").child("tramo C-D").child("historial");
@@ -200,8 +246,10 @@ public class ImportarCsv extends AppCompatActivity {
             ref7.setValue(tramo7);
             DatabaseReference ref8= database.getReference("Control caudal").child("tramo H-I").child("historial");
             ref8.setValue(tramo8);*/
-            DatabaseReference ref9= database.getReference("Control caudal").child("tramo I-J").child("historial");
-            ref9.setValue(tramo9);
+            //DatabaseReference ref9= database.getReference("Control caudal").child("tramo I-J").child("historial");
+            //ref9.setValue(tramo9);
+
+
         } catch(Exception e) { Toast.makeText(context, "The specified file was not found", Toast.LENGTH_SHORT).show();}
 /*
         try {
