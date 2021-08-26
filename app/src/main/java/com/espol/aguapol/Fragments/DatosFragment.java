@@ -129,42 +129,47 @@ public class DatosFragment extends Fragment {
         btnCargar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Calendar calendar= Calendar.getInstance();
-                final int year = calendar.get(Calendar.YEAR);
-                final int month = calendar.get(Calendar.MONTH)+1;
-                final int day = calendar.get(Calendar.DAY_OF_MONTH);
-
-                String date=year+"-"+month+"-"+day;
-
-
-                if(!fechaInicio.equals("")&&!fechaFin.equals("")&&tramosSeleccionados.size()>0){
-                    try{
-                        if(diferenciaDias(fechaFin,fechaInicio)>=0){
-                            tilFechaIncio.setError(null);
-                            tilFechaFin.setError(null);
-                            tilTramos.setError(null);
-                            obtenerDatosFechas();
-                        }
-                        else{
-                            tilFechaFin.setError("La fecha fin debe ser mayor o igual a la fehca de inicio ");
-                        }
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
-                }
-                else if(tramosSeleccionados.size()<=0){
-                    tilTramos.setError("Seleccionar los tramos a inspeccionar");
-                }
-
-
-                else{
-                    Toast.makeText(root.getContext(), "NO hay seleccionado la fecha", Toast.LENGTH_SHORT).show();
-                }
-
+                //validarDatos();
+                importarCSV();
 
 
             }
         });
+    }
+
+    private void validarDatos() {
+        Calendar calendar= Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
+        final int month = calendar.get(Calendar.MONTH)+1;
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        String date=year+"-"+month+"-"+day;
+
+
+        if(!fechaInicio.equals("")&&!fechaFin.equals("")&&tramosSeleccionados.size()>0){
+            try{
+                if(diferenciaDias(fechaFin,fechaInicio)>=0){
+                    tilFechaIncio.setError(null);
+                    tilFechaFin.setError(null);
+                    tilTramos.setError(null);
+                    obtenerDatosFechas();
+                }
+                else{
+                    tilFechaFin.setError("La fecha fin debe ser mayor o igual a la fehca de inicio ");
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(tramosSeleccionados.size()<=0){
+            tilTramos.setError("Seleccionar los tramos a inspeccionar");
+        }
+
+
+        else{
+            Toast.makeText(root.getContext(), "NO hay seleccionado la fecha", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     private void obtenerDatosFechas() {
@@ -175,13 +180,8 @@ public class DatosFragment extends Fragment {
     }
 
     private void importarCSV() {
-        btnImportar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(root.getContext(), ImportarCsv.class);
-                startActivity(intent);
-            }
-        });
+        Intent intent= new Intent(root.getContext(), ImportarCsv.class);
+        startActivity(intent);
     }
 
     public static int diferenciaDias(String fecha1,String fecha2) throws ParseException {
