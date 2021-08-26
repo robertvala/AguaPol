@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".DatosFragment" >
+    tools:context=".Fragments.DatosFragment" >
 
     <ScrollView
         android:layout_width="match_parent"
@@ -91,6 +91,7 @@
                         android:orientation="vertical">
 
                         <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tilElegirTramos"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:hint="Elegir tramos">
@@ -105,6 +106,7 @@
                     </LinearLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilFechaInicio"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp">
@@ -117,6 +119,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tilFechaFin"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 

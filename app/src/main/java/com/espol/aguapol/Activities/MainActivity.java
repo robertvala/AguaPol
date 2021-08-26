@@ -1,6 +1,5 @@
-package com.espol.aguapol;
+package com.espol.aguapol.Activities;
 
-import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,9 +9,11 @@ import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.snackbar.Snackbar;
+import com.espol.aguapol.R;
+import com.espol.aguapol.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.Dimension;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
@@ -22,11 +23,13 @@ import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.espol.aguapol.databinding.ActivityMainBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import org.jetbrains.annotations.NotNull;
+import org.w3c.dom.Text;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(MainActivity.this, "Usuario ha cerrado sesion correctamente", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
                     finish();
                 }
             }
@@ -64,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
 
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
+        navigationView.setItemIconTintList(null);
+        navigationView.setItemIconSize(80);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -74,7 +79,12 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         View header= navigationView.getHeaderView(0);
         TextView txtUserEmail= header.findViewById(R.id.txtEmailUser);
-        txtUserEmail.setText(firebaseAuth.getCurrentUser().getEmail());
+        TextView txtInicials=header.findViewById(R.id.txtInicials);
+        String email=firebaseAuth.getCurrentUser().getEmail();
+        String inicials= email.substring(0,2).toUpperCase(Locale.ROOT);
+        txtInicials.setText(inicials);
+
+        txtUserEmail.setText(email);
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 

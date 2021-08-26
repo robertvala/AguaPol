@@ -1,4 +1,4 @@
-package com.espol.aguapol;
+package com.espol.aguapol.Fragments;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.espol.aguapol.Modelo.Alarma;
 import com.espol.aguapol.Modelo.AlarmaManejada;
+import com.espol.aguapol.R;
 import com.espol.aguapol.adapters.AlarmaSolucionadaAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

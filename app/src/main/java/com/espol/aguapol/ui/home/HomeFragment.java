@@ -8,17 +8,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.espol.aguapol.HistorialAlarmasActivity;
+import com.espol.aguapol.Fragments.HistorialAlarmasActivity;
 import com.espol.aguapol.Modelo.Alarma;
-import com.espol.aguapol.R;
 import com.espol.aguapol.adapters.AlarmAdapter;
 
 import com.espol.aguapol.databinding.FragmentHomeBinding;
@@ -30,7 +26,6 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import org.jetbrains.annotations.NotNull;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;

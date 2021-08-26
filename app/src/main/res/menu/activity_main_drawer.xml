@@ -3,38 +3,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/mainMenu"
             android:icon="@drawable/home"
-            android:title="HOME" />
+            android:title="Home" />
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/alarmas"
-            android:title="@string/menu_alarma" />
+            android:icon="@drawable/icono_1"
+            android:title="@string/menu_alarma"
+            />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/tanks"
+            android:icon="@drawable/icono_2"
             android:title="@string/menu_monitoreo_tanques" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/tablero"
+            android:icon="@drawable/icono_3"
             android:title="@string/menu_tablero_control" />
         <item
             android:id="@+id/tuberiaFragment"
-            android:icon="@drawable/tuberias"
-            android:title="MONITOREO TUBERIAS" />
+            android:icon="@drawable/icono_4"
+            android:title="@string/menu_monitoreo_tuberias" />
         <item
             android:id="@+id/riegoFragment"
-            android:icon="@drawable/riego"
-            android:title="RIEGO" />
+            android:icon="@drawable/icono_5"
+            android:title="Riego" />
         <item
             android:id="@+id/controlFragment"
-            android:icon="@drawable/edit"
-            android:title="CONTROL DE PROCEDIMIENTOS" />
+            android:icon="@drawable/icono_6"
+            android:title="Control de procedimientos" />
         <item
             android:id="@+id/datosFragment"
-            android:icon="@drawable/datos"
-            android:title="DATOS HISTORICOS" />
+            android:icon="@drawable/icono_7"
+            android:title="Datos históricos" />
     </group>
 </menu>

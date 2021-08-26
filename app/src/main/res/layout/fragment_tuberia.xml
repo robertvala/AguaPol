@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TuberiaFragment">
+    tools:context=".Fragments.TuberiaFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,68 +15,43 @@
             android:layout_height="match_parent"
             android:orientation="vertical" >
 
-            <androidx.cardview.widget.CardView
+            <LinearLayout
+                android:id="@+id/llEstado"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="#0091EA">
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView7"
+                    android:id="@+id/imageView8"
                     android:layout_width="wrap_content"
-                    android:layout_height="200dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/tuberias" />
-            </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icono_4" />
 
-            <androidx.cardview.widget.CardView
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/comfortaa_light"
+                    android:gravity="center"
+                    android:text="Control de caudal"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/menu_text_size"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:id="@+id/llEstado"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/textView6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:text="CONTROL DE CAUDAL"
-                            android:textColor="#000000"
-                            android:textSize="@dimen/menu_text_size"
-                            android:textStyle="bold" />
-
-                        <ImageButton
-                            android:id="@+id/imageView6"
-                            style="@android:style/Widget.DeviceDefault.ImageButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginLeft="20dp"
-                            android:background="#00FFFAFA"
-                            android:forceHasOverlappingRendering="@color/black"
-                            android:src="@android:drawable/ic_lock_silent_mode_off"
-                            android:tint="#C51162" />
-                    </LinearLayout>
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
 
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/mapContainerView"
-                android:name="com.espol.aguapol.MapsFragment"
+                android:name="com.espol.aguapol.Fragments.MapsFragment"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:visibility="gone"
@@ -85,26 +60,34 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                android:background="@color/gris"
+                app:cardBackgroundColor="@color/gris"
+                app:cardCornerRadius="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/card_view_border_second"
                     android:orientation="horizontal">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilAB"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
+                        android:background="@color/white"
                         android:gravity="left"
                         android:isScrollContainer="false"
-                        app:endIconDrawable="@android:drawable/ic_menu_edit"
+                        app:boxStrokeErrorColor="@color/advertencia"
                         app:endIconMode="custom"
                         app:endIconTint="#000000"
                         app:errorEnabled="false"
+                        app:errorIconDrawable="@android:drawable/ic_dialog_alert"
+                        app:errorIconTint="@color/advertencia"
+                        app:errorTextColor="@color/advertencia"
                         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:startIconCheckable="true"
                         app:startIconContentDescription="Mapa"
@@ -112,23 +95,18 @@
                         app:startIconTint="#000000"
                         app:startIconTintMode="src_in">
 
-                        <TextView
-                            android:id="@+id/txtHoraCaudal1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="TextView" />
-
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/tietlAB"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_gravity="center"
+                            android:background="@color/white"
                             android:editable="false"
+                            android:fontFamily="@font/comfortaa"
                             android:gravity="center"
-                            android:hint="Tramo 1"
+                            android:hint="@string/tramo1"
                             android:text="19.5"
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
 
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
@@ -137,26 +115,33 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/gris"
+                app:cardCornerRadius="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/card_view_border_second"
                     android:orientation="horizontal">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilBC"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:gravity="left"
                         android:isScrollContainer="false"
-                        app:endIconDrawable="@android:drawable/ic_menu_edit"
+                        app:boxBackgroundColor="@color/white"
+                        app:boxStrokeErrorColor="@color/advertencia"
                         app:endIconMode="custom"
                         app:endIconTint="#000000"
                         app:errorIconDrawable="@drawable/alarmas"
+                        app:errorIconTint="@color/advertencia"
+                        app:errorTextColor="@color/advertencia"
                         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:startIconCheckable="true"
                         app:startIconContentDescription="Mapa"
@@ -169,17 +154,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:editable="false"
+                            android:fontFamily="@font/comfortaa"
                             android:gravity="center"
-                            android:hint="Tramo 2"
+                            android:hint="@string/tramo2"
                             android:text="19.5"
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
 
-                        <TextView
-                            android:id="@+id/txtHoraCaudal2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="TextView" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -187,26 +167,31 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/gris"
+                app:cardCornerRadius="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/card_view_border_second"
                     android:orientation="horizontal">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilCD"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:gravity="left"
                         android:isScrollContainer="false"
-                        app:endIconDrawable="@android:drawable/ic_menu_edit"
+                        app:boxStrokeErrorColor="@color/advertencia"
                         app:endIconMode="custom"
                         app:endIconTint="#000000"
                         app:errorIconDrawable="@drawable/alarmas"
+                        app:errorIconTint="@color/advertencia"
+                        app:errorTextColor="@color/advertencia"
                         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:startIconCheckable="true"
                         app:startIconContentDescription="Mapa"
@@ -218,18 +203,14 @@
                             android:id="@+id/tietlCD"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/white"
                             android:editable="false"
+                            android:fontFamily="@font/comfortaa"
                             android:gravity="center"
-                            android:hint="Tramo 3"
+                            android:hint="@string/tramo3"
                             android:text="19.5"
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
 
-                        <TextView
-                            android:id="@+id/txtHoraCaudal3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="TextView" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -237,26 +218,31 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/gris"
+                app:cardCornerRadius="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/card_view_border_second"
                     android:orientation="horizontal">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilDE"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:gravity="left"
                         android:isScrollContainer="false"
-                        app:endIconDrawable="@android:drawable/ic_menu_edit"
+                        app:boxStrokeErrorColor="@color/advertencia"
                         app:endIconMode="custom"
                         app:endIconTint="#000000"
                         app:errorIconDrawable="@drawable/alarmas"
+                        app:errorIconTint="@color/advertencia"
+                        app:errorTextColor="@color/advertencia"
                         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:startIconCheckable="true"
                         app:startIconContentDescription="Mapa"
@@ -268,18 +254,14 @@
                             android:id="@+id/tietlDE"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/white"
                             android:editable="false"
+                            android:fontFamily="@font/comfortaa"
                             android:gravity="center"
-                            android:hint="Tramo 4"
+                            android:hint="@string/tramo4"
                             android:text="19.5"
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
 
-                        <TextView
-                            android:id="@+id/txtHoraCaudal4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="TextView" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -287,26 +269,31 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/gris"
+                app:cardCornerRadius="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/card_view_border_second"
                     android:orientation="horizontal">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilEF"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:gravity="left"
                         android:isScrollContainer="false"
-                        app:endIconDrawable="@android:drawable/ic_menu_edit"
+                        app:boxStrokeErrorColor="@color/advertencia"
                         app:endIconMode="custom"
                         app:endIconTint="#000000"
                         app:errorIconDrawable="@drawable/alarmas"
+                        app:errorIconTint="@color/advertencia"
+                        app:errorTextColor="@color/advertencia"
                         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:startIconCheckable="true"
                         app:startIconContentDescription="Mapa"
@@ -318,18 +305,14 @@
                             android:id="@+id/tietEF"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/white"
                             android:editable="false"
+                            android:fontFamily="@font/comfortaa"
                             android:gravity="center"
-                            android:hint="Tramo 5"
+                            android:hint="@string/tramo5"
                             android:text="19.5"
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
 
-                        <TextView
-                            android:id="@+id/txtHoraCaudal5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="TextView" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -337,26 +320,31 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/gris"
+                app:cardCornerRadius="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/card_view_border_second"
                     android:orientation="horizontal">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilFG"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:gravity="left"
                         android:isScrollContainer="false"
-                        app:endIconDrawable="@android:drawable/ic_menu_edit"
+                        app:boxStrokeErrorColor="@color/advertencia"
                         app:endIconMode="custom"
                         app:endIconTint="#000000"
                         app:errorIconDrawable="@drawable/alarmas"
+                        app:errorIconTint="@color/advertencia"
+                        app:errorTextColor="@color/advertencia"
                         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:startIconCheckable="true"
                         app:startIconContentDescription="Mapa"
@@ -368,18 +356,14 @@
                             android:id="@+id/tietFG"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/white"
                             android:editable="false"
+                            android:fontFamily="@font/comfortaa"
                             android:gravity="center"
-                            android:hint="Tramo 6"
+                            android:hint="@string/tramo6"
                             android:text="19.5"
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
 
-                        <TextView
-                            android:id="@+id/txtHoraCaudal6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="TextView" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -387,26 +371,31 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/gris"
+                app:cardCornerRadius="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="@color/white"
                     android:orientation="horizontal">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilGH"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:gravity="left"
                         android:isScrollContainer="false"
-                        app:endIconDrawable="@android:drawable/ic_menu_edit"
+                        app:boxStrokeErrorColor="@color/advertencia"
                         app:endIconMode="custom"
                         app:endIconTint="#000000"
                         app:errorIconDrawable="@drawable/alarmas"
+                        app:errorIconTint="@color/advertencia"
+                        app:errorTextColor="@color/advertencia"
                         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:startIconCheckable="true"
                         app:startIconContentDescription="Mapa"
@@ -418,18 +407,14 @@
                             android:id="@+id/tietGH"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/white"
                             android:editable="false"
+                            android:fontFamily="@font/comfortaa"
                             android:gravity="center"
-                            android:hint="Tramo 7"
+                            android:hint="@string/tramo7"
                             android:text="19.5"
-                            android:textSize="18sp" />
+                            android:textSize="16sp" />
 
-                        <TextView
-                            android:id="@+id/txtHoraCaudal7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="TextView" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -437,26 +422,31 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/gris"
+                app:cardCornerRadius="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/card_view_border_second"
                     android:orientation="horizontal">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilHI"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:gravity="left"
                         android:isScrollContainer="false"
-                        app:endIconDrawable="@android:drawable/ic_menu_edit"
+                        app:boxStrokeErrorColor="@color/advertencia"
                         app:endIconMode="custom"
                         app:endIconTint="#000000"
                         app:errorIconDrawable="@drawable/alarmas"
+                        app:errorIconTint="@color/advertencia"
+                        app:errorTextColor="@color/advertencia"
                         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:startIconCheckable="true"
                         app:startIconContentDescription="Mapa"
@@ -468,18 +458,14 @@
                             android:id="@+id/tietHI"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/white"
                             android:editable="false"
+                            android:fontFamily="@font/comfortaa"
                             android:gravity="center"
-                            android:hint="Tramo 8"
+                            android:hint="@string/tramo8"
                             android:text="19.5"
                             android:textSize="18sp" />
 
-                        <TextView
-                            android:id="@+id/txtHoraCaudal8"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="TextView" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -487,26 +473,31 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp">
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/gris"
+                app:cardCornerRadius="5dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="1dp"
+                    android:background="@drawable/card_view_border_second"
                     android:orientation="horizontal">
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilIJ"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
                         android:gravity="left"
                         android:isScrollContainer="false"
-                        app:endIconDrawable="@android:drawable/ic_menu_edit"
+                        app:boxStrokeErrorColor="@color/advertencia"
                         app:endIconMode="custom"
                         app:endIconTint="#000000"
                         app:errorIconDrawable="@drawable/alarmas"
+                        app:errorIconTint="@color/advertencia"
+                        app:errorTextColor="@color/advertencia"
                         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:startIconCheckable="true"
                         app:startIconContentDescription="Mapa"
@@ -518,18 +509,14 @@
                             android:id="@+id/tietIJ"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/white"
                             android:editable="false"
+                            android:fontFamily="@font/comfortaa"
                             android:gravity="center"
-                            android:hint="Tramo 9"
+                            android:hint="@string/tramo9"
                             android:text="19.5"
                             android:textSize="18sp" />
 
-                        <TextView
-                            android:id="@+id/txtHoraCaudal9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="TextView" />
                     </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

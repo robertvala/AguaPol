@@ -6,13 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LoginActivity">
+    tools:context=".Activities.LoginActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clLogin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/splash2">
+        android:background="@drawable/background">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"

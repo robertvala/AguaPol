@@ -1,29 +1,26 @@
-package com.espol.aguapol;
+package com.espol.aguapol.Fragments;
 
-import android.Manifest;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.espol.aguapol.ImportarCsv;
+import com.espol.aguapol.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -31,13 +28,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
-import lecho.lib.hellocharts.gesture.ContainerScrollType;
-import lecho.lib.hellocharts.gesture.ZoomType;
-import lecho.lib.hellocharts.model.Line;
-import lecho.lib.hellocharts.model.LineChartData;
-import lecho.lib.hellocharts.model.PointValue;
-import lecho.lib.hellocharts.view.LineChartView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -71,8 +61,9 @@ public class DatosFragment extends Fragment {
     boolean [] checkedItems;
     List<Integer> selectIndex;
     List<String> tramosSeleccionados;
-    Button btnImportar;
-
+    Button btnImportar,btnCargar;
+    TextInputLayout tilTramos,tilFechaIncio,tilFechaFin;
+    FirebaseDatabase database;
     public DatosFragment() {
         // Required empty public constructor
     }
@@ -117,29 +108,90 @@ public class DatosFragment extends Fragment {
         checkedItems=new boolean[selectTramos.length];
         tramosSeleccionados=new ArrayList<>();
         selectIndex= new ArrayList<>();
+        btnCargar=root.findViewById(R.id.btnCargarHistorico);
+        btnCargar.setEnabled(true);
+        tilFechaFin=root.findViewById(R.id.tilFechaFin);
+        tilFechaIncio=root.findViewById(R.id.tilFechaInicio);
+        tilTramos=root.findViewById(R.id.tilElegirTramos);
+        database=FirebaseDatabase.getInstance();
 
-       
+
 
         btnImportar=root.findViewById(R.id.btnImportarCSV);
-        importarCSV();
+        //importarCSV();
+        cargarDatosHistoricos();
         pickDates();
         pickTramos();
         return root;
+    }
+
+    private void cargarDatosHistoricos() {
+        btnCargar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar= Calendar.getInstance();
+                final int year = calendar.get(Calendar.YEAR);
+                final int month = calendar.get(Calendar.MONTH)+1;
+                final int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+                String date=year+"-"+month+"-"+day;
+
+
+                if(!fechaInicio.equals("")&&!fechaFin.equals("")&&tramosSeleccionados.size()>0){
+                    try{
+                        if(diferenciaDias(fechaFin,fechaInicio)>=0){
+                            tilFechaIncio.setError(null);
+                            tilFechaFin.setError(null);
+                            tilTramos.setError(null);
+                            obtenerDatosFechas();
+                        }
+                        else{
+                            tilFechaFin.setError("La fecha fin debe ser mayor o igual a la fehca de inicio ");
+                        }
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else if(tramosSeleccionados.size()<=0){
+                    tilTramos.setError("Seleccionar los tramos a inspeccionar");
+                }
+
+
+                else{
+                    Toast.makeText(root.getContext(), "NO hay seleccionado la fecha", Toast.LENGTH_SHORT).show();
+                }
+
+
+
+            }
+        });
+    }
+
+    private void obtenerDatosFechas() {
+        for(String i: tramosSeleccionados){
+            DatabaseReference ref=database.getReference("Control caudal").child(i).child("historial");
+
+        }
     }
 
     private void importarCSV() {
         btnImportar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(root.getContext(),ImportarCsv.class);
+                Intent intent= new Intent(root.getContext(), ImportarCsv.class);
                 startActivity(intent);
             }
         });
     }
 
+    public static int diferenciaDias(String fecha1,String fecha2) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+        Date date1= format.parse(fecha1);
+        Date date2=format.parse(fecha2);
+        int dias = (int) ((date1.getTime() - date2.getTime()) / 86400000);
+        return  dias;
 
-
-
+    }
 
     private void pickTramos() {
         tietTramos.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -185,6 +237,11 @@ public class DatosFragment extends Fragment {
     }
 
     private void pickDates() {
+        Calendar calendar= Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
+        final int month = calendar.get(Calendar.MONTH)+1;
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+
         tietFechaFin.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -193,14 +250,19 @@ public class DatosFragment extends Fragment {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int day) {
                         month = month+1;
-                        String date= day+"-"+month+"-"+year;
+                        String date= year+"-"+month+"-"+day;
+                        fechaFin=date;
                         tietFechaFin.setText(date);
-                        SimpleDateFormat dateFormat= new SimpleDateFormat("dd-MM-yyyy");
+                        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
                         try {
                             dateFin=dateFormat.parse(tietFechaInicio.getText().toString());
                             if(!fechaInicio.equals("")&&!fechaFin.equals("")){
-                                //txtResultados.setEnabled(true);
+                                btnCargar.setEnabled(true);
                             }
+                            else{
+                                btnCargar.setEnabled(false);
+                            }
+
                         } catch (ParseException e) {
                             e.printStackTrace();
                         }
@@ -225,14 +287,19 @@ public class DatosFragment extends Fragment {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int day) {
                         month = month+1;
-                        String date= day+"-"+month+"-"+year;
+                        String date= year+"-"+month+"-"+day;
                         tietFechaInicio.setText(date);
-                        SimpleDateFormat dateFormat= new SimpleDateFormat("dd-MM-yyyy");
+                        fechaInicio=date;
+                        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
                         try {
                             dateIncio=dateFormat.parse(tietFechaInicio.getText().toString());
                             if(!fechaInicio.equals("")&&!fechaFin.equals("")){
-                                //txtResultados.setEnabled(true);
+                                btnCargar.setEnabled(true);
                             }
+                            else{
+                                btnCargar.setEnabled(false);
+                            }
+
                         } catch (ParseException e) {
                             e.printStackTrace();
                         }

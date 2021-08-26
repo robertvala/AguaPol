@@ -1,4 +1,4 @@
-package com.espol.aguapol;
+package com.espol.aguapol.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +14,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.espol.aguapol.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.BaseTransientBottomBar;
@@ -144,7 +145,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void signin(View view){
-        Intent intent= new Intent(LoginActivity.this,SignInActivity.class);
+        Intent intent= new Intent(LoginActivity.this, SignInActivity.class);
         intent.putExtra("user",tietUser.getText().toString());
         intent.putExtra("password",tietPassword.getText().toString());
         startActivity(intent);

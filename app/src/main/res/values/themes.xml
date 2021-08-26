@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.AguaPol" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#2196F3</item>
+        <item name="colorPrimary">#6BE0FE</item>
         <item name="colorPrimaryVariant">#2196F3</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->

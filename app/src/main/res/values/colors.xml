@@ -11,6 +11,11 @@
     <color name="off_sensor">#00FFFFFF</color>
     <color name="on_bomba">#00C853</color>
     <color name="off_bomba">#D50000</color>
+    <color name="gris">#999999</color>
+    <color name="celeste">#6BE0FE</color>
+    <color name="advertencia">#FF9E0C</color>
+    <color name="alarma">#F30606</color>
+
 
 
 </resources>

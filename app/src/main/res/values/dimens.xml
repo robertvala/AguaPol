@@ -9,4 +9,7 @@
     <dimen name="image_height">200dp</dimen>
     <dimen name="menu_text_size">20dp</dimen>
     <dimen name="submenu_text_size">16dp</dimen>
+    <dimen name="drawer_icon_size">5dp</dimen>
+    <dimen name="thumb_size">35dp</dimen>
+    <dimen name="track_size">50dp</dimen>
 </resources>
