@@ -4,20 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash2"
+    android:background="@drawable/background"
     android:orientation="vertical"
-    tools:context=".Splash">
+    tools:context=".Activities.Splash">
 
-    <TextView
-        android:id="@+id/textViewSplash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|top"
-        android:layout_margin="30dp"
-        android:fontFamily="@font/abeezee"
-        android:gravity="center"
-        android:text="AguaPol"
-        android:textColor="@color/white"
-        android:textSize="60sp"
-        android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/imgSplash"
+        android:layout_width="420dp"
+        android:layout_height="420dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/aguapol_logo" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

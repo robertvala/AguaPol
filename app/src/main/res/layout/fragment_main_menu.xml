@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainMenu">
+    tools:context=".Fragments.MainMenu">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,9 +14,9 @@
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:scaleType="fitXY"
-            android:src="@drawable/obelisco" />
+            android:src="@drawable/foto" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -25,57 +25,47 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="Menu"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                android:orientation="horizontal" />
 
         </androidx.cardview.widget.CardView>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="30dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/llAlarmas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="30dp"
+                android:layout_marginRight="50dp"
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cvAlarmas"
                     android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    app:cardBackgroundColor="#D50000"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="10dp"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true">
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="0dp">
 
                     <ImageView
                         android:id="@+id/imageView3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/alarm" />
+                        android:src="@drawable/icono_1" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="ALARMAS"
+                    android:gravity="center"
+                    android:text="Alarmas"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -84,62 +74,61 @@
                 android:id="@+id/llTanques"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="30dp"
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cvTanks"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    app:cardBackgroundColor="#0091EA"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true">
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="0dp">
 
                     <ImageView
                         android:id="@+id/imageTanks"
-                        android:layout_width="wrap_content"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/tanks" />
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icono_2" />
 
                 </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/textView3"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="MONITOREO TANQUES"
+                    android:gravity="center"
+                    android:text="Monitoreo tanques"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="30dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/llTableros"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="30dp"
+                android:layout_marginRight="50dp"
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cvTableros"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    app:cardBackgroundColor="#0091EA"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true">
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="0dp">
 
                     <ImageView
                         android:id="@+id/imageView4"
@@ -147,7 +136,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:scaleType="fitXY"
-                        android:src="@drawable/tablero" />
+                        android:src="@drawable/icono_3" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
@@ -155,7 +144,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autoSizeTextType="uniform"
-                    android:text="CONTROL BOMBAS TANQUE ELEVADO"
+                    android:gravity="center"
+                    android:text="Control bombas"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -164,77 +154,76 @@
                 android:id="@+id/llTuberias"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="30dp"
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cvTuberias"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    app:cardBackgroundColor="#0091EA"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true">
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="0dp"
+                    tools:ignore="SpeakableTextPresentCheck">
 
                     <ImageView
                         android:id="@+id/imageTuberias"
-                        android:layout_width="wrap_content"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/tuberias" />
+                        android:src="@drawable/icono_4" />
 
                 </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/textTuberias"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="CONTROL DE CAUDAL"
+                    android:gravity="center"
+                    android:text="Control de caudal"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="30dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/llRiego"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="30dp"
+                android:layout_marginRight="50dp"
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cvRiego"
                     android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    app:cardBackgroundColor="#0091EA"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="10dp"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true">
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="0dp">
 
                     <ImageView
                         android:id="@+id/imageRiego"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/riego" />
+                        android:src="@drawable/icono_5" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/textRiego"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="RIEGO"
+                    android:gravity="center"
+                    android:text="Riego"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -243,25 +232,23 @@
                 android:id="@+id/llControl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="30dp"
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cvControl"
                     android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    app:cardBackgroundColor="#00C853"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="10dp"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true">
+                    app:cardCornerRadius="10dp"
+                    app:cardElevation="0dp">
 
                     <ImageView
                         android:id="@+id/imageControl"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/edit" />
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icono_6" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -269,58 +256,60 @@
                     android:id="@+id/textControl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="CONTROL DE PROCEDIMIENTOS"
-                    android:textStyle="bold" />
+                    android:gravity="center"
+                    android:text="Control de procedimiento"
+                    android:textStyle="bold"
+                    app:autoSizeTextType="uniform" />
 
             </LinearLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="30dp"
+            android:gravity="center"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/llDatos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="30dp"
-                android:orientation="vertical"
+                android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true">
+                android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cvDatos"
                     android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    app:cardBackgroundColor="#FF6D00"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:elevation="1dp"
                     android:foreground="?android:attr/selectableItemBackground"
                     app:cardCornerRadius="10dp"
-                    android:clickable="true"
-                    >
+                    app:cardElevation="0dp">
 
                     <ImageView
                         android:id="@+id/imageDatos"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/datos"
-                        android:foreground="?android:attr/selectableItemBackground"/>
+                        android:src="@drawable/icono_7" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
                     android:id="@+id/texDatos"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="DATOS HISTORICOS"
+                    android:gravity="center"
+                    android:text="Datos históricos"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

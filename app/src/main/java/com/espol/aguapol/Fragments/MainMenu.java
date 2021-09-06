@@ -1,4 +1,4 @@
-package com.espol.aguapol;
+package com.espol.aguapol.Fragments;
 
 import android.os.Bundle;
 
@@ -10,6 +10,8 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.espol.aguapol.R;
 
 
 public class MainMenu extends Fragment {

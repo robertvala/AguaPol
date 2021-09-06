@@ -1,12 +1,15 @@
 package com.espol.aguapol.Modelo;
 
 
-public class Alarma {
+import java.io.Serializable;
+
+public class Alarma implements Serializable {
     String titulo;
     String mensaje;
     String fechaHora;
     int urlIcon;
     String id;
+    String estado;
 
     public Alarma(String titulo, String mensaje, String fechaHora, int urlIcon,String id) {
         this.titulo = titulo;
@@ -17,6 +20,23 @@ public class Alarma {
     }
 
     public Alarma() {
+    }
+
+    public Alarma(String titulo, String mensaje, String fechaHora, int urlIcon, String id, String estado) {
+        this.titulo = titulo;
+        this.mensaje = mensaje;
+        this.fechaHora = fechaHora;
+        this.urlIcon = urlIcon;
+        this.id = id;
+        this.estado = estado;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public String getTitulo() {

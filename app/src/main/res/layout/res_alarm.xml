@@ -8,56 +8,41 @@
         android:id="@+id/cardAlarma"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="5dp"
-        app:cardMaxElevation="0dp">
+        android:layout_margin="5dp">
 
         <LinearLayout
             android:id="@+id/llAlarma"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="2dp">
+            android:layout_margin="5dp">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|left"
-                app:cardBackgroundColor="@color/alarma"
-                app:cardCornerRadius="7dp">
-
-                <ImageView
-                    android:id="@+id/imgIconAlarma"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="2dp"
-                    android:tint="#FFFFFF"
-                    app:srcCompat="@drawable/icono_2" />
-            </androidx.cardview.widget.CardView>
+            <ImageView
+                android:id="@+id/imgIconAlarma"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="10dp"
+                android:layout_toEndOf="@+id/txtTituloAlarma"
+                app:srcCompat="@drawable/alarm" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:gravity="center|left"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/txtMensajeAlarma"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/comfortaa"
-                    android:text="Message of the alarm"
-                    android:textColor="#000000"
-                    android:textSize="16sp" />
+                    android:layout_margin="10dp"
+                    android:text="Message of the alarm" />
 
                 <TextView
                     android:id="@+id/txtFechaHora"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_marginLeft="10dp"
-                    android:fontFamily="@font/comfortaa"
+                    android:layout_marginEnd="10dp"
                     android:gravity="right"
                     android:text="20:54;12/12/12"
                     android:textSize="10sp" />

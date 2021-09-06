@@ -9,35 +9,57 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="insideOverlay"
+        android:verticalScrollbarPosition="defaultPosition"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
+            <LinearLayout
+                android:id="@+id/llMonitoreoTanques"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="#0091EA">
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/imageView8"
                     android:layout_width="wrap_content"
-                    android:layout_height="200dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/tanks" />
-            </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icono_2" />
+
+                <TextView
+                    android:id="@+id/textView69"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/comfortaa_light"
+                    android:gravity="center"
+                    android:text="Monitoreo de tanques"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/menu_text_size"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="500dp"
-                android:layout_margin="10dp">
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/gris"
+                app:cardCornerRadius="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/card_view_border">
 
                     <LinearLayout
                         android:id="@+id/llEstado"
@@ -53,23 +75,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:fontFamily="@font/comfortaa_light"
                             android:gravity="center"
-                            android:text="TANQUES PROSPERINA"
+                            android:text="Tanques bajos"
                             android:textColor="#000000"
                             android:textSize="@dimen/menu_text_size"
                             android:textStyle="bold" />
 
-                        <ImageButton
-                            android:id="@+id/imageView61"
-                            style="@android:style/Widget.DeviceDefault.ImageButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginLeft="20dp"
-                            android:background="#00FFFAFA"
-                            android:forceHasOverlappingRendering="@color/black"
-                            android:src="@android:drawable/ic_lock_silent_mode_off"
-                            android:tint="#C51162" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -86,6 +98,7 @@
                             android:id="@+id/textView7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/comfortaa_light"
                             android:text="Nivel de tanque"
                             android:textColor="#050505"
                             android:textSize="@dimen/submenu_text_size" />
@@ -104,6 +117,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginRight="20dp"
                                 android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/comfortaa_light"
                                 android:text="Medio"
                                 android:textSize="20sp" />
                         </LinearLayout>
@@ -131,6 +145,7 @@
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginEnd="46dp"
                                 android:layout_toStartOf="@+id/progressBarTanquesBajos"
+                                android:fontFamily="@font/comfortaa_light"
                                 android:gravity="center"
                                 android:text="Sensores" />
 
@@ -142,6 +157,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="30dp"
                                 android:layout_toStartOf="@+id/progressBarTanquesBajos"
+                                android:fontFamily="@font/comfortaa_light"
                                 android:text="S3"
                                 android:textColor="#050505"
                                 app:backgroundTint="#00FFFFFF" />
@@ -154,6 +170,7 @@
                                 android:layout_marginTop="30dp"
                                 android:layout_marginEnd="30dp"
                                 android:layout_toStartOf="@+id/progressBarTanquesBajos"
+                                android:fontFamily="@font/comfortaa_light"
                                 android:text="S1"
                                 android:textColor="#050505"
                                 app:backgroundTint="#FFD600" />
@@ -166,6 +183,7 @@
                                 android:layout_marginTop="30dp"
                                 android:layout_marginEnd="30dp"
                                 android:layout_toStartOf="@+id/progressBarTanquesBajos"
+                                android:fontFamily="@font/comfortaa_light"
                                 android:text="S2"
                                 android:textColor="#050505"
                                 app:backgroundTint="#FFD600" />
@@ -196,12 +214,16 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp">
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@color/gris"
+                app:cardCornerRadius="20dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/card_view_border">
 
                     <LinearLayout
                         android:id="@+id/llEstadoAlto"
@@ -217,23 +239,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:fontFamily="@font/comfortaa_light"
                             android:gravity="center"
-                            android:text="TANQUE ELEVADO"
+                            android:text="Tanque elevado"
                             android:textColor="#000000"
                             android:textSize="@dimen/menu_text_size"
                             android:textStyle="bold" />
 
-                        <ImageButton
-                            android:id="@+id/imageView6"
-                            style="@android:style/Widget.DeviceDefault.ImageButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginLeft="20dp"
-                            android:background="#00FFFAFA"
-                            android:forceHasOverlappingRendering="@color/black"
-                            android:src="@android:drawable/ic_lock_silent_mode_off"
-                            android:tint="#C51162" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -250,6 +262,7 @@
                             android:id="@+id/textView71"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/comfortaa_light"
                             android:text="Nivel de tanque"
                             android:textColor="#050505"
                             android:textSize="@dimen/submenu_text_size" />
@@ -268,6 +281,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginRight="20dp"
                                 android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/comfortaa_light"
                                 android:text="Medio"
                                 android:textSize="20sp" />
                         </LinearLayout>
@@ -295,6 +309,7 @@
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginEnd="46dp"
                                 android:layout_toStartOf="@+id/progressBarTanqueAlto"
+                                android:fontFamily="@font/comfortaa_light"
                                 android:gravity="center"
                                 android:text="Sensores" />
 
@@ -306,6 +321,7 @@
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="30dp"
                                 android:layout_toStartOf="@+id/progressBarTanqueAlto"
+                                android:fontFamily="@font/comfortaa_light"
                                 android:text="S3"
                                 android:textColor="#050505"
                                 app:backgroundTint="#00FFFFFF" />
@@ -318,6 +334,7 @@
                                 android:layout_marginTop="30dp"
                                 android:layout_marginEnd="30dp"
                                 android:layout_toStartOf="@+id/progressBarTanqueAlto"
+                                android:fontFamily="@font/comfortaa_light"
                                 android:text="S1"
                                 android:textColor="#050505"
                                 app:backgroundTint="#FFD600" />
@@ -330,6 +347,7 @@
                                 android:layout_marginTop="30dp"
                                 android:layout_marginEnd="30dp"
                                 android:layout_toStartOf="@+id/progressBarTanqueAlto"
+                                android:fontFamily="@font/comfortaa_light"
                                 android:text="S2"
                                 android:textColor="#050505"
                                 app:backgroundTint="#FFD600" />

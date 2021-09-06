@@ -7,13 +7,13 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Cerrar Sesion</string>
 
-    <string name="menu_alarma">ALARMAS</string>
-    <string name="menu_monitoreo_tanques">MONITOREO TANQUES</string>
-    <string name="menu_tablero_control">CONTROL DE BOMBAS</string>
-    <string name="menu_monitoreo_tuberias">MONITOREO TUBERIAS</string>
-    <string name="menu_riego">RIEGO</string>
-    <string name="menu_control_procedimientos">CONTROL DE PROCEDIMIENTOS</string>
-    <string name="menu_datos_historicos">DATOS HISTORICOS</string>
+    <string name="menu_alarma">Aarmas</string>
+    <string name="menu_monitoreo_tanques">Monitoreo tanques</string>
+    <string name="menu_tablero_control">Control bombas</string>
+    <string name="menu_monitoreo_tuberias">Control caudal</string>
+    <string name="menu_riego">Riego</string>
+    <string name="menu_control_procedimientos">Control de procedimientos</string>
+    <string name="menu_datos_historicos">Datos historicos</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_login">LoginActivity</string>
@@ -45,55 +45,62 @@
 
     <string name="latTramoAB">-2.144909</string>
     <string name="longTramoAB">-79.943918</string>
-    <string name="tramoAB">Tramo A-B</string>
+    <string name="tramo1">Tanques bajos</string>
 
     <string name="latTramoBC">-2.147587</string>
     <string name="longTramoBC">-79.957593</string>
-    <string name="tramoBC">Tramo B-C</string>
+    <string name="tramo2">Entrada a tanque alto</string>
 
 
     <string name="latTramoCD">-2.147775</string>
     <string name="longTramoCD">-79.958277</string>
-    <string name="tramoCD">Tramo C-D</string>
+    <string name="tramo3">Tramo FADCOM</string>
 
 
     <string name="latTramoDE">-2.148263</string>
     <string name="longTramoDE">-79.957843</string>
-    <string name="tramoDE">Tramo D-E</string>
+    <string name="tramo4">Tramo Tecnologías</string>
 
 
-    <string name="latTramoEF">-2.150051</string>
-    <string name="longTramoEF">-79.956653</string>
-    <string name="tramoEF">Tramo E-F</string>
+    <string name="latTramoEF">-2.150662</string>
+    <string name="longTramoEF">-79.956501</string>
+    <string name="tramo5">Tramo Protal</string>
 
 
     <string name="latTramoFG">-2.150051</string>
     <string name="longTramoFG">-79.956653</string>
-    <string name="tramoFG">Tramo F-G</string>
+    <string name="tramo6">Tramo inicio Ingenierías</string>
 
 
     <string name="latTramoGH">-2.144420</string>
     <string name="longTramoGH">-79.965149</string>
-    <string name="tramoGH">Tramo G-H</string>
+    <string name="tramo7">CENAE</string>
 
     <string name="latTramoHI">-2.147982</string>
     <string name="longTramoHI">-79.966889</string>
-    <string name="tramoHI">Tramo H-I</string>
+    <string name="tramo8">FSCH</string>
 
     <string name="latTramoIJ">-2.149464</string>
     <string name="longTramoIJ">-79.963372</string>
-    <string name="tramoIJ">Tramo I-J</string>
+    <string name="tramo9">FIMCM</string>
+    <string name="default_notification_channel_id">aguaPol</string>
 
     <string-array name="selectTramos">
-        <item>Tramo 1</item>
-        <item>Tramo 2</item>
-        <item>Tramo 3</item>
-        <item>Tramo 4</item>
-        <item>Tramo 5</item>
-        <item>Tramo 6</item>
-        <item>Tramo 7</item>
-        <item>Tramo 8</item>
-        <item>Tramo 9</item>
+        <item>Tanques bajos</item>
+        <item>Entrada a tanque alto</item>
+        <item>Tramo FADCOM</item>
+        <item>Tramo Tecnologías</item>
+        <item>Tramo Protal</item>
+        <item>Tramo inicio Ingenierías</item>
+        <item>CENAE</item>
+        <item>FSCH</item>
+        <item>FIMCM</item>
+    </string-array>
+
+    <string-array name="estadoAlarmas">
+        <item>Visto</item>
+        <item>En proceso</item>
+        <item>Solucionado</item>
     </string-array>
     <string name="title_activity_alarms">Alarmas</string>
     <string name="tab_text_1">ACTIVAS</string>

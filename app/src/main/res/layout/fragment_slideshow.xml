@@ -9,7 +9,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#57D5D2D2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -18,204 +17,347 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <androidx.cardview.widget.CardView
+            <LinearLayout
+                android:id="@+id/llEstado"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="5dp"
-                app:cardBackgroundColor="#0091EA">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView5"
+                    android:id="@+id/imageView8"
                     android:layout_width="wrap_content"
-                    android:layout_height="200dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/tablero" />
-            </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icono_3" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/comfortaa_light"
+                    android:gravity="center"
+                    android:text="Control de bombas"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/menu_text_size"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewBombaA"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <LinearLayout
-                        android:id="@+id/llEstado"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:layout_marginTop="10dp"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/textView6"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:text="CONTROL DE BOMBAS"
-                            android:textColor="#000000"
-                            android:textSize="@dimen/menu_text_size"
-                            android:textStyle="bold" />
-
-                        <ImageButton
-                            android:id="@+id/imageView6"
-                            style="@android:style/Widget.DeviceDefault.ImageButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginLeft="20dp"
-                            android:background="#00FFFAFA"
-                            android:forceHasOverlappingRendering="@color/black"
-                            android:src="@android:drawable/ic_lock_silent_mode_off"
-                            android:tint="#C51162" />
-                    </LinearLayout>
-
-                </RelativeLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp">
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/on_bomba"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/card_view_border"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/textView10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/abeezee"
-                        android:gravity="center"
-                        android:text="Bomba A"
-                        android:textColor="#020202"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <Button
-                        android:id="@+id/btnBombaA"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:clickable="false"
-                        android:enabled="false"
-                        android:text="ON"
-                        app:backgroundTint="#00C853" />
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:hintTextColor="#0091EA">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/tietTiempoEncendidoA"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:background="#FFFFFF"
-                            android:editable="false"
-                            android:hint="Tiempo Encendido"
-                            android:text="3 horas"
-                            android:textColorHint="#0091EA" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/tietTiempoApagadoA"
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/comfortaa_light"
+                            android:gravity="center"
+                            android:text="Bomba A"
+                            android:textColor="#020202"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/swBombaA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:enabled="true"
+                            android:fontFamily="@font/comfortaa_light"
+                            android:gravity="center"
+                            android:textSize="20dp"
+                            android:thumb="@drawable/custom_thumb"
+                            android:visibility="gone"
+                            app:showText="true"
+                            app:track="@drawable/custom_track" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:background="#FFFFFF"
-                            android:cursorVisible="true"
-                            android:editable="false"
-                            android:hint="Tiempo Apagado"
-                            android:text="10 horas"
-                            android:textColorHint="#0091EA"
-                            android:textIsSelectable="false" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:layout_marginStart="30dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textViewA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/comfortaa_light"
+                                android:text="Tiempo encendido" />
+
+                            <ProgressBar
+                                android:id="@+id/progressBarTiempoEncendidoA"
+                                style="@android:style/Widget.Material.ProgressBar.Horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:max="8"
+                                android:progress="3"
+                                android:progressDrawable="@drawable/new_progress_bar" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/txtTiempoA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_marginStart="30dp"
+                            android:fontFamily="@font/comfortaa_light"
+                            android:gravity="bottom"
+                            android:text="3 horas"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/comfortaa_light"
+                                android:text="Amperaje" />
+
+                            <ProgressBar
+                                android:id="@+id/progressBarAmperajeA"
+                                style="@android:style/Widget.Material.ProgressBar.Horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:max="5"
+                                android:progress="3"
+                                android:progressDrawable="@drawable/new_progress_bar" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/txtAmperajeA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_marginStart="30dp"
+                            android:fontFamily="@font/comfortaa_light"
+                            android:gravity="bottom"
+                            android:text="5 Amps"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewBombaB"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp">
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/gris"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/card_view_border"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/textView11"
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:fontFamily="@font/abeezee"
-                        android:gravity="center"
-                        android:text="Bomba B"
-                        android:textColor="#020202"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:layout_height="match_parent">
 
-                    <Button
-                        android:id="@+id/btnBombaB"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:clickable="false"
-                        android:enabled="false"
-                        android:text="OFF"
-                        app:backgroundTint="#D50000" />
+                        <TextView
+                            android:id="@+id/textBombaB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/comfortaa_light"
+                            android:gravity="center"
+                            android:text="Bomba B"
+                            android:textColor="#020202"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
 
-                    <com.google.android.material.textfield.TextInputLayout
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/swBombaB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:enabled="true"
+                            android:fontFamily="@font/comfortaa_light"
+                            android:gravity="center"
+                            android:textSize="20dp"
+                            android:thumb="@drawable/custom_thumb"
+                            android:visibility="gone"
+                            app:showText="true"
+                            app:track="@drawable/custom_track" />
+                    </RelativeLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/tietTiempoEncendidoB"
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:background="#FFFFFF"
-                            android:editable="false"
-                            android:hint="Tiempo Encendido"
-                            android:text="3 horas" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:layout_marginStart="30dp"
+                            android:orientation="vertical">
 
-                    <com.google.android.material.textfield.TextInputLayout
+                            <TextView
+                                android:id="@+id/textView23"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/comfortaa_light"
+                                android:text="Tiempo encendido" />
+
+                            <ProgressBar
+                                android:id="@+id/progressBarTiempoEncendidoB"
+                                style="@android:style/Widget.Material.ProgressBar.Horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:max="8"
+                                android:progress="3"
+                                android:progressDrawable="@drawable/new_progress_bar" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/txtHorasB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_marginStart="30dp"
+                            android:fontFamily="@font/comfortaa_light"
+                            android:gravity="bottom"
+                            android:text="3 horas"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/tietTiempoApagadoB"
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="200dp"
                             android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:background="#FFFFFF"
-                            android:editable="false"
-                            android:hint="Tiempo Apagado"
-                            android:text="10 horas" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:layout_marginStart="30dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView24"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/comfortaa_light"
+                                android:text="Amperaje" />
+
+                            <ProgressBar
+                                android:id="@+id/progressBarAmperajeB"
+                                style="@android:style/Widget.Material.ProgressBar.Horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:max="5"
+                                android:progress="3"
+                                android:progressDrawable="@drawable/new_progress_bar" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/txtAmperajeB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_marginStart="30dp"
+                            android:fontFamily="@font/comfortaa_light"
+                            android:gravity="bottom"
+                            android:text="5 Amps"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

@@ -1,4 +1,4 @@
-package com.espol.aguapol;
+package com.espol.aguapol.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.espol.aguapol.R;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -31,7 +32,7 @@ public class Splash extends AppCompatActivity {
 
         //imgSplash.setAnimation(animation2);
 
-        TextView txtSlpash=findViewById(R.id.textViewSplash);
+        ImageView txtSlpash=findViewById(R.id.imgSplash);
         txtSlpash.setAnimation(animation);
 
         TimerTask tarea= new TimerTask() {
