@@ -5,11 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-<<<<<<< Updated upstream:app/src/main/java/com/espol/aguapol/ui/home/HomeFragment.java
 import android.widget.TextView;
 import android.widget.Toast;
-=======
->>>>>>> Stashed changes:app/src/main/java/com/espol/aguapol/ui/alarmas/alarmasActivasFragment.java
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,10 +18,8 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-<<<<<<< Updated upstream:app/src/main/java/com/espol/aguapol/ui/home/HomeFragment.java
 import com.espol.aguapol.HistorialAlarmasActivity;
-=======
->>>>>>> Stashed changes:app/src/main/java/com/espol/aguapol/ui/alarmas/alarmasActivasFragment.java
+
 import com.espol.aguapol.Modelo.Alarma;
 import com.espol.aguapol.R;
 import com.espol.aguapol.adapters.AlarmAdapter;

@@ -48,6 +48,8 @@ import java.net.HttpURLConnection;
 import java.net.InetAddress;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -59,6 +61,7 @@ public class SlideshowFragment extends Fragment {
     private Switch switchManual;
     private View root;
     FirebaseDatabase database;
+    DatabaseReference refBombas;
 
 
     private SlideshowViewModel slideshowViewModel;
@@ -80,6 +83,7 @@ public class SlideshowFragment extends Fragment {
         switchManual=binding.switchManual;
 
         database=FirebaseDatabase.getInstance();
+        refBombas=database.getReference("Tablero de control");
 
 
         cargarDatos();
@@ -143,8 +147,7 @@ public class SlideshowFragment extends Fragment {
     }
 
     public void encendidoBombaA(){
-<<<<<<< Updated upstream
-=======
+
         refBombas.child("bomba a").child("estado").setValue(1);
         refBombas.child("bomba a").child("amperaje").setValue(3);
         refBombas.child("bomba b").child("estado").setValue(0);
@@ -153,7 +156,7 @@ public class SlideshowFragment extends Fragment {
         refBombas.child("bomba b").child("tiempoEncendido").setValue(0);
 
         refBombas.child("bomba a").child("horaEncendido").setValue(getHora());
->>>>>>> Stashed changes
+
        // RequestQueue queue = Volley.newRequestQueue(root.getContext());
         String url = "http://192.168.0.2:8001/on1";
         //String url = "https://www.google.com";
@@ -210,6 +213,12 @@ public class SlideshowFragment extends Fragment {
         // Add the request to the RequestQueue.
         queue.add(stringRequest);*/
 
+    }
+
+    private String getHora() {
+        SimpleDateFormat df=new SimpleDateFormat("hh:MM");
+        String hora=df.format(Calendar.getInstance().getTime());
+        return hora;
     }
 
     public void encendidoBombaB(){

@@ -1,10 +1,9 @@
 package com.espol.aguapol;
 
-<<<<<<< Updated upstream:app/src/main/java/com/espol/aguapol/MainActivity.java
+
 import android.content.ClipData;
-=======
+
 import android.content.Context;
->>>>>>> Stashed changes:app/src/main/java/com/espol/aguapol/Activities/MainActivity.java
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,14 +13,14 @@ import android.view.Menu;
 import android.widget.TextView;
 import android.widget.Toast;
 
-<<<<<<< Updated upstream:app/src/main/java/com/espol/aguapol/MainActivity.java
+
 import com.google.android.material.snackbar.Snackbar;
-=======
+
 import com.espol.aguapol.R;
 
 import com.espol.aguapol.databinding.ActivityMainBinding;
 import com.espol.aguapol.ui.alarmas.AlarmsActivity;
->>>>>>> Stashed changes:app/src/main/java/com/espol/aguapol/Activities/MainActivity.java
+
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -45,11 +44,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.nex3z.notificationbadge.NotificationBadge;
 
 import org.jetbrains.annotations.NotNull;
-<<<<<<< Updated upstream:app/src/main/java/com/espol/aguapol/MainActivity.java
-=======
 
 import java.util.Locale;
->>>>>>> Stashed changes:app/src/main/java/com/espol/aguapol/Activities/MainActivity.java
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -97,15 +94,15 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         View header= navigationView.getHeaderView(0);
         TextView txtUserEmail= header.findViewById(R.id.txtEmailUser);
-<<<<<<< Updated upstream:app/src/main/java/com/espol/aguapol/MainActivity.java
+
         txtUserEmail.setText(firebaseAuth.getCurrentUser().getEmail());
-=======
+
         TextView txtInicials=header.findViewById(R.id.txtInicials);
         String email=firebaseAuth.getCurrentUser().getEmail();
         String inicials= email.substring(0,2).toUpperCase(Locale.ROOT);
         txtInicials.setText(inicials);
         txtUserEmail.setText(email);
->>>>>>> Stashed changes:app/src/main/java/com/espol/aguapol/Activities/MainActivity.java
+
         NavigationUI.setupWithNavController(navigationView, navController);
 
         notificationBadge=binding.appBarMain.notificationMain;

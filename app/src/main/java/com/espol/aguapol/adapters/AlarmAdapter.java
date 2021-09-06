@@ -3,6 +3,7 @@ package com.espol.aguapol.adapters;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,19 +14,19 @@ import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 
 import com.espol.aguapol.Modelo.Alarma;
+import com.espol.aguapol.Modelo.AlarmaManejada;
 import com.espol.aguapol.R;
 import com.espol.aguapol.ui.alarmas.alarmasActivasFragment;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-<<<<<<< Updated upstream
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-=======
->>>>>>> Stashed changes
+
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -76,17 +77,14 @@ public class AlarmAdapter extends BaseAdapter {
         //Set data in adapter
         txtFechaHora.setText(itemAlarma.getFechaHora());
         txtMensaje.setText(itemAlarma.getMensaje());
-<<<<<<< Updated upstream
+
         imgIcono.setImageResource(itemAlarma.getUrlIcon());
-=======
         //imgIcono.setImageResource(itemAlarma.getUrlIcon());
         Resources res = context.getResources();
         imgIcono.setColorFilter(R.color.alarma);
-        String[] estadosAlarma = res.getStringArray(R.array.estadoAlarmas);
         CardView cardAlarma=convertView.findViewById(R.id.cardAlarma);
->>>>>>> Stashed changes
 
-        CardView cardAlarma=convertView.findViewById(R.id.cardAlarma);
+        cardAlarma=convertView.findViewById(R.id.cardAlarma);
         View finalConvertView = convertView;
         cardAlarma.setOnClickListener(new View.OnClickListener() {
             @Override

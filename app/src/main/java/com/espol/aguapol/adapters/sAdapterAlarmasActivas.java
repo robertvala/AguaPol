@@ -90,7 +90,7 @@ public class sAdapterAlarmasActivas extends RecyclerView.Adapter<sAdapterAlarmas
 
         public void binData(Alarma item) {
             txtMensaje.setText(item.getMensaje());
-            imgIcono.setImageResource(item.getUrlIcon());
+            //imgIcono.setImageResource(item.getUrlIcon());
             txtFechaHora.setText(getTiempoTranscurrido(item));
         }
 

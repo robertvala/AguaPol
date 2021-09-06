@@ -3,8 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-<<<<<<< Updated upstream
-=======
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/drawable-v21/ic_menu_camera.xml" value="0.2518518518518518" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/drawable-v21/ic_menu_gallery.xml" value="0.2518518518518518" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/drawable-v21/ic_menu_slideshow.xml" value="0.2518518518518518" />
@@ -20,28 +18,28 @@
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/drawable/my_btn_toogle.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/drawable/new_progress_bar.xml" value="0.1425925925925926" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/font/abeezee.xml" value="0.284375" />
+        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/font/abril_fatface.xml" value="0.17708333333333334" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_alarms.xml" value="0.146875" />
->>>>>>> Stashed changes
+        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_datos_histoticos.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_historial_alarmas.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_importar_csv.xml" value="0.21557971014492755" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_login2.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_showlist_caudal.xml" value="0.146875" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_sign_in.xml" value="0.13020833333333334" />
-<<<<<<< Updated upstream
-        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/content_main.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/fragment_datos.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/fragment_gallery.xml" value="0.3017934446505875" />
-=======
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_splash.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/adaptador_list_caudal.xml" value="0.146875" />
+        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/adaptador_list_historico.xml" value="0.146875" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/alarmas.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/app_bar_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/content_main.xml" value="0.27539503386004516" />
+        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/fragment_alarmas_en_proceso.xml" value="0.146875" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/fragment_alarms.xml" value="0.12291666666666666" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/fragment_control.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/fragment_datos.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/fragment_datos_histoticos.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/fragment_gallery.xml" value="0.264" />
->>>>>>> Stashed changes
+        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/fragment_historial_alarmas_fragments.xml" value="0.146875" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/fragment_main_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/fragment_maps.xml" value="0.264" />
@@ -54,7 +52,8 @@
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/res_alarma_activa.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/res_alarmas_activas.xml" value="0.4" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/res_pin.xml" value="0.264" />
-        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/menu/activity_main_drawer.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/menu/activity_main_drawer.xml" value="0.4" />
+        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/menu/main.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

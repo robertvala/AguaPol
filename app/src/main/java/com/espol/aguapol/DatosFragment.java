@@ -29,6 +29,8 @@ import com.espol.aguapol.adapters.adapterListCaudal;
 import com.espol.aguapol.adapters.adapterlista;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -79,6 +81,7 @@ public class DatosFragment extends Fragment {
     Button btnImportar;
     Context context;
     ListView listView;
+    FirebaseDatabase database;
     public DatosFragment() {
         // Required empty public constructor
     }
@@ -143,42 +146,27 @@ public class DatosFragment extends Fragment {
         btnImportar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-<<<<<<< Updated upstream:app/src/main/java/com/espol/aguapol/DatosFragment.java
                 Intent intent= new Intent(root.getContext(),ImportarCsv.class);
                 startActivity(intent);
-=======
-                validarDatos();
+
                 //importarCSV();
 
 
->>>>>>> Stashed changes:app/src/main/java/com/espol/aguapol/Fragments/DatosFragment.java
             }
         });
     }
 
 
 
-<<<<<<< Updated upstream:app/src/main/java/com/espol/aguapol/DatosFragment.java
 
-=======
-        else{
-            Toast.makeText(root.getContext(), "No hay seleccionado la fecha", Toast.LENGTH_SHORT).show();
-        }
 
-        Toast.makeText(root.getContext(), "Carga de la base de datos", Toast.LENGTH_SHORT).show();
 
-    }
 
     private void obtenerDatosFechas() {
         for(String i: tramosSeleccionados){
             DatabaseReference ref=database.getReference("Control caudal").child(i).child("historial");
 
         }
-    }
-
-    private void importarCSV() {
-        Intent intent= new Intent(root.getContext(), ImportarCsv.class);
-        startActivity(intent);
     }
 
     public static int diferenciaDias(String fecha1,String fecha2) throws ParseException {
@@ -189,7 +177,6 @@ public class DatosFragment extends Fragment {
         return  dias;
 
     }
->>>>>>> Stashed changes:app/src/main/java/com/espol/aguapol/Fragments/DatosFragment.java
 
     private void pickTramos() {
         tietTramos.setOnFocusChangeListener(new View.OnFocusChangeListener() {

@@ -15,12 +15,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-<<<<<<< Updated upstream:app/src/main/java/com/espol/aguapol/TuberiaFragment.java
-=======
+
 import com.espol.aguapol.Modelo.Alarma;
 import com.espol.aguapol.Modelo.Herramientas;
 import com.espol.aguapol.R;
->>>>>>> Stashed changes:app/src/main/java/com/espol/aguapol/Fragments/TuberiaFragment.java
+
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -321,7 +320,6 @@ public class TuberiaFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-<<<<<<< Updated upstream:app/src/main/java/com/espol/aguapol/TuberiaFragment.java
                     DatabaseReference ref = snapshot.getRef();
                     ref.child("tramo A-B").child("historial").child(date).orderByKey().limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -464,7 +462,7 @@ public class TuberiaFragment extends Fragment {
 
                         }
                     });
-=======
+
                     String tab=snapshot.child("tramo A-B").child("estado").getValue().toString();
                     String tbc=snapshot.child("tramo B-C").child("estado").getValue().toString();
                     String tcd=snapshot.child("tramo C-D").child("estado").getValue().toString();
@@ -477,8 +475,8 @@ public class TuberiaFragment extends Fragment {
 
                     if(Double.parseDouble(tab)>40.0){
                         tilAB.setError("Cadual excede el valor");
-                        DatabaseReference ref=database.getReference("Alarmas");
-                        DatabaseReference newRef= ref.push();
+                        DatabaseReference ref2=database.getReference("Alarmas");
+                        DatabaseReference newRef= ref2.push();
                         SimpleDateFormat sdf= new SimpleDateFormat("HH:mm : dd/MM/yy");
                         String date= sdf.format(Calendar.getInstance().getTime());
                         Alarma alarma= new Alarma("Alarma",root.getResources().getText(R.string.alarma_tanque_elevado_medio).toString(),date,R.drawable.tanquesbajos,newRef.getKey());
@@ -538,7 +536,6 @@ public class TuberiaFragment extends Fragment {
                     else{
                         tilIJ.setError(null);
                     }
->>>>>>> Stashed changes:app/src/main/java/com/espol/aguapol/Fragments/TuberiaFragment.java
 
 
                 }
