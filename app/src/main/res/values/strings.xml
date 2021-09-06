@@ -28,10 +28,18 @@
 
     <string name="titulo_fallo_tanquelevado">"Fallo en sensor tanque elevado "</string>
     <string name="mensaje_fallo_tanquelevado">"El sensor detecta un nivel mayor al maximo"</string>
-    <string name="titulo_tanque_elevado_medio">"Tanque elevado en nivel medio "</string>
-    <string name="titulo_tanque_elevado_bajo">"Tanque elevado en nivel bajo "</string>
-    <string name="titulo_tanque_bajo_medio">"Tanques bajos se encuentran en nivel medio "</string>
-    <string name="titulo_tanque_bajo_bajo">"Tanque bajos se encuentra en nivel bajo "</string>
+    <string name="advertencia_tanque_elevado_alto">"El tanque elevado se encuentran en nivel alto "</string>
+    <string name="alarma_tanque_elevado_medio">"El tanque elevado se encuentran en nivel medio  "</string>
+    <string name="alarma_tanque_elevado_bajo">"El tanque elevado se encuentran en nivel bajo  "</string>
+    <string name="advertencia_tanque_bajo_medio">"Los tanques bajos se encuentran en nivel medio "</string>
+    <string name="advertencia_tanque_bajo_bajo">"Los tanques bajos se encuentran en nivel bajo  "</string>
+
+    <string name="advertencia_amperaje_bomba_a">"El amperaje de la bomba A se encuentre por encima del valor nominal"</string>
+    <string name="advertencia_amperaje_bomba_b">"El amperaje de la bomba B se encuentre por encima del valor nominal"</string>
+    <string name="advertencia_tiempo_bomba_a">"La bomba A, se encuentra encendida más de 8 horas "</string>
+    <string name="advertencia_tiempo_bomba_b">"La bomba B, se encuentra encendida más de 8 horas "</string>
+
+
     <string name="channel_name">AguaPol Channel</string>
     <string name="channel_description">Alarm</string>
 
@@ -87,6 +95,11 @@
         <item>Tramo 8</item>
         <item>Tramo 9</item>
     </string-array>
+    <string name="title_activity_alarms">Alarmas</string>
+    <string name="tab_text_1">ACTIVAS</string>
+    <string name="tab_text_2">EN PROCESO</string>
+    <string name="tab_text_3">SOLUCIONADAS</string>
+    <string name="title_activity_datos_histoticos">datosHistoticosActivity</string>
 
 
 </resources>

@@ -183,7 +183,7 @@
                                 android:maxHeight="200dp"
                                 android:minHeight="200dp"
                                 android:mirrorForRtl="false"
-                                android:progress="60"
+                                android:progress="70"
                                 android:rotation="-90"
                                 android:scaleY="50" />
 

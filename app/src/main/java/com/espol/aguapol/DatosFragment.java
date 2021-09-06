@@ -143,15 +143,53 @@ public class DatosFragment extends Fragment {
         btnImportar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< Updated upstream:app/src/main/java/com/espol/aguapol/DatosFragment.java
                 Intent intent= new Intent(root.getContext(),ImportarCsv.class);
                 startActivity(intent);
+=======
+                validarDatos();
+                //importarCSV();
+
+
+>>>>>>> Stashed changes:app/src/main/java/com/espol/aguapol/Fragments/DatosFragment.java
             }
         });
     }
 
 
 
+<<<<<<< Updated upstream:app/src/main/java/com/espol/aguapol/DatosFragment.java
 
+=======
+        else{
+            Toast.makeText(root.getContext(), "No hay seleccionado la fecha", Toast.LENGTH_SHORT).show();
+        }
+
+        Toast.makeText(root.getContext(), "Carga de la base de datos", Toast.LENGTH_SHORT).show();
+
+    }
+
+    private void obtenerDatosFechas() {
+        for(String i: tramosSeleccionados){
+            DatabaseReference ref=database.getReference("Control caudal").child(i).child("historial");
+
+        }
+    }
+
+    private void importarCSV() {
+        Intent intent= new Intent(root.getContext(), ImportarCsv.class);
+        startActivity(intent);
+    }
+
+    public static int diferenciaDias(String fecha1,String fecha2) throws ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+        Date date1= format.parse(fecha1);
+        Date date2=format.parse(fecha2);
+        int dias = (int) ((date1.getTime() - date2.getTime()) / 86400000);
+        return  dias;
+
+    }
+>>>>>>> Stashed changes:app/src/main/java/com/espol/aguapol/Fragments/DatosFragment.java
 
     private void pickTramos() {
         tietTramos.setOnFocusChangeListener(new View.OnFocusChangeListener() {

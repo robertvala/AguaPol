@@ -1,4 +1,4 @@
-package com.espol.aguapol.ui.home;
+package com.espol.aguapol.ui.alarmas;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

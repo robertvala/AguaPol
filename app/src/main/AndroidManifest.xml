@@ -19,7 +19,20 @@
         android:roundIcon="@drawable/logo_temp"
         android:supportsRtl="true"
         android:theme="@style/Theme.AguaPol">
+<<<<<<< Updated upstream
         <activity android:name=".ShowlistCaudal"></activity>
+=======
+        <activity
+            android:name=".datoHistoricos.datosHistoticosActivity"
+            android:exported="true"
+            android:label="@string/title_activity_datos_histoticos"
+            android:theme="@style/Theme.AguaPol.NoActionBar" />
+        <activity
+            android:name=".ui.alarmas.AlarmsActivity"
+            android:exported="true"
+            android:label="@string/title_activity_alarms" />
+        <activity android:name=".adapters.AlarmaSolucionada" />
+>>>>>>> Stashed changes
         <activity
             android:name=".ImportarCsv"
             android:exported="true" />

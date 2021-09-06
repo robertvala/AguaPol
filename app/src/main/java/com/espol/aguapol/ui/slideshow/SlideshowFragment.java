@@ -143,6 +143,17 @@ public class SlideshowFragment extends Fragment {
     }
 
     public void encendidoBombaA(){
+<<<<<<< Updated upstream
+=======
+        refBombas.child("bomba a").child("estado").setValue(1);
+        refBombas.child("bomba a").child("amperaje").setValue(3);
+        refBombas.child("bomba b").child("estado").setValue(0);
+
+        refBombas.child("bomba b").child("amperaje").setValue(0);
+        refBombas.child("bomba b").child("tiempoEncendido").setValue(0);
+
+        refBombas.child("bomba a").child("horaEncendido").setValue(getHora());
+>>>>>>> Stashed changes
        // RequestQueue queue = Volley.newRequestQueue(root.getContext());
         String url = "http://192.168.0.2:8001/on1";
         //String url = "https://www.google.com";

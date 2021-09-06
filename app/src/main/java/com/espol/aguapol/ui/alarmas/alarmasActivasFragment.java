@@ -1,25 +1,34 @@
-package com.espol.aguapol.ui.home;
+package com.espol.aguapol.ui.alarmas;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ListView;
+<<<<<<< Updated upstream:app/src/main/java/com/espol/aguapol/ui/home/HomeFragment.java
 import android.widget.TextView;
 import android.widget.Toast;
+=======
+>>>>>>> Stashed changes:app/src/main/java/com/espol/aguapol/ui/alarmas/alarmasActivasFragment.java
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+<<<<<<< Updated upstream:app/src/main/java/com/espol/aguapol/ui/home/HomeFragment.java
 import com.espol.aguapol.HistorialAlarmasActivity;
+=======
+>>>>>>> Stashed changes:app/src/main/java/com/espol/aguapol/ui/alarmas/alarmasActivasFragment.java
 import com.espol.aguapol.Modelo.Alarma;
 import com.espol.aguapol.R;
 import com.espol.aguapol.adapters.AlarmAdapter;
+
+import com.espol.aguapol.adapters.sAdapterAlarmasActivas;
 
 import com.espol.aguapol.databinding.FragmentHomeBinding;
 import com.google.firebase.database.DataSnapshot;
@@ -37,18 +46,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class HomeFragment extends Fragment {
+public class alarmasActivasFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
     private View root;
-    ListView lvAlarmas;
-    TextView txtAlarmas;
+    RecyclerView recyclerView;
     FirebaseDatabase database;
     List<Alarma> alarmaList;
     HashMap<String,Alarma> alarmas;
-    HomeFragment fragment;
-    Button btnHistorial;
+    alarmasActivasFragment fragment;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -57,20 +64,12 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         root = binding.getRoot();
-        lvAlarmas=binding.lvAlarmas;
-        txtAlarmas=binding.txtAlarmas;
-        btnHistorial=binding.btnHistorial;
+        recyclerView=binding.rvAlarmas;
         alarmas= new HashMap<>();
         database=FirebaseDatabase.getInstance();
         fragment=this;
         getAlarmas();
-        btnHistorial.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(root.getContext(), HistorialAlarmasActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
         return root;
     }
@@ -84,7 +83,7 @@ public class HomeFragment extends Fragment {
     public void getAlarmas(){
         List alarmaList=new ArrayList<>();
         DatabaseReference refAlarmas=database.getReference("Alarmas");
-        refAlarmas.addValueEventListener(new ValueEventListener() {
+        refAlarmas.orderByValue().limitToFirst(20).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 for(DataSnapshot ds:snapshot.getChildren()){
@@ -93,8 +92,10 @@ public class HomeFragment extends Fragment {
                     //alarmas.put(snapshot.getKey(),alarma);
                     alarmaList.add(alarma);
                 }
-                AlarmAdapter adapter=new AlarmAdapter(root.getContext(),alarmaList,fragment);
-                lvAlarmas.setAdapter(adapter);
+                sAdapterAlarmasActivas adapterAlarmasActivas= new sAdapterAlarmasActivas(root.getContext(), alarmaList);
+                recyclerView.setLayoutManager( new LinearLayoutManager(root.getContext()));
+                recyclerView.addItemDecoration(new DividerItemDecoration(root.getContext(),DividerItemDecoration.VERTICAL));
+                recyclerView.setAdapter(adapterAlarmasActivas);
             }
 
             @Override

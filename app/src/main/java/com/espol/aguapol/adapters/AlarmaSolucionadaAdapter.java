@@ -1,8 +1,6 @@
 package com.espol.aguapol.adapters;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,18 +8,10 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.cardview.widget.CardView;
-
-import com.espol.aguapol.Modelo.Alarma;
 import com.espol.aguapol.Modelo.AlarmaManejada;
 import com.espol.aguapol.R;
-import com.espol.aguapol.ui.home.HomeFragment;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 import java.util.Map;

@@ -15,6 +15,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+<<<<<<< Updated upstream:app/src/main/java/com/espol/aguapol/TuberiaFragment.java
+=======
+import com.espol.aguapol.Modelo.Alarma;
+import com.espol.aguapol.Modelo.Herramientas;
+import com.espol.aguapol.R;
+>>>>>>> Stashed changes:app/src/main/java/com/espol/aguapol/Fragments/TuberiaFragment.java
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -43,6 +49,7 @@ public class TuberiaFragment extends Fragment {
     private MapsFragment mapsFragment;
     private View root;
     FirebaseDatabase database;
+    Herramientas herramientas;
 
 
     // TODO: Rename parameter arguments, choose names that match
@@ -53,6 +60,7 @@ public class TuberiaFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private int Notification_ID=0;
 
     public TuberiaFragment() {
         // Required empty public constructor
@@ -110,6 +118,7 @@ public class TuberiaFragment extends Fragment {
         tilGH=root.findViewById(R.id.tilGH);
         tilHI=root.findViewById(R.id.tilHI);
         tilIJ=root.findViewById(R.id.tilIJ);
+        herramientas= new Herramientas(root.getContext());
 
         txtHoraCaudal1=root.findViewById(R.id.txtHoraCaudal1);
         txtHoraCaudal2=root.findViewById(R.id.txtHoraCaudal2);
@@ -312,6 +321,7 @@ public class TuberiaFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
+<<<<<<< Updated upstream:app/src/main/java/com/espol/aguapol/TuberiaFragment.java
                     DatabaseReference ref = snapshot.getRef();
                     ref.child("tramo A-B").child("historial").child(date).orderByKey().limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -454,6 +464,81 @@ public class TuberiaFragment extends Fragment {
 
                         }
                     });
+=======
+                    String tab=snapshot.child("tramo A-B").child("estado").getValue().toString();
+                    String tbc=snapshot.child("tramo B-C").child("estado").getValue().toString();
+                    String tcd=snapshot.child("tramo C-D").child("estado").getValue().toString();
+                    String tde=snapshot.child("tramo D-E").child("estado").getValue().toString();
+                    String tef=snapshot.child("tramo E-F").child("estado").getValue().toString();
+                    String tfg=snapshot.child("tramo F-G").child("estado").getValue().toString();
+                    String tgh=snapshot.child("tramo G-H").child("estado").getValue().toString();
+                    String thi=snapshot.child("tramo H-I").child("estado").getValue().toString();
+                    String tij=snapshot.child("tramo I-J").child("estado").getValue().toString();
+
+                    if(Double.parseDouble(tab)>40.0){
+                        tilAB.setError("Cadual excede el valor");
+                        DatabaseReference ref=database.getReference("Alarmas");
+                        DatabaseReference newRef= ref.push();
+                        SimpleDateFormat sdf= new SimpleDateFormat("HH:mm : dd/MM/yy");
+                        String date= sdf.format(Calendar.getInstance().getTime());
+                        Alarma alarma= new Alarma("Alarma",root.getResources().getText(R.string.alarma_tanque_elevado_medio).toString(),date,R.drawable.tanquesbajos,newRef.getKey());
+                        newRef.setValue(alarma);
+
+                        herramientas.generarNotifiacion(root.getContext(), "Alarma",root.getResources().getString(R.string.alarma_tanque_elevado_medio),R.drawable.tanquesbajos,2);
+                        Notification_ID++;
+                    }
+                    else{
+                        tilAB.setError(null);
+                    }
+                    if(Double.parseDouble(tbc)>40.0){
+                        tilBC.setError("Cadual excede el valor");
+                    }
+                    else{
+                        tilBC.setError(null);
+                    }
+                    if(Double.parseDouble(tcd)>40.0){
+                        tilCD.setError("Cadual excede el valor");
+                    }
+                    else{
+                        tilCD.setError(null);
+                    }
+                    if(Double.parseDouble(tde)>40.0){
+                        tilDE.setError("Cadual excede el valor");
+                    }
+                    else{
+                        tilDE.setError(null);
+                    }
+                    if(Double.parseDouble(tef)>40.0){
+                        tilEF.setError("Cadual excede el valor");
+                    }
+                    else{
+                        tilEF.setError(null);
+                    }
+                    if(Double.parseDouble(tfg)>40.0){
+                        tilFG.setError("Cadual excede el valor");
+                    }
+                    else{
+                        tilFG.setError(null);
+                    }
+                    if(Double.parseDouble(tgh)>40.0){
+                        tilGH.setError("Cadual excede el valor");
+                    }
+                    else{
+                        tilGH.setError(null);
+                    }
+                    if(Double.parseDouble(thi)>40.0){
+                        tilHI.setError("Cadual excede el valor");
+                    }
+                    else{
+                        tilHI.setError(null);
+                    }
+                    if(Double.parseDouble(tij)>40.0){
+                        tilIJ.setError("Cadual excede el valor");
+                    }
+                    else{
+                        tilIJ.setError(null);
+                    }
+>>>>>>> Stashed changes:app/src/main/java/com/espol/aguapol/Fragments/TuberiaFragment.java
 
 
                 }

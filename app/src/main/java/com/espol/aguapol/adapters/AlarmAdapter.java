@@ -9,25 +9,23 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
 
 import com.espol.aguapol.Modelo.Alarma;
-import com.espol.aguapol.Modelo.AlarmaManejada;
 import com.espol.aguapol.R;
-import com.espol.aguapol.databinding.FragmentControlBinding;
-import com.espol.aguapol.ui.home.HomeFragment;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.espol.aguapol.ui.alarmas.alarmasActivasFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+<<<<<<< Updated upstream
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+=======
+>>>>>>> Stashed changes
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -38,10 +36,10 @@ public class AlarmAdapter extends BaseAdapter {
     View convertView;
     FirebaseAuth firebaseAuth;
     FirebaseDatabase database;
-    HomeFragment fragment;
+    alarmasActivasFragment fragment;
 
 
-    public AlarmAdapter(Context context, List<Alarma> alarmas, HomeFragment fragment) {
+    public AlarmAdapter(Context context, List<Alarma> alarmas, alarmasActivasFragment fragment) {
         this.context = context;
         this.alarmas=alarmas;
         this.fragment=fragment;
@@ -70,17 +68,23 @@ public class AlarmAdapter extends BaseAdapter {
         firebaseAuth=FirebaseAuth.getInstance();
         convertView= LayoutInflater.from(context).inflate(R.layout.res_alarm,null);
         this.convertView=convertView;
-        TextView txtTitulo=convertView.findViewById(R.id.txtTituloAlarma);
         TextView txtMensaje=convertView.findViewById(R.id.txtMensajeAlarma);
         ImageView imgIcono=convertView.findViewById(R.id.imgIconAlarma);
         TextView txtFechaHora= convertView.findViewById(R.id.txtFechaHora);
 
         Alarma itemAlarma= alarmas.get(position);
         //Set data in adapter
-        txtTitulo.setText(itemAlarma.getTitulo());
         txtFechaHora.setText(itemAlarma.getFechaHora());
         txtMensaje.setText(itemAlarma.getMensaje());
+<<<<<<< Updated upstream
         imgIcono.setImageResource(itemAlarma.getUrlIcon());
+=======
+        //imgIcono.setImageResource(itemAlarma.getUrlIcon());
+        Resources res = context.getResources();
+        imgIcono.setColorFilter(R.color.alarma);
+        String[] estadosAlarma = res.getStringArray(R.array.estadoAlarmas);
+        CardView cardAlarma=convertView.findViewById(R.id.cardAlarma);
+>>>>>>> Stashed changes
 
         CardView cardAlarma=convertView.findViewById(R.id.cardAlarma);
         View finalConvertView = convertView;
@@ -112,7 +116,7 @@ public class AlarmAdapter extends BaseAdapter {
                         });
                     }
                 });
-                builder.setNegativeButton("Cerrar", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("Visto", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();

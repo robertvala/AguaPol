@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.espol.aguapol.ui.home.HomeFragment"
+        android:name="com.espol.aguapol.ui.alarmas.alarmasActivasFragment"
         android:label="@string/menu_alarma"
         tools:layout="@layout/fragment_home" />
 
@@ -62,6 +62,11 @@
             app:destination="@id/tuberiaFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_mainMenu_to_alarmsActivity"
+            app:destination="@id/alarmsActivity"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/tuberiaFragment"
@@ -89,4 +94,9 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
+    <activity
+        android:id="@+id/alarmsActivity"
+        android:name="com.espol.aguapol.ui.alarmas.AlarmsActivity"
+        android:label="activity_alarms"
+        tools:layout="@layout/activity_alarms" />
 </navigation>
