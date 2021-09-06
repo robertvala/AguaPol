@@ -67,6 +67,9 @@
             app:destination="@id/alarmsActivity"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_mainMenu_to_datosHistoticosActivity"
+            app:destination="@id/datosHistoticosActivity" />
     </fragment>
     <fragment
         android:id="@+id/tuberiaFragment"
@@ -99,4 +102,9 @@
         android:name="com.espol.aguapol.ui.alarmas.AlarmsActivity"
         android:label="activity_alarms"
         tools:layout="@layout/activity_alarms" />
+    <activity
+        android:id="@+id/datosHistoticosActivity"
+        android:name="com.espol.aguapol.datoHistoricos.datosHistoticosActivity"
+        android:label="activity_datos_histoticos"
+        tools:layout="@layout/activity_datos_histoticos" />
 </navigation>

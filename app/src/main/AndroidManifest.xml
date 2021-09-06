@@ -30,17 +30,16 @@
             android:name=".ImportarCsv"
             android:exported="true" />
 
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".HistorialAlarmasActivity"
-            android:exported="true" />
 
-        <activity android:name=".SignInActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".Splash">
+
+        <activity android:name=".Activities.SignInActivity" />
+        <activity android:name=".Activities.LoginActivity" />
+        <activity android:name=".Activities.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
