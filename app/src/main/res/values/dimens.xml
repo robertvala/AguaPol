@@ -12,4 +12,5 @@
     <dimen name="drawer_icon_size">5dp</dimen>
     <dimen name="thumb_size">35dp</dimen>
     <dimen name="track_size">50dp</dimen>
+    <dimen name="appbar_padding">10dp</dimen>
 </resources>

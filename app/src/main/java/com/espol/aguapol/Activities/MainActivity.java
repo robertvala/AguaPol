@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.espol.aguapol.Activities.LoginActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import com.espol.aguapol.R;
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(MainActivity.this, "Usuario ha cerrado sesion correctamente", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
                     finish();
                 }
             }

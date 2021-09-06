@@ -18,7 +18,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.espol.aguapol.HistorialAlarmasActivity;
+
 
 import com.espol.aguapol.Modelo.Alarma;
 import com.espol.aguapol.R;

@@ -74,12 +74,7 @@ public class SlideshowFragment extends Fragment {
 
         binding = FragmentSlideshowBinding.inflate(inflater, container, false);
         root = binding.getRoot();
-        btnBombaA=binding.btnBombaA;
-        btnBombaB=binding.btnBombaB;
-        tietTAA=binding.tietTiempoApagadoA;
-        tietTAB=binding.tietTiempoApagadoB;
-        tietTEA=binding.tietTiempoEncendidoA;
-        tietTEB=binding.tietTiempoEncendidoB;
+
         switchManual=binding.switchManual;
 
         database=FirebaseDatabase.getInstance();

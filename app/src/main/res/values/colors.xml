@@ -15,7 +15,7 @@
     <color name="celeste">#6BE0FE</color>
     <color name="advertencia">#FF9E0C</color>
     <color name="alarma">#F30606</color>
-
+    <color name="alarm_pop_up">#F81909</color>
 
 
 </resources>
