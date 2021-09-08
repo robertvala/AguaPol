@@ -75,7 +75,8 @@ public class HistoricosCaudalActivity extends AppCompatActivity {
                         score.add(valor);
                         date.add(fecha);
                     }
-                    valores.put(i,score);
+
+                    valores.put(obtenerNombreTramo(i),score);
 
                 }
 
@@ -87,6 +88,17 @@ public class HistoricosCaudalActivity extends AppCompatActivity {
         }
 
 
+
+    }
+
+    private String obtenerNombreTramo(String i) {
+        String[] nombres= getResources().getStringArray(R.array.selectTramos);
+        String[] tramosFirestor=getResources().getStringArray(R.array.tramosFireStore);
+        ArrayList<String> ltramosFirestore= new ArrayList<>();
+        for(String j: tramosFirestor){
+            ltramosFirestore.add(j);
+        }
+        return nombres[ltramosFirestore.indexOf(i)];
 
     }
 
