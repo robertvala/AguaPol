@@ -18,8 +18,8 @@
             <LinearLayout
                 android:id="@+id/llEstado"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_height="150dp"
+                android:background="@drawable/fondo_gris_con_curva"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -30,7 +30,7 @@
                     android:src="@drawable/icono_4" />
 
                 <TextView
-                    android:id="@+id/textView6"
+                    android:id="@+id/txtFiltroInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

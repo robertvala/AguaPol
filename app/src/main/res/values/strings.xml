@@ -97,6 +97,18 @@
         <item>FIMCM</item>
     </string-array>
 
+    <string-array name="tramosFireStore">
+        <item>tramo 1</item>
+        <item>tramo 2</item>
+        <item>tramo 3</item>
+        <item>tramo 4</item>
+        <item>tramo 5</item>
+        <item>tramo 6</item>
+        <item>tramo 7</item>
+        <item>tramo 8</item>
+        <item>tramo 9</item>
+    </string-array>
+
     <string-array name="estadoAlarmas">
         <item>Visto</item>
         <item>En proceso</item>
@@ -107,6 +119,10 @@
     <string name="tab_text_2">EN PROCESO</string>
     <string name="tab_text_3">SOLUCIONADAS</string>
     <string name="title_activity_datos_histoticos">datosHistoticosActivity</string>
+
+    <string name="tab_datos_1">Caudal</string>
+    <string name="tab_datos_2">Alarmas</string>
+    <string name="tab_datos_3">Riego</string>
 
 
 </resources>

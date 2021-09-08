@@ -1,4 +1,4 @@
-package com.espol.aguapol;
+package com.espol.aguapol.Fragments;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -14,6 +14,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +23,15 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.espol.aguapol.ImportarCsv;
 import com.espol.aguapol.Modelo.HistorialCaudal;
+import com.espol.aguapol.R;
 import com.espol.aguapol.adapters.adapterListCaudal;
 import com.espol.aguapol.adapters.adapterlista;
+import com.espol.aguapol.datoHistoricos.HistoricosCaudalActivity;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
@@ -56,15 +61,14 @@ public class DatosFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
-    private String mParam2;
-
 
 
     TextInputEditText tietFechaInicio,tietFechaFin,tietTramos;
+    TextInputLayout tilFechaIncio,tilFechaFin,tilTramos;
     Date dateIncio;
     Date dateFin;
     String fechaInicio="";
@@ -78,10 +82,11 @@ public class DatosFragment extends Fragment {
     boolean [] checkedItems;
     List<Integer> selectIndex;
     List<String> tramosSeleccionados;
-    Button btnImportar;
+    Button btnImportar,btnCargarDatosHistoricos;
     Context context;
     ListView listView;
     FirebaseDatabase database;
+    TextView txtInfoFiltro;
     public DatosFragment() {
         // Required empty public constructor
     }
@@ -91,15 +96,13 @@ public class DatosFragment extends Fragment {
      * this fragment using the provided parameters.
      *
      * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
      * @return A new instance of fragment DatosFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static DatosFragment newInstance(String param1, String param2) {
+    public static DatosFragment newInstance(String param1) {
         DatosFragment fragment = new DatosFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -109,7 +112,6 @@ public class DatosFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
@@ -118,7 +120,6 @@ public class DatosFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         root=inflater.inflate(R.layout.fragment_datos, container, false);
-
         tietFechaFin=root.findViewById(R.id.tietFechaFin);
         tietFechaInicio=root.findViewById(R.id.tietFechaInicio);
         tietTramos=root.findViewById(R.id.tietTramos);
@@ -127,18 +128,18 @@ public class DatosFragment extends Fragment {
         tramosSeleccionados=new ArrayList<>();
         selectIndex= new ArrayList<>();
         listView=root.findViewById(R.id.listHistorico);
-
+        txtInfoFiltro=root.findViewById(R.id.txtFiltroInfo);
+        txtInfoFiltro.setText(mParam1);
         context=root.getContext();
-
-       
-
         btnImportar=root.findViewById(R.id.btnImportarCSV);
+        btnCargarDatosHistoricos= root.findViewById(R.id.btnCargarHistorico);
+        tilFechaFin=root.findViewById(R.id.tilFechaFin);
+        tilFechaIncio=root.findViewById(R.id.tilFechaInicio);
+        tilTramos=root.findViewById(R.id.tilElegirTramos);
         importarCSV();
         pickDates();
         pickTramos();
-
-
-
+        configButtonCargar();
         return root;
     }
 
@@ -146,7 +147,7 @@ public class DatosFragment extends Fragment {
         btnImportar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(root.getContext(),ImportarCsv.class);
+                Intent intent= new Intent(root.getContext(), ImportarCsv.class);
                 startActivity(intent);
 
                 //importarCSV();
@@ -155,12 +156,6 @@ public class DatosFragment extends Fragment {
             }
         });
     }
-
-
-
-
-
-
 
     private void obtenerDatosFechas() {
         for(String i: tramosSeleccionados){
@@ -235,13 +230,19 @@ public class DatosFragment extends Fragment {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int day) {
                         month = month+1;
-                        String date= day+"-"+month+"-"+year;
-                        tietFechaFin.setText(date);
-                        SimpleDateFormat dateFormat= new SimpleDateFormat("dd-MM-yyyy");
+                        String date= year+"-"+month+"-"+day;
+
+
+                        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
                         try {
-                            dateFin=dateFormat.parse(tietFechaInicio.getText().toString());
-                            if(!fechaInicio.equals("")&&!fechaFin.equals("")){
-                                //txtResultados.setEnabled(true);
+                            dateFin=dateFormat.parse(date);
+                            fechaFin=dateFormat.format(dateFin);
+                            tietFechaFin.setText(fechaFin);
+                            if((!fechaInicio.equals("") )&&(!fechaFin.equals(""))){
+                                btnCargarDatosHistoricos.setEnabled(true);
+                            }
+                            else{
+                                btnCargarDatosHistoricos.setEnabled(false);
                             }
                         } catch (ParseException e) {
                             e.printStackTrace();
@@ -267,13 +268,17 @@ public class DatosFragment extends Fragment {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int day) {
                         month = month+1;
-                        String date= day+"-"+month+"-"+year;
-                        tietFechaInicio.setText(date);
-                        SimpleDateFormat dateFormat= new SimpleDateFormat("dd-MM-yyyy");
+                        String date= year+"-"+month+"-"+day;
+                        SimpleDateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
                         try {
-                            dateIncio=dateFormat.parse(tietFechaInicio.getText().toString());
-                            if(!fechaInicio.equals("")&&!fechaFin.equals("")){
-                                //txtResultados.setEnabled(true);
+                            dateIncio=dateFormat.parse(date);
+                            fechaInicio=dateFormat.format(dateIncio);
+                            tietFechaInicio.setText(fechaInicio);
+                            if((!fechaInicio.equals(""))&&(!fechaFin.equals(""))){
+                               btnCargarDatosHistoricos.setEnabled(true);
+                            }
+                            else{
+                                btnCargarDatosHistoricos.setEnabled(false);
                             }
                         } catch (ParseException e) {
                             e.printStackTrace();
@@ -291,6 +296,61 @@ public class DatosFragment extends Fragment {
                 tietFechaInicio.clearFocus();
             }
         });
+    }
+
+    void configButtonCargar(){
+        btnCargarDatosHistoricos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String error="";
+
+                try {
+                    if(diferenciaDias(fechaFin,fechaInicio)<0){
+                       String mensaje="Fecha fin, no puede ser antes de la fecha de inicio";
+                       error=error+"\n"+mensaje;
+                       tilFechaFin.setError(mensaje);
+                    }
+
+                    if(selectIndex.size()<=0){
+                        String mensaje="Porfavor seleccionar al menos un tramo";
+                        error=error+"\n"+mensaje;
+                        tilTramos.setError(mensaje);
+                    }
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                if(error.equals("")){
+                    cargarDatos();
+                }
+
+            }
+        });
+    }
+
+    private void cargarDatos() {
+        if(mParam1.equals("Caudal")){
+            Intent intent= new Intent(root.getContext(), HistoricosCaudalActivity.class);
+            intent.putExtra("fechaInicio",fechaInicio);
+            intent.putExtra("fechaFin",fechaFin);
+            intent.putStringArrayListExtra("tramos", (ArrayList<String>) cambiarNombreTramos());
+            startActivity(intent);
+        }
+    }
+
+    private ArrayList<String> cambiarNombreTramos(){
+        ArrayList<String> tramos=new ArrayList<>();
+        String[] nombresTramos=getResources().getStringArray(R.array.selectTramos);
+        String[] tramosFireStore=getResources().getStringArray(R.array.tramosFireStore);
+        ArrayList<String> listNombresTramos=new ArrayList<>();
+        for(String j: nombresTramos){
+            listNombresTramos.add(j);
+        }
+        for(String i: tramosSeleccionados){
+            String nombreCorrecto= tramosFireStore[listNombresTramos.indexOf(i)];
+            tramos.add(nombreCorrecto);
+        }
+        return tramos;
     }
 
 }

@@ -15,8 +15,10 @@
         android:roundIcon="@drawable/aguapol_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AguaPol">
-
-        <activity android:name=".ShowlistCaudal"></activity>
+        <activity
+            android:name=".datoHistoricos.HistoricosCaudalActivity"
+            android:exported="true" />
+        <activity android:name=".ShowlistCaudal" />
         <activity
             android:name=".datoHistoricos.datosHistoticosActivity"
             android:exported="true"
@@ -30,18 +32,16 @@
             android:name=".ImportarCsv"
             android:exported="true" />
 
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
-
 
         <activity android:name=".Activities.SignInActivity" />
         <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

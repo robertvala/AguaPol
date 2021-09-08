@@ -16,18 +16,33 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <androidx.cardview.widget.CardView
+            <LinearLayout
+                android:id="@+id/llMonitoreoTanques"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:cardBackgroundColor="#FF6D00">
+                android:layout_height="150dp"
+                android:background="@drawable/fondo_gris_con_curva"
+                android:gravity="center"
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView7"
+                    android:id="@+id/imageView8"
                     android:layout_width="wrap_content"
-                    android:layout_height="200dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/datos" />
-            </androidx.cardview.widget.CardView>
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icono_7" />
+
+                <TextView
+                    android:id="@+id/textView69"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/comfortaa_light"
+                    android:gravity="center"
+                    android:text="Datos históricos"
+                    android:textColor="#000000"
+                    android:textSize="@dimen/menu_text_size"
+                    android:textStyle="normal" />
+
+            </LinearLayout>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -48,27 +63,17 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView6"
+                            android:id="@+id/txtFiltroInfo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:fontFamily="@font/comfortaa"
                             android:gravity="center"
-                            android:text="DATOS HISTORICOS"
+                            android:text="Caudal"
                             android:textColor="#000000"
-                            android:textSize="@dimen/menu_text_size"
+                            android:textSize="34sp"
                             android:textStyle="bold" />
 
-                        <ImageButton
-                            android:id="@+id/imageView6"
-                            style="@android:style/Widget.DeviceDefault.ImageButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginLeft="20dp"
-                            android:background="#00FFFAFA"
-                            android:forceHasOverlappingRendering="@color/black"
-                            android:src="@android:drawable/ic_lock_silent_mode_off"
-                            android:tint="#C51162" />
                     </LinearLayout>
 
                 </RelativeLayout>
@@ -94,7 +99,8 @@
                             android:id="@+id/tilElegirTramos"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:hint="Elegir tramos">
+                            android:hint="Elegir tramos"
+                            app:errorEnabled="true">
 
                             <com.google.android.material.textfield.TextInputEditText
                                 android:id="@+id/tietTramos"
@@ -109,7 +115,8 @@
                         android:id="@+id/tilFechaInicio"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_margin="10dp">
+                        android:layout_margin="10dp"
+                        app:errorEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/tietFechaInicio"
@@ -121,7 +128,8 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/tilFechaFin"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        app:errorEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/tietFechaFin"

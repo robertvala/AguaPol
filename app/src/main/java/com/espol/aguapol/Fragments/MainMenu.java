@@ -17,7 +17,7 @@ import com.espol.aguapol.R;
 public class MainMenu extends Fragment {
 
     View root;
-    CardView cvAlarmas,cvTanques,cvTablero,cvTuberias,cvRiego,cvControl,cvDatos;
+    CardView cvTanques,cvTablero,cvTuberias,cvRiego,cvDatos;
     public MainMenu() {
         // Required empty public constructor
     }
@@ -49,21 +49,13 @@ public class MainMenu extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         root=inflater.inflate(R.layout.fragment_main_menu, container, false);
-        cvAlarmas=root.findViewById(R.id.cvAlarmas);
         cvTanques=root.findViewById(R.id.cvTanks);
         cvTablero=root.findViewById(R.id.cvTableros);
         cvTuberias=root.findViewById(R.id.cvTuberias);
         cvRiego=root.findViewById(R.id.cvRiego);
-        cvControl=root.findViewById(R.id.cvControl);
         cvDatos=root.findViewById(R.id.cvDatos);
 
-        cvAlarmas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main);
-                navController.navigate(R.id.action_mainMenu_to_alarmsActivity);
-            }
-        });
+
 
         cvTanques.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,13 +89,6 @@ public class MainMenu extends Fragment {
             }
         });
 
-        cvControl.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main);
-                navController.navigate(R.id.action_mainMenu_to_controlFragment);
-            }
-        });
 
         cvDatos.setOnClickListener(new View.OnClickListener() {
             @Override

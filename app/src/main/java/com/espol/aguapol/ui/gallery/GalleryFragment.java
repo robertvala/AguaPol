@@ -37,8 +37,7 @@ public class GalleryFragment extends Fragment {
     private GalleryViewModel galleryViewModel;
     private FragmentGalleryBinding binding;
     private FirebaseDatabase database;
-    private Button btnS1,btnS2,btnS3;
-    private Button btnS1Alto,btnS2Alto,btnS3Alto;
+
     private ProgressBar pbTanquesBajos,pbTanqueAlto;
     private TextView txtNivelTanqueBajos,txtNivelTanqueAlto;
     private View root;
@@ -54,14 +53,10 @@ public class GalleryFragment extends Fragment {
         binding = FragmentGalleryBinding.inflate(inflater, container, false);
         root = binding.getRoot();
         txtNivelTanqueBajos=binding.txtNivelTanqueBajo;
-        btnS1=binding.btnS1;
-        btnS2=binding.btnS2;
-        btnS3=binding.btnS3;
+
         pbTanquesBajos=binding.progressBarTanquesBajos;
         txtNivelTanqueAlto=binding.txtNivelTanqueAlto;
-        btnS1Alto=binding.btnS1Alto;
-        btnS2Alto=binding.btnS2Alto;
-        btnS3Alto=binding.btnS3Alto;
+
         pbTanqueAlto=binding.progressBarTanqueAlto;
 
         getDataTanquesBajos();
@@ -89,14 +84,6 @@ public class GalleryFragment extends Fragment {
                 String S3=snapshot.child("Tanque alto").child("S3").getValue().toString();
                 String nivel="";
 
-                if(S1.equals("1")){ btnS1Alto.setBackgroundColor(root.getResources().getColor(R.color.on_sensor)); }
-                else{ btnS1Alto.setBackgroundColor(root.getResources().getColor(R.color.off_sensor)); }
-
-                if(S2.equals("1")){ btnS2Alto.setBackgroundColor(root.getResources().getColor(R.color.on_sensor)); }
-                else{ btnS2Alto.setBackgroundColor(root.getResources().getColor(R.color.off_sensor)); }
-
-                if(S3.equals("1")){ btnS3Alto.setBackgroundColor(root.getResources().getColor(R.color.on_sensor)); }
-                else{ btnS3Alto.setBackgroundColor(root.getResources().getColor(R.color.off_sensor)); }
 
                 if(S1.equals("1") && S2.equals("0") && S3.equals("0")){
                     nivel="Bajo";
@@ -185,14 +172,6 @@ public class GalleryFragment extends Fragment {
                 String S3=snapshot.child("S3").getValue().toString();
                 String nivel="";
 
-                if(S1.equals("1")){ btnS1.setBackgroundColor(root.getResources().getColor(R.color.on_sensor)); }
-                else{ btnS1.setBackgroundColor(root.getResources().getColor(R.color.off_sensor)); }
-
-                if(S2.equals("1")){ btnS2.setBackgroundColor(root.getResources().getColor(R.color.on_sensor)); }
-                else{ btnS2.setBackgroundColor(root.getResources().getColor(R.color.off_sensor)); }
-
-                if(S3.equals("1")){ btnS3.setBackgroundColor(root.getResources().getColor(R.color.on_sensor)); }
-                else{ btnS3.setBackgroundColor(root.getResources().getColor(R.color.off_sensor)); }
 
                 if(S1.equals("1") && S2.equals("0") && S3.equals("0")){
                     nivel="Bajo";

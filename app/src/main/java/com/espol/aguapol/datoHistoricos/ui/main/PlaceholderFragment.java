@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+
+import com.espol.aguapol.Fragments.DatosFragment;
 import com.espol.aguapol.databinding.FragmentDatosHistoticosBinding;
 
 
@@ -21,14 +23,23 @@ import com.espol.aguapol.databinding.FragmentDatosHistoticosBinding;
 public class PlaceholderFragment extends Fragment {
 
     private static final String ARG_SECTION_NUMBER = "section_number";
+    private static final String ARG_PARAM1 = "param1";
 
     private PageViewModel pageViewModel;
     private FragmentDatosHistoticosBinding binding;
 
-    public static PlaceholderFragment newInstance(int index) {
-        PlaceholderFragment fragment = new PlaceholderFragment();
+    public static Fragment newInstance(int index) {
+        Fragment fragment = new DatosFragment();
         Bundle bundle = new Bundle();
-        bundle.putInt(ARG_SECTION_NUMBER, index);
+        String mparam1="";
+        if(index==1){ mparam1="Caudal";}
+        else if(index==2){
+            mparam1="Alarmas";
+        }
+        else if(index==3){
+            mparam1="Riego";
+        }
+        bundle.putString(ARG_PARAM1, mparam1);
         fragment.setArguments(bundle);
         return fragment;
     }

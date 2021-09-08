@@ -23,8 +23,8 @@
             <LinearLayout
                 android:id="@+id/llMonitoreoTanques"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_height="150dp"
+                android:background="@drawable/fondo_gris_con_curva"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -71,7 +71,7 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/textView6"
+                            android:id="@+id/txtFiltroInfo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -138,65 +138,13 @@
                             android:layout_height="match_parent">
 
 
-                            <TextView
-                                android:id="@+id/textViewSensores"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginEnd="46dp"
-                                android:layout_toStartOf="@+id/progressBarTanquesBajos"
-                                android:fontFamily="@font/comfortaa_light"
-                                android:gravity="center"
-                                android:text="Sensores" />
-
-                            <Button
-                                android:id="@+id/btnS3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/textViewSensores"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="30dp"
-                                android:layout_toStartOf="@+id/progressBarTanquesBajos"
-                                android:fontFamily="@font/comfortaa_light"
-                                android:text="S3"
-                                android:textColor="#050505"
-                                app:backgroundTint="#00FFFFFF" />
-
-                            <Button
-                                android:id="@+id/btnS1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/btnS2"
-                                android:layout_marginTop="30dp"
-                                android:layout_marginEnd="30dp"
-                                android:layout_toStartOf="@+id/progressBarTanquesBajos"
-                                android:fontFamily="@font/comfortaa_light"
-                                android:text="S1"
-                                android:textColor="#050505"
-                                app:backgroundTint="#FFD600" />
-
-                            <Button
-                                android:id="@+id/btnS2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/btnS3"
-                                android:layout_marginTop="30dp"
-                                android:layout_marginEnd="30dp"
-                                android:layout_toStartOf="@+id/progressBarTanquesBajos"
-                                android:fontFamily="@font/comfortaa_light"
-                                android:text="S2"
-                                android:textColor="#050505"
-                                app:backgroundTint="#FFD600" />
-
                             <ProgressBar
                                 android:id="@+id/progressBarTanquesBajos"
                                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                                 android:layout_width="200dp"
                                 android:layout_height="230dp"
-                                android:layout_alignTop="@id/textViewSensores"
-                                android:layout_alignParentEnd="true"
+                                android:layout_centerHorizontal="true"
                                 android:layout_marginTop="15dp"
-                                android:layout_marginEnd="20dp"
                                 android:max="100"
                                 android:maxHeight="200dp"
                                 android:minHeight="200dp"
@@ -302,65 +250,13 @@
                             android:layout_height="match_parent">
 
 
-                            <TextView
-                                android:id="@+id/textViewSensores2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginEnd="46dp"
-                                android:layout_toStartOf="@+id/progressBarTanqueAlto"
-                                android:fontFamily="@font/comfortaa_light"
-                                android:gravity="center"
-                                android:text="Sensores" />
-
-                            <Button
-                                android:id="@+id/btnS3Alto"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/textViewSensores2"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginEnd="30dp"
-                                android:layout_toStartOf="@+id/progressBarTanqueAlto"
-                                android:fontFamily="@font/comfortaa_light"
-                                android:text="S3"
-                                android:textColor="#050505"
-                                app:backgroundTint="#00FFFFFF" />
-
-                            <Button
-                                android:id="@+id/btnS1Alto"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/btnS2Alto"
-                                android:layout_marginTop="30dp"
-                                android:layout_marginEnd="30dp"
-                                android:layout_toStartOf="@+id/progressBarTanqueAlto"
-                                android:fontFamily="@font/comfortaa_light"
-                                android:text="S1"
-                                android:textColor="#050505"
-                                app:backgroundTint="#FFD600" />
-
-                            <Button
-                                android:id="@+id/btnS2Alto"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/btnS3Alto"
-                                android:layout_marginTop="30dp"
-                                android:layout_marginEnd="30dp"
-                                android:layout_toStartOf="@+id/progressBarTanqueAlto"
-                                android:fontFamily="@font/comfortaa_light"
-                                android:text="S2"
-                                android:textColor="#050505"
-                                app:backgroundTint="#FFD600" />
-
                             <ProgressBar
                                 android:id="@+id/progressBarTanqueAlto"
                                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                                 android:layout_width="200dp"
                                 android:layout_height="230dp"
-                                android:layout_alignTop="@id/textViewSensores2"
-                                android:layout_alignParentEnd="true"
+                                android:layout_centerHorizontal="true"
                                 android:layout_marginTop="15dp"
-                                android:layout_marginEnd="23dp"
                                 android:max="100"
                                 android:maxHeight="200dp"
                                 android:minHeight="200dp"

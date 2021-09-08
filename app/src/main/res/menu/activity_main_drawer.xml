@@ -10,11 +10,6 @@
             android:icon="@drawable/home"
             android:title="Home" />
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/icono_1"
-            android:title="@string/menu_alarma"
-            />
-        <item
             android:id="@+id/nav_gallery"
             android:icon="@drawable/icono_2"
             android:title="@string/menu_monitoreo_tanques" />
@@ -35,7 +30,7 @@
             android:icon="@drawable/icono_6"
             android:title="Control de procedimientos" />
         <item
-            android:id="@+id/datosFragment"
+            android:id="@+id/datosHistoticosActivity"
             android:icon="@drawable/icono_7"
             android:title="Datos históricos" />
     </group>

@@ -37,35 +37,38 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/llAlarmas"
-                android:layout_width="wrap_content"
+                android:id="@+id/llTableros"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="50dp"
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cvAlarmas"
-                    android:layout_width="150dp"
+                    android:id="@+id/cvTableros"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="0dp">
 
                     <ImageView
-                        android:id="@+id/imageView3"
+                        android:id="@+id/imageView4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/icono_1" />
+                        android:layout_gravity="center"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/icono_3" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/textView4"
+                    android:id="@+id/textTablero"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:autoSizeTextType="uniform"
                     android:gravity="center"
-                    android:text="Alarmas"
+                    android:text="Control bombas"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -114,38 +117,35 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/llTableros"
-                android:layout_width="150dp"
+                android:id="@+id/llRiego"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="50dp"
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cvTableros"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/cvRiego"
+                    android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
                     android:clickable="true"
                     android:foreground="?android:attr/selectableItemBackground"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="0dp">
 
                     <ImageView
-                        android:id="@+id/imageView4"
+                        android:id="@+id/imageRiego"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/icono_3" />
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icono_5" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
-                    android:id="@+id/textTablero"
+                    android:id="@+id/textRiego"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:autoSizeTextType="uniform"
                     android:gravity="center"
-                    android:text="Control bombas"
+                    android:text="Riego"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -182,84 +182,6 @@
                     android:gravity="center"
                     android:text="Control de caudal"
                     android:textStyle="bold" />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/llRiego"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="50dp"
-                android:orientation="vertical">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cvRiego"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="0dp">
-
-                    <ImageView
-                        android:id="@+id/imageRiego"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/icono_5" />
-                </androidx.cardview.widget.CardView>
-
-                <TextView
-                    android:id="@+id/textRiego"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Riego"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/llControl"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cvControl"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="0dp">
-
-                    <ImageView
-                        android:id="@+id/imageControl"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/icono_6" />
-
-                </androidx.cardview.widget.CardView>
-
-                <TextView
-                    android:id="@+id/textControl"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Control de procedimiento"
-                    android:textStyle="bold"
-                    app:autoSizeTextType="uniform" />
 
             </LinearLayout>
 
