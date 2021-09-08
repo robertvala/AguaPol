@@ -45,6 +45,7 @@ public class HistoricosCaudalActivity extends AppCompatActivity {
     private List<PointValue> mPointValues = new ArrayList<PointValue>();
     private List<AxisValue> mAxisXValues = new ArrayList<AxisValue>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +58,7 @@ public class HistoricosCaudalActivity extends AppCompatActivity {
         Toast.makeText(context, fechaInicio, Toast.LENGTH_SHORT).show();
         Toast.makeText(context, fechaFin, Toast.LENGTH_SHORT).show();
         Toast.makeText(context, tramosSeleccionados.toString(), Toast.LENGTH_SHORT).show();
+        valores= new HashMap<>();
         getData();
 
 
@@ -75,7 +77,7 @@ public class HistoricosCaudalActivity extends AppCompatActivity {
                         score.add(valor);
                         date.add(fecha);
                     }
-
+                    Toast.makeText(context, "Carga completa", Toast.LENGTH_SHORT).show();
                     valores.put(obtenerNombreTramo(i),score);
 
                 }
