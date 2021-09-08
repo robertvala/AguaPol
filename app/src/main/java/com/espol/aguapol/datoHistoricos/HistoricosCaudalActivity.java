@@ -18,6 +18,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import lecho.lib.hellocharts.gesture.ContainerScrollType;
@@ -38,7 +39,7 @@ public class HistoricosCaudalActivity extends AppCompatActivity {
     String fechaFin;
     List<String> tramosSeleccionados;
     FirebaseFirestore firebaseFirestore;
-
+    HashMap<String,List<Float>> valores;
     List<String> date = new ArrayList<>();
     List<Float> score= new ArrayList<>();
     private List<PointValue> mPointValues = new ArrayList<PointValue>();
@@ -65,8 +66,7 @@ public class HistoricosCaudalActivity extends AppCompatActivity {
     private void getData() {
         for(String i : tramosSeleccionados){
             CollectionReference refTramo=firebaseFirestore.collection(i);
-
-            refTramo.whereGreaterThan("date","2018-11-10").orderBy("date", Query.Direction.ASCENDING).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+            refTramo.whereGreaterThanOrEqualTo("date",fechaInicio).whereLessThanOrEqualTo("date",fechaFin).orderBy("date", Query.Direction.ASCENDING).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @Override
                 public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                     for (QueryDocumentSnapshot snap: queryDocumentSnapshots){
@@ -75,13 +75,14 @@ public class HistoricosCaudalActivity extends AppCompatActivity {
                         score.add(valor);
                         date.add(fecha);
                     }
-                    getAxisXLables();
-                    getAxisPoints();
-                    initLineChart();
+                    valores.put(i,score);
+
                 }
 
             });
-
+            getAxisXLables();
+            getAxisPoints();
+            initLineChart();
 
         }
 
@@ -155,7 +156,7 @@ public class HistoricosCaudalActivity extends AppCompatActivity {
          * At that time, it was to solve the fixed number of X-axis data. See (http://forum.xda-developers.com/tools/programming/library-hellocharts-charting-library-t2904456/page2);
          */
         Viewport v = new Viewport(lineChart.getMaximumViewport());
-        v.left = 0;
+        v.left = 4;
         v.right = 7;
         lineChart.setCurrentViewport(v);
     }
