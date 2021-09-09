@@ -15,6 +15,11 @@
         android:roundIcon="@drawable/aguapol_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AguaPol">
+        <activity
+            android:name=".Riego.RiegoActivity"
+            android:exported="true"
+            android:label="@string/title_activity_riego"
+            android:theme="@style/Theme.AguaPol.NoActionBar" />
 
         <service
             android:name=".MyFirebaseMessagingService"

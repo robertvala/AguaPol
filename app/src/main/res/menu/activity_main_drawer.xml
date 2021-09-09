@@ -22,13 +22,10 @@
             android:icon="@drawable/icono_4"
             android:title="@string/menu_monitoreo_tuberias" />
         <item
-            android:id="@+id/riegoFragment"
+            android:id="@+id/riegoActivity"
             android:icon="@drawable/icono_5"
             android:title="Riego" />
-        <item
-            android:id="@+id/controlFragment"
-            android:icon="@drawable/icono_6"
-            android:title="Control de procedimientos" />
+
         <item
             android:id="@+id/datosHistoticosActivity"
             android:icon="@drawable/icono_7"

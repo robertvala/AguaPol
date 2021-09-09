@@ -152,6 +152,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="10dp"
+                        android:layout_marginBottom="15dp"
                         android:layout_weight="1"
                         android:orientation="horizontal">
 
@@ -191,54 +192,6 @@
                             android:fontFamily="@font/comfortaa_light"
                             android:gravity="bottom"
                             android:text="5 Amps"
-                            android:textColor="@color/black" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginBottom="15dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="200dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="30dp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/textViewPresion"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="10dp"
-                                android:fontFamily="@font/comfortaa_light"
-                                android:text="Presión" />
-
-                            <ProgressBar
-                                android:id="@+id/progressBarPresionA"
-                                style="@android:style/Widget.Material.ProgressBar.Horizontal"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_weight="1"
-                                android:max="5"
-                                android:progress="3"
-                                android:progressDrawable="@drawable/new_progress_bar" />
-
-                        </LinearLayout>
-
-                        <TextView
-                            android:id="@+id/txtPresionA"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom"
-                            android:layout_marginStart="30dp"
-                            android:fontFamily="@font/comfortaa_light"
-                            android:gravity="bottom"
-                            android:text="10 Pa"
                             android:textColor="@color/black" />
 
                     </LinearLayout>
@@ -353,6 +306,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="10dp"
+                        android:layout_marginBottom="15dp"
                         android:layout_weight="1"
                         android:orientation="horizontal">
 
@@ -395,6 +349,140 @@
                             android:textColor="@color/black" />
 
                     </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewPresionA"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/gris"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/card_view_border"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/txtPresionCardA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/comfortaa_light"
+                            android:gravity="center"
+                            android:text="@string/presion_1"
+                            android:textColor="#020202"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textViewPresionA"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
+                                android:fontFamily="@font/comfortaa_light"
+                                android:text="Presión" />
+
+                            <ProgressBar
+                                android:id="@+id/progressBarPresionA"
+                                style="@android:style/Widget.Material.ProgressBar.Horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:max="5"
+                                android:progress="3"
+                                android:progressDrawable="@drawable/new_progress_bar" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/txtPresionA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_marginStart="30dp"
+                            android:fontFamily="@font/comfortaa_light"
+                            android:gravity="bottom"
+                            android:text="10 Pa"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewPresionB"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                app:cardBackgroundColor="@color/gris"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:background="@drawable/card_view_border"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/textPresionB"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:fontFamily="@font/comfortaa_light"
+                            android:gravity="center"
+                            android:text="@string/presion_2"
+                            android:textColor="#020202"
+                            android:textSize="20sp"
+                            android:textStyle="normal" />
+
+                    </RelativeLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -456,7 +544,6 @@
                     android:id="@+id/switchManual"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:minHeight="48dp"
                     android:text="Activacion Manual"
                     android:textAlignment="textEnd"

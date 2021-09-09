@@ -69,7 +69,14 @@
             app:exitAnim="@android:anim/slide_out_right"/>
         <action
             android:id="@+id/action_mainMenu_to_datosHistoticosActivity"
-            app:destination="@id/datosHistoticosActivity" />
+            app:destination="@id/datosHistoticosActivity"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_mainMenu_to_riegoActivity"
+            app:destination="@id/riegoActivity"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"/>
     </fragment>
     <fragment
         android:id="@+id/tuberiaFragment"
@@ -107,4 +114,9 @@
         android:name="com.espol.aguapol.datoHistoricos.datosHistoticosActivity"
         android:label="activity_datos_histoticos"
         tools:layout="@layout/activity_datos_histoticos" />
+    <activity
+        android:id="@+id/riegoActivity"
+        android:name="com.espol.aguapol.Riego.RiegoActivity"
+        android:label="activity_riego"
+        tools:layout="@layout/activity_riego" />
 </navigation>

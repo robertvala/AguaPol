@@ -85,7 +85,7 @@ public class MainMenu extends Fragment {
             @Override
             public void onClick(View v) {
                 NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main);
-                navController.navigate(R.id.action_mainMenu_to_riegoFragment);
+                navController.navigate(R.id.action_mainMenu_to_riegoActivity);
             }
         });
 

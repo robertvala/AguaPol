@@ -91,7 +91,7 @@
                         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:startIconCheckable="true"
                         app:startIconContentDescription="Mapa"
-                        app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                        app:startIconDrawable="@drawable/ic_detall_1"
                         app:startIconTint="#000000"
                         app:startIconTintMode="src_in">
 
@@ -145,7 +145,7 @@
                         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:startIconCheckable="true"
                         app:startIconContentDescription="Mapa"
-                        app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                        app:startIconDrawable="@drawable/ic_detall_1"
                         app:startIconTint="#000000"
                         app:startIconTintMode="src_in">
 
@@ -195,7 +195,7 @@
                         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:startIconCheckable="true"
                         app:startIconContentDescription="Mapa"
-                        app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                        app:startIconDrawable="@drawable/ic_detall_1"
                         app:startIconTint="#000000"
                         app:startIconTintMode="src_in">
 
@@ -246,7 +246,7 @@
                         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:startIconCheckable="true"
                         app:startIconContentDescription="Mapa"
-                        app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                        app:startIconDrawable="@drawable/ic_detall_1"
                         app:startIconTint="#000000"
                         app:startIconTintMode="src_in">
 
@@ -297,7 +297,7 @@
                         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:startIconCheckable="true"
                         app:startIconContentDescription="Mapa"
-                        app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                        app:startIconDrawable="@drawable/ic_detall_1"
                         app:startIconTint="#000000"
                         app:startIconTintMode="src_in">
 
@@ -348,7 +348,7 @@
                         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:startIconCheckable="true"
                         app:startIconContentDescription="Mapa"
-                        app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                        app:startIconDrawable="@drawable/ic_detall_1"
                         app:startIconTint="#000000"
                         app:startIconTintMode="src_in">
 
@@ -399,7 +399,7 @@
                         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:startIconCheckable="true"
                         app:startIconContentDescription="Mapa"
-                        app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                        app:startIconDrawable="@drawable/ic_detall_1"
                         app:startIconTint="#000000"
                         app:startIconTintMode="src_in">
 
@@ -450,7 +450,7 @@
                         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:startIconCheckable="true"
                         app:startIconContentDescription="Mapa"
-                        app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                        app:startIconDrawable="@drawable/ic_detall_1"
                         app:startIconTint="#000000"
                         app:startIconTintMode="src_in">
 
@@ -501,7 +501,7 @@
                         app:hintTextAppearance="@style/TextAppearance.AppCompat.Medium"
                         app:startIconCheckable="true"
                         app:startIconContentDescription="Mapa"
-                        app:startIconDrawable="@android:drawable/ic_menu_mapmode"
+                        app:startIconDrawable="@drawable/ic_detall_1"
                         app:startIconTint="#000000"
                         app:startIconTintMode="src_in">
 

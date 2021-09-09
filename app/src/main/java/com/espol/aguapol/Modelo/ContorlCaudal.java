@@ -1,30 +1,41 @@
 package com.espol.aguapol.Modelo;
 
+import java.util.HashMap;
+import java.util.List;
+
 public class ContorlCaudal {
-    String hora;
-    String valor;
+    String fecha;
+    float promedio;
+    HashMap<String,Float> valores;
 
-    public ContorlCaudal() {
+    public ContorlCaudal(String fecha, float promedio, HashMap<String, Float> valores) {
+        this.fecha = fecha;
+        this.promedio = promedio;
+        this.valores = valores;
     }
 
-    public ContorlCaudal(String hora, String valor) {
-        this.hora = hora;
-        this.valor = valor;
+    public String getFecha() {
+        return fecha;
     }
 
-    public String getHora() {
-        return hora;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
-    public void setHora(String hora) {
-        this.hora = hora;
+    public float getPromedio() {
+        return promedio;
     }
 
-    public String getValor() {
-        return valor;
+    public void setPromedio(float promedio) {
+        this.promedio = promedio;
     }
 
-    public void setValor(String valor) {
-        this.valor = valor;
+    public HashMap<String, Float> getValores() {
+        return valores;
     }
+
+    public void setValores(HashMap<String, Float> valores) {
+        this.valores = valores;
+    }
+
 }

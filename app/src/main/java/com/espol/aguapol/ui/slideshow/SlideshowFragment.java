@@ -53,8 +53,8 @@ public class SlideshowFragment extends Fragment {
     private View root;
     FirebaseDatabase database;
     DatabaseReference refBombas;
-    TextView txtTiempoA,txtTiempoB,txtAmpsA,txtAmpsB;
-    ProgressBar pbTiempoA,pbTiempoB,pbAmpsA,pbAmpsB;
+    TextView txtTiempoA,txtTiempoB,txtAmpsA,txtAmpsB,txtPresionA,txtPresionB;
+    ProgressBar pbTiempoA,pbTiempoB,pbAmpsA,pbAmpsB,pbPresionA,pbPresionB;
     CardView cardA,cardB;
 
 
@@ -82,6 +82,10 @@ public class SlideshowFragment extends Fragment {
         pbTiempoB=binding.progressBarTiempoEncendidoB;
         pbAmpsA=binding.progressBarAmperajeA;
         pbAmpsB=binding.progressBarAmperajeB;
+        pbPresionA=binding.progressBarPresionA;
+        pbPresionB=binding.progressBarPresionB;
+        txtPresionA=binding.txtPresionA;
+        txtPresionB=binding.txtPresionB;
         cardA=binding.cardViewBombaA;
         cardB=binding.cardViewBombaB;
         database=FirebaseDatabase.getInstance();
@@ -343,6 +347,11 @@ public class SlideshowFragment extends Fragment {
                 txtTiempoB.setText(teb+" "+unidadesB);
                 pbAmpsB.setProgress(Integer.parseInt(ttb));
                 pbTiempoB.setProgress(Integer.parseInt(teb));
+                pbPresionA.setProgress(Integer.parseInt(snapshot.child("bomba a").child("presion").getValue().toString()));
+                pbPresionA.setProgress(Integer.parseInt(snapshot.child("bomba b").child("presion").getValue().toString()));
+                txtPresionA.setText(snapshot.child("bomba a").child("presion").getValue().toString());
+                txtPresionB.setText(snapshot.child("bomba b").child("presion").getValue().toString());
+
 
 
             }

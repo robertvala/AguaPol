@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.espol.aguapol.Modelo.ContorlCaudal;
+import com.espol.aguapol.Modelo.Herramientas;
 import com.espol.aguapol.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
@@ -17,7 +19,12 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -57,7 +64,8 @@ public class HistoricosCaudalActivity extends AppCompatActivity {
         Toast.makeText(context, fechaInicio, Toast.LENGTH_SHORT).show();
         Toast.makeText(context, fechaFin, Toast.LENGTH_SHORT).show();
         Toast.makeText(context, tramosSeleccionados.toString(), Toast.LENGTH_SHORT).show();
-        getData();
+        //getData();
+        importarCSV();
 
 
 
@@ -107,6 +115,75 @@ public class HistoricosCaudalActivity extends AppCompatActivity {
             mPointValues.add(new PointValue(cont, i));
             cont++;
         }
+    }
+
+    public void importarCSV() {
+        String cadena;
+        String[] arreglo;
+        HashMap<String, HashMap<String, ContorlCaudal>> valoresTramos=new HashMap<>();
+
+
+        try {
+            FileReader fileReader = new FileReader(context.getExternalFilesDir(null) + "/fakedata.csv");
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            while ((cadena = bufferedReader.readLine()) != null) {
+
+                arreglo = cadena.split(",");
+                String fechaYhora = arreglo[10];
+                String[] arreglo2 = fechaYhora.split(" ");
+                String fecha = arreglo2[0];
+                String hora = arreglo2[1];
+                Herramientas herramientas = new Herramientas();
+
+                Date date = herramientas.obtenerFecha("yyyy-MM-dd", fecha);
+                Date dateIncio = herramientas.obtenerFecha("yyyy-MM-dd", fechaInicio);
+                Date dateFin = herramientas.obtenerFecha("yyyy-MM-dd", fechaFin);
+                long difInicio = herramientas.diferenciaFechas(dateIncio, date);
+                long difFin = herramientas.diferenciaFechas(date, dateFin);
+                if (difInicio >= 0 && difFin <= 0) {
+
+                    for (String tramo : tramosSeleccionados) {
+
+                        Float valorT1 = Float.parseFloat(tramo);
+
+                        if (!valoresTramos.containsKey(tramo)) {
+                            HashMap<String, ContorlCaudal> valoresporTramos = new HashMap<>();
+                            HashMap<String, Float> valores = new HashMap<>();
+                            valores.put(hora, valorT1);
+                            ContorlCaudal contorlCaudal = new ContorlCaudal(fecha, 0.0F, valores);
+                            valoresporTramos.put(fecha, contorlCaudal);
+                            valoresTramos.put(tramo, valoresporTramos);
+
+                        } else {
+                            HashMap<String, ContorlCaudal> v1 = valoresTramos.get(tramo);
+                            if (v1.containsKey(fecha)) {
+                                ContorlCaudal c1 = v1.get(fecha);
+                                HashMap<String, Float> valores = c1.getValores();
+                                valores.put(hora, valorT1);
+                                c1.setValores(valores);
+                                v1.put(fecha, c1);
+                                valoresTramos.put(tramo, v1);
+                            } else {
+                                HashMap<String, Float> valores = new HashMap<>();
+                                valores.put(hora, valorT1);
+                                ContorlCaudal contorlCaudal = new ContorlCaudal(fecha, 0.0F, valores);
+                                v1.put(fecha, contorlCaudal);
+                                valoresTramos.put(tramo, v1);
+                            }
+
+                        }
+
+
+                    }
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     private void initLineChart() {

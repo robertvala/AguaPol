@@ -88,6 +88,9 @@
     <string name="tramo9">FIMCM</string>
     <string name="default_notification_channel_id">aguaPol</string>
 
+    <string name="presion_1">Salida de bombeo</string>
+    <string name="presion_2">Inicio tanque elevado</string>
+
     <string-array name="selectTramos">
         <item>Tanques bajos</item>
         <item>Entrada a tanque alto</item>
@@ -130,6 +133,9 @@
     <string name="tab_text_3">SOLUCIONADAS</string>
     <string name="title_activity_datos_histoticos">datosHistoticosActivity</string>
 
+    <string name="tab_text_riego_agua_potable">AGUA DEL LAGO</string>
+    <string name="tab_text_riego_agua_lago">AGUA POTABLE</string>
+
     <string name="tab_datos_1">Caudal</string>
     <string name="tab_datos_2">Alarmas</string>
     <string name="tab_datos_3">Riego</string>
@@ -137,6 +143,7 @@
     <string name="ref_alarmas_activas">Alarmas</string>
     <string name="ref_alarmas_proceso">Alarmas en proceso</string>
     <string name="ref_alarmas_solucionadas">Alarmas solucionadas</string>
+    <string name="title_activity_riego">RiegoActivity</string>
 
 
 </resources>

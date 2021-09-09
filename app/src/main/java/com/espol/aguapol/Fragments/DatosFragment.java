@@ -27,22 +27,32 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.espol.aguapol.ImportarCsv;
+import com.espol.aguapol.Modelo.ContorlCaudal;
+import com.espol.aguapol.Modelo.Herramientas;
 import com.espol.aguapol.Modelo.HistorialCaudal;
 import com.espol.aguapol.R;
 import com.espol.aguapol.adapters.adapterListCaudal;
 import com.espol.aguapol.adapters.adapterlista;
 import com.espol.aguapol.datoHistoricos.HistoricosCaudalActivity;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.CollectionReference;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import lecho.lib.hellocharts.gesture.ContainerScrollType;
 import lecho.lib.hellocharts.gesture.ZoomType;
@@ -149,26 +159,13 @@ public class DatosFragment extends Fragment {
         else{
             tilTramos.setVisibility(View.VISIBLE);
         }
-        importarCSV();
         pickDates();
         pickTramos();
         configButtonCargar();
         return root;
     }
 
-    private void importarCSV() {
-        btnImportar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(root.getContext(), ImportarCsv.class);
-                startActivity(intent);
 
-                //importarCSV();
-
-
-            }
-        });
-    }
 
     private void obtenerDatosFechas() {
         for(String i: tramosSeleccionados){
@@ -342,6 +339,7 @@ public class DatosFragment extends Fragment {
     }
 
     private void cargarDatos() {
+        //importarCSV();
         if(mParam1.equals("Caudal")){
             Intent intent= new Intent(root.getContext(), HistoricosCaudalActivity.class);
             intent.putExtra("fechaInicio",fechaInicio);
