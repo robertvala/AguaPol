@@ -1,6 +1,7 @@
 package com.espol.aguapol.adapters;
 
 import android.content.Context;
+import android.os.Build;
 import android.provider.ContactsContract;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.chauthai.swipereveallayout.SwipeRevealLayout;
@@ -87,6 +90,7 @@ public class sAdapterAlarmasActivas extends RecyclerView.Adapter<sAdapterAlarmas
         TextView txtFechaHora,txtPerfil;
         SwipeRevealLayout swipeRevealLayout;
         View itemView;
+        CardView cardAlarmas;
         public SwipeViewHolder(@NonNull View itemView) {
             super(itemView);
             this.itemView=itemView;
@@ -97,6 +101,7 @@ public class sAdapterAlarmasActivas extends RecyclerView.Adapter<sAdapterAlarmas
             txtCambio=itemView.findViewById(R.id.txtCambioActivas);
             imgCambio=itemView.findViewById(R.id.imgCambioProceso);
             txtPerfil=itemView.findViewById(R.id.txtAlarmaPerfil);
+            cardAlarmas=itemView.findViewById(R.id.cardAlarmas);
 
 
 
@@ -150,10 +155,18 @@ public class sAdapterAlarmasActivas extends RecyclerView.Adapter<sAdapterAlarmas
 
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.M)
         public void binData(Alarma item) {
             txtMensaje.setText(item.getMensaje());
             //imgIcono.setImageResource(item.getUrlIcon());
             txtFechaHora.setText(getTiempoTranscurrido(item));
+            if(item.getTipo().equals(context.getString(R.string.tipo_alarma_advertencia))){
+                cardAlarmas.setCardBackgroundColor(context.getResources().getColor(R.color.advertencia));
+            }
+            else{
+                cardAlarmas.setCardBackgroundColor(context.getResources().getColor(R.color.alarma));
+            }
+
             imageViewSetUp(item);
         }
 

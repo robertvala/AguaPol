@@ -176,7 +176,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"
-                                android:max="5"
+                                android:max="150"
                                 android:progress="3"
                                 android:progressDrawable="@drawable/new_progress_bar" />
 
@@ -377,7 +377,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:layout_weight="1"
-                                android:max="5"
+                                android:max="150"
                                 android:progress="3"
                                 android:progressDrawable="@drawable/new_progress_bar" />
 
