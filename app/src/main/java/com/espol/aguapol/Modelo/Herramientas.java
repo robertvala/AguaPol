@@ -12,12 +12,21 @@ import androidx.core.app.NotificationManagerCompat;
 
 import com.espol.aguapol.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class Herramientas {
     String CHANNEL_ID="AguaPo";
     Context context;
     public Herramientas(Context context) {
         this.context=context;
         createNotificationChannel(context);
+    }
+
+    public Herramientas() {
+
     }
 
     private void createNotificationChannel(Context context) {
@@ -57,5 +66,22 @@ public class Herramientas {
 
         // notificationId is a unique int for each notification that you must define
         notificationManager.notify(notificationId, builder.build());
+    }
+
+    public Date obtenerFecha(String formato, String fecha){
+        SimpleDateFormat dateFormat= new SimpleDateFormat(formato);
+        Date date=null;
+        try {
+            date= dateFormat.parse(fecha);
+            return date;
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
+    public long diferenciaFechas(Date fecha1, Date fecha2){
+        long dif=fecha1.getTime()-fecha2.getTime();
+        return dif;
     }
 }

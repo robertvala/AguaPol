@@ -95,7 +95,7 @@ public class GalleryFragment extends Fragment {
                     String date= sdf.format(Calendar.getInstance().getTime());
                     DatabaseReference ref=database.getReference("Alarmas");
                     DatabaseReference newRef= ref.push();
-                    Alarma alarma= new Alarma("Alarma",root.getResources().getText(R.string.alarma_tanque_elevado_bajo).toString(),date,R.drawable.tanquesbajos,newRef.getKey());
+                    Alarma alarma= new Alarma("Alarma",root.getResources().getText(R.string.alarma_tanque_elevado_bajo).toString(),date,R.drawable.tanquesbajos,newRef.getKey(),"");
                     newRef.setValue(alarma);
 
 
@@ -117,7 +117,7 @@ public class GalleryFragment extends Fragment {
                     DatabaseReference newRef= ref.push();
                     SimpleDateFormat sdf= new SimpleDateFormat("HH:mm : dd/MM/yy");
                     String date= sdf.format(Calendar.getInstance().getTime());
-                    Alarma alarma= new Alarma("Alarma",root.getResources().getText(R.string.alarma_tanque_elevado_medio).toString(),date,R.drawable.tanquesbajos,newRef.getKey());
+                    Alarma alarma= new Alarma("Alarma",root.getResources().getText(R.string.alarma_tanque_elevado_medio).toString(),date,R.drawable.tanquesbajos,newRef.getKey(),"");
                     newRef.setValue(alarma);
                     herramientas.generarNotifiacion(root.getContext(), "Alarma",root.getResources().getString(R.string.alarma_tanque_elevado_medio),R.drawable.tanquesbajos,2);
                     Notification_ID++;
@@ -132,7 +132,7 @@ public class GalleryFragment extends Fragment {
                     DatabaseReference newRef= ref.push();
                     SimpleDateFormat sdf= new SimpleDateFormat("HH:mm : dd/MM/yy");
                     String date= sdf.format(Calendar.getInstance().getTime());
-                    Alarma alarma= new Alarma("Advertencia",root.getResources().getText(R.string.advertencia_tanque_elevado_alto).toString(),date,R.drawable.tanquesbajos,newRef.getKey());
+                    Alarma alarma= new Alarma("Advertencia",root.getResources().getText(R.string.advertencia_tanque_elevado_alto).toString(),date,R.drawable.tanquesbajos,newRef.getKey(),"");
                     newRef.setValue(alarma);
                     herramientas.generarNotifiacion(root.getContext(), "Advertencia",root.getResources().getString(R.string.advertencia_tanque_elevado_alto),R.drawable.tanquesbajos,2);
                     Notification_ID++;
@@ -146,7 +146,7 @@ public class GalleryFragment extends Fragment {
                     String date= sdf.format(Calendar.getInstance().getTime());
                     DatabaseReference ref=database.getReference("Alarmas");
                     DatabaseReference newRef= ref.push();
-                    Alarma alarma= new Alarma(root.getResources().getText(R.string.alarma_tanque_elevado_bajo).toString(),"ERROR EN LOS SENSORES",date,R.drawable.tanquesbajos,newRef.getKey());
+                    Alarma alarma= new Alarma(root.getResources().getText(R.string.alarma_tanque_elevado_bajo).toString(),"ERROR EN LOS SENSORES",date,R.drawable.tanquesbajos,newRef.getKey(),"");
                     newRef.setValue(alarma);
                 }
 
@@ -186,7 +186,7 @@ public class GalleryFragment extends Fragment {
                     String date= sdf.format(Calendar.getInstance().getTime());
                     DatabaseReference ref=database.getReference("Alarmas");
                     DatabaseReference newRef= ref.push();
-                    Alarma alarma= new Alarma("Advertencia",root.getResources().getText(R.string.advertencia_tanque_bajo_bajo).toString(),date,R.drawable.tanquesbajos, newRef.getKey());
+                    Alarma alarma= new Alarma("Advertencia",root.getResources().getText(R.string.advertencia_tanque_bajo_bajo).toString(),date,R.drawable.tanquesbajos, newRef.getKey(),"");
                     newRef.setValue(alarma);
                     herramientas.generarNotifiacion(root.getContext(), "Advertencia",root.getResources().getString(R.string.advertencia_tanque_bajo_bajo),R.drawable.tanquesbajos,0);
                     Notification_ID++;
@@ -202,7 +202,7 @@ public class GalleryFragment extends Fragment {
                     String date= sdf.format(Calendar.getInstance().getTime());
                     DatabaseReference ref=database.getReference("Alarmas");
                     DatabaseReference newRef= ref.push();
-                    Alarma alarma= new Alarma("Advertencia",root.getResources().getText(R.string.advertencia_tanque_bajo_medio).toString(),date,R.drawable.tanquesbajos, newRef.getKey());
+                    Alarma alarma= new Alarma("Advertencia",root.getResources().getText(R.string.advertencia_tanque_bajo_medio).toString(),date,R.drawable.tanquesbajos, newRef.getKey(),"");
                     newRef.setValue(alarma);
                     herramientas.generarNotifiacion(root.getContext(), "Advertencia",root.getResources().getString(R.string.advertencia_tanque_bajo_bajo),R.drawable.tanquesbajos,0);
                     Notification_ID++;
@@ -220,7 +220,7 @@ public class GalleryFragment extends Fragment {
                     String date= sdf.format(Calendar.getInstance().getTime());
                     DatabaseReference ref=database.getReference("Alarmas");
                     DatabaseReference newRef= ref.push();
-                    Alarma alarma= new Alarma("Advertencia",root.getResources().getText(R.string.advertencia_tanque_bajo_bajo).toString(),date,R.drawable.tanquesbajos, newRef.getKey());
+                    Alarma alarma= new Alarma("Advertencia",root.getResources().getText(R.string.advertencia_tanque_bajo_bajo).toString(),date,R.drawable.tanquesbajos, newRef.getKey(),"");
                     newRef.setValue(alarma);
                     herramientas.generarNotifiacion(root.getContext(), "Advertencia",root.getResources().getString(R.string.advertencia_tanque_bajo_bajo),R.drawable.tanquesbajos,0);
                     Notification_ID++;
@@ -235,7 +235,7 @@ public class GalleryFragment extends Fragment {
                     String date= sdf.format(Calendar.getInstance().getTime());
                     DatabaseReference ref=database.getReference("Alarmas");
                     DatabaseReference newRef= ref.push();
-                    Alarma alarma= new Alarma("Alarma",root.getResources().getText(R.string.advertencia_tanque_bajo_bajo).toString(),date,R.drawable.tanquesbajos, newRef.getKey());
+                    Alarma alarma= new Alarma("Alarma",root.getResources().getText(R.string.advertencia_tanque_bajo_bajo).toString(),date,R.drawable.tanquesbajos, newRef.getKey(),"");
                     newRef.setValue(alarma);
                 }
 

@@ -75,7 +75,7 @@ public class HistoricosCaudalActivity extends AppCompatActivity {
                         score.add(valor);
                         date.add(fecha);
                     }
-                    valores.put(i,score);
+
 
                 }
 

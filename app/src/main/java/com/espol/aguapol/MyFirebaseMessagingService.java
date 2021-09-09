@@ -1,5 +1,6 @@
 package com.espol.aguapol;
 
+import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -18,12 +19,37 @@ import androidx.work.WorkManager;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import java.util.Objects;
+
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private static final String TAG = "MyFirebaseMsgService";
+    private static final String NOTIFICATION_CHANNEL_ID = "Nuevo canal" ;
+    private static final CharSequence NOTIFICATION_CHANNEL_NAME = "Aguapol";
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
+        super.onMessageReceived(remoteMessage);
+        NotificationManager notificationManager = (NotificationManager) getSystemService ( Context.NOTIFICATION_SERVICE );
+        if (!Objects.equals ( null, remoteMessage.getNotification () )) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                NotificationChannel notificationChannel = new NotificationChannel ( NOTIFICATION_CHANNEL_ID, NOTIFICATION_CHANNEL_NAME, NotificationManager.IMPORTANCE_HIGH );
+                notificationManager.createNotificationChannel ( notificationChannel );
+            }
+            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder ( this, NOTIFICATION_CHANNEL_ID );
+            notificationBuilder.setAutoCancel ( true )
+                    .setStyle ( new NotificationCompat.BigTextStyle ().bigText ( remoteMessage.getNotification ().getBody () ) )
+                    .setDefaults ( Notification.DEFAULT_ALL )
+                    .setWhen ( System.currentTimeMillis () )
+                    .setSmallIcon (R.drawable.aguapol_logo)
+                    .setTicker ( remoteMessage.getNotification ().getTitle () )
+                    .setPriority ( Notification.PRIORITY_MAX )
+                    .setContentTitle ( remoteMessage.getNotification ().getTitle () )
+                    .setContentText ( remoteMessage.getNotification ().getBody () );
+            notificationManager.notify ( 1, notificationBuilder.build () );
+        }
+
+
         // [START_EXCLUDE]
         // There are two types of messages data messages and notification messages. Data messages
         // are handled
@@ -107,6 +133,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
      */
     private void handleNow() {
         Log.d(TAG, "Short lived task is done.");
+
     }
 
     /**

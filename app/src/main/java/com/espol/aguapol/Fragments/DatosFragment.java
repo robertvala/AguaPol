@@ -123,7 +123,14 @@ public class DatosFragment extends Fragment {
         tietFechaFin=root.findViewById(R.id.tietFechaFin);
         tietFechaInicio=root.findViewById(R.id.tietFechaInicio);
         tietTramos=root.findViewById(R.id.tietTramos);
-        selectTramos=root.getResources().getStringArray(R.array.selectTramos);
+
+        if(mParam1.equals("Riego")){
+            selectTramos=root.getResources().getStringArray(R.array.tramosRiego);
+        }
+        else{
+            selectTramos=root.getResources().getStringArray(R.array.selectTramos);
+        }
+
         checkedItems=new boolean[selectTramos.length];
         tramosSeleccionados=new ArrayList<>();
         selectIndex= new ArrayList<>();
@@ -136,6 +143,12 @@ public class DatosFragment extends Fragment {
         tilFechaFin=root.findViewById(R.id.tilFechaFin);
         tilFechaIncio=root.findViewById(R.id.tilFechaInicio);
         tilTramos=root.findViewById(R.id.tilElegirTramos);
+        if(mParam1.equals("Alarmas")){
+            tilTramos.setVisibility(View.GONE);
+        }
+        else{
+            tilTramos.setVisibility(View.VISIBLE);
+        }
         importarCSV();
         pickDates();
         pickTramos();
