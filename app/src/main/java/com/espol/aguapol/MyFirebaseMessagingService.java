@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Icon;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
@@ -16,9 +17,15 @@ import androidx.core.app.NotificationCompat;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 
+import com.espol.aguapol.Modelo.Alarma;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Objects;
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -26,6 +33,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "MyFirebaseMsgService";
     private static final String NOTIFICATION_CHANNEL_ID = "Nuevo canal" ;
     private static final CharSequence NOTIFICATION_CHANNEL_NAME = "Aguapol";
+    FirebaseDatabase database=FirebaseDatabase.getInstance();
+    Context context=this;
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
@@ -72,7 +81,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         // TODO(developer): Handle FCM messages here.
         // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
         Log.d(TAG, "From: " + remoteMessage.getFrom());
-        sendNotification(remoteMessage.getNotification().getBody());
+        //sendNotification(remoteMessage.getNotification().getBody());
 
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
@@ -98,7 +107,117 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     }
 
     private void generarAlarmas(RemoteMessage remoteMessage) {
-        
+        //Tanque elevado alto
+        if(remoteMessage.getNotification().getBody().equals(context.getString(R.string.advertencia_tanque_elevado_alto))){
+            DatabaseReference ref=database.getReference("Alarmas");
+            DatabaseReference newRef= ref.push();
+            SimpleDateFormat sdf= new SimpleDateFormat("HH:mm : dd/MM/yy");
+            String date= sdf.format(Calendar.getInstance().getTime());
+            Alarma alarma= new Alarma(context.getResources().getString(R.string.tipo_alarma_advertencia),context.getResources().getText(R.string.advertencia_tanque_elevado_alto).toString(),date,R.drawable.icono_2,newRef.getKey(),"",context.getResources().getString(R.string.tipo_alarma_advertencia));
+            newRef.setValue(alarma).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    DatabaseReference refTanqueAlto= database.getReference("Tanques");
+                    refTanqueAlto.child("Tanque alto").child("S1").setValue("1");
+                    refTanqueAlto.child("Tanque alto").child("S2").setValue("1");
+                    refTanqueAlto.child("Tanque alto").child("S2").setValue("1");
+                }
+            });
+
+        }
+        //Tanque elevado medio
+        else if(remoteMessage.getNotification().getBody().equals(context.getString(R.string.alarma_tanque_elevado_medio))){
+            DatabaseReference ref=database.getReference("Alarmas");
+            DatabaseReference newRef= ref.push();
+            Alarma alarma=generAlarma(context.getResources().getText(R.string.alarma_tanque_elevado_medio).toString(),R.drawable.icono_2, newRef.getKey(),context.getResources().getText(R.string.tipo_alarma_alarma).toString());
+            newRef.setValue(alarma).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    DatabaseReference refTanqueAlto= database.getReference("Tanques");
+                    refTanqueAlto.child("Tanque alto").child("S1").setValue("1");
+                    refTanqueAlto.child("Tanque alto").child("S2").setValue("1");
+                    refTanqueAlto.child("Tanque alto").child("S2").setValue("0");
+                }
+            });
+        }
+        //Tanque elevado bajo
+        else if(remoteMessage.getNotification().getBody().equals(context.getString(R.string.alarma_tanque_elevado_bajo))){
+            DatabaseReference ref=database.getReference("Alarmas");
+            DatabaseReference newRef= ref.push();
+            Alarma alarma=generAlarma(context.getResources().getText(R.string.alarma_tanque_elevado_bajo).toString(),R.drawable.icono_2, newRef.getKey(),context.getResources().getText(R.string.tipo_alarma_alarma).toString());
+            newRef.setValue(alarma).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    DatabaseReference refTanqueAlto= database.getReference("Tanques");
+                    refTanqueAlto.child("Tanque alto").child("S1").setValue("1");
+                    refTanqueAlto.child("Tanque alto").child("S2").setValue("0");
+                    refTanqueAlto.child("Tanque alto").child("S2").setValue("0");
+                }
+            });
+        }
+        //Tanque bajo medio advertencia
+        else if(remoteMessage.getNotification().getBody().equals(context.getString(R.string.advertencia_tanque_bajo_medio))){
+            DatabaseReference ref=database.getReference("Alarmas");
+            DatabaseReference newRef= ref.push();
+            Alarma alarma=generAlarma(context.getResources().getText(R.string.advertencia_tanque_bajo_medio).toString(),R.drawable.icono_2, newRef.getKey(),context.getResources().getText(R.string.tipo_alarma_advertencia).toString());
+            newRef.setValue(alarma).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    DatabaseReference refTanqueAlto= database.getReference("Tanques").child("Tanques bajos").child("T1");
+                    refTanqueAlto.child("S1").setValue("1");
+                    refTanqueAlto.child("S2").setValue("1");
+                    refTanqueAlto.child("S3").setValue("0");
+                }
+            });
+        }
+        //tanque bajo bajo
+        else if(remoteMessage.getNotification().getBody().equals(context.getString(R.string.advertencia_tanque_bajo_bajo))){
+            DatabaseReference ref=database.getReference("Alarmas");
+            DatabaseReference newRef= ref.push();
+            Alarma alarma=generAlarma(context.getResources().getText(R.string.advertencia_tanque_bajo_bajo).toString(), R.drawable.icono_1, newRef.getKey(),context.getResources().getText(R.string.tipo_alarma_advertencia).toString());
+            newRef.setValue(alarma).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    DatabaseReference refTanqueAlto= database.getReference("Tanques").child("Tanques bajos").child("T1");
+                    refTanqueAlto.child("S1").setValue("1");
+                    refTanqueAlto.child("S2").setValue("0");
+                    refTanqueAlto.child("S3").setValue("0");
+                }
+            });
+        }
+        //amperaje bomba a
+        else if(remoteMessage.getNotification().getBody().equals(context.getString(R.string.advertencia_amperaje_bomba_a))){
+            DatabaseReference ref=database.getReference("Alarmas");
+            DatabaseReference newRef= ref.push();
+            Alarma alarma=generAlarma(context.getResources().getText(R.string.advertencia_amperaje_bomba_a).toString(),R.drawable.icono_3, newRef.getKey(),context.getResources().getText(R.string.tipo_alarma_advertencia).toString());
+            newRef.setValue(alarma).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    DatabaseReference refTanqueAlto= database.getReference("Tablero de control").child("bomba a").child("amperaje");
+                    refTanqueAlto.setValue("100");
+                }
+            });
+        }
+        //tiempo encendido bomba b
+        else if(remoteMessage.getNotification().getBody().equals(context.getString(R.string.advertencia_tiempo_bomba_b))){
+            DatabaseReference ref=database.getReference("Alarmas");
+            DatabaseReference newRef= ref.push();
+            Alarma alarma=generAlarma(context.getResources().getText(R.string.advertencia_tiempo_bomba_b).toString(),R.drawable.icono_3, newRef.getKey(),context.getResources().getText(R.string.tipo_alarma_advertencia).toString());
+            newRef.setValue(alarma).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void unused) {
+                    DatabaseReference refTanqueAlto= database.getReference("Tablero de control").child("bomba b").child("tiempoEncendido");
+                    refTanqueAlto.setValue("9");
+                }
+            });
+        }
+    }
+
+    public Alarma generAlarma(String mensaje,int Icono,String id,String tipo){
+        SimpleDateFormat sdf= new SimpleDateFormat("HH:mm : dd/MM/yy");
+        String date= sdf.format(Calendar.getInstance().getTime());
+        Alarma alarma= new Alarma("Alarma",mensaje,date, Icono,id,"",tipo);
+        return alarma;
     }
     // [END receive_message]
 

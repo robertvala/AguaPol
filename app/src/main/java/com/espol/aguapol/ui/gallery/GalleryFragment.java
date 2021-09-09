@@ -91,19 +91,6 @@ public class GalleryFragment extends Fragment {
                     pbTanqueAlto.setProgress(10);
                     pbTanqueAlto.getProgressDrawable().setColorFilter(Color.CYAN, PorterDuff.Mode.SRC_IN);
 
-                    SimpleDateFormat sdf= new SimpleDateFormat("HH:mm : dd/MM/yy");
-                    String date= sdf.format(Calendar.getInstance().getTime());
-                    DatabaseReference ref=database.getReference("Alarmas");
-                    DatabaseReference newRef= ref.push();
-                    Alarma alarma= new Alarma("Alarma",root.getResources().getText(R.string.alarma_tanque_elevado_bajo).toString(),date,R.drawable.tanquesbajos,newRef.getKey(),"");
-                    newRef.setValue(alarma);
-
-
-                    herramientas.generarNotifiacion(root.getContext(), "Tanques",root.getResources().getString(R.string.mensaje_fallo_tanquelevado),R.drawable.tanquesbajos,2);
-
-                    herramientas.generarNotifiacion(root.getContext(), "Alarma",root.getResources().getString(R.string.alarma_tanque_elevado_bajo),R.drawable.tanquesbajos,2);
-                    Notification_ID++;
-
                 }
                 else if(S1.equals("1") && S2.equals("1") && S3.equals("0")){
                     nivel="Medio";
@@ -113,14 +100,8 @@ public class GalleryFragment extends Fragment {
 
                     //Snackbar snackbar= Snackbar.make(root,root.getResources().getText(R.string.titulo_tanque_elevado_medio),BaseTransientBottomBar.LENGTH_LONG);
                     //snackbar.show();
-                    DatabaseReference ref=database.getReference("Alarmas");
-                    DatabaseReference newRef= ref.push();
-                    SimpleDateFormat sdf= new SimpleDateFormat("HH:mm : dd/MM/yy");
-                    String date= sdf.format(Calendar.getInstance().getTime());
-                    Alarma alarma= new Alarma("Alarma",root.getResources().getText(R.string.alarma_tanque_elevado_medio).toString(),date,R.drawable.tanquesbajos,newRef.getKey(),"");
-                    newRef.setValue(alarma);
-                    herramientas.generarNotifiacion(root.getContext(), "Alarma",root.getResources().getString(R.string.alarma_tanque_elevado_medio),R.drawable.tanquesbajos,2);
-                    Notification_ID++;
+
+
 
                 }
                 else if(S1.equals("1") && S2.equals("1") && S3.equals("1")){
@@ -128,26 +109,13 @@ public class GalleryFragment extends Fragment {
                     txtNivelTanqueAlto.setText(nivel);
                     pbTanqueAlto.setProgress(100);
                     pbTanqueAlto.getProgressDrawable().setColorFilter(Color.CYAN, PorterDuff.Mode.SRC_IN);
-                    DatabaseReference ref=database.getReference("Alarmas");
-                    DatabaseReference newRef= ref.push();
-                    SimpleDateFormat sdf= new SimpleDateFormat("HH:mm : dd/MM/yy");
-                    String date= sdf.format(Calendar.getInstance().getTime());
-                    Alarma alarma= new Alarma("Advertencia",root.getResources().getText(R.string.advertencia_tanque_elevado_alto).toString(),date,R.drawable.tanquesbajos,newRef.getKey(),"");
-                    newRef.setValue(alarma);
-                    herramientas.generarNotifiacion(root.getContext(), "Advertencia",root.getResources().getString(R.string.advertencia_tanque_elevado_alto),R.drawable.tanquesbajos,2);
-                    Notification_ID++;
                 }
                 else{
                     nivel="FALLA EN LOS SENSORES";
                     txtNivelTanqueAlto.setText(nivel);
                     pbTanqueAlto.getProgressDrawable().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
                     herramientas.generarNotifiacion(root.getContext(), "Tanques",nivel,R.drawable.tanquesbajos,3);
-                    SimpleDateFormat sdf= new SimpleDateFormat("HH:mm : dd/mm/yy");
-                    String date= sdf.format(Calendar.getInstance().getTime());
-                    DatabaseReference ref=database.getReference("Alarmas");
-                    DatabaseReference newRef= ref.push();
-                    Alarma alarma= new Alarma(root.getResources().getText(R.string.alarma_tanque_elevado_bajo).toString(),"ERROR EN LOS SENSORES",date,R.drawable.tanquesbajos,newRef.getKey(),"");
-                    newRef.setValue(alarma);
+
                 }
 
 
@@ -179,33 +147,13 @@ public class GalleryFragment extends Fragment {
                     pbTanquesBajos.setProgress(10);
                     pbTanquesBajos.getProgressDrawable().setColorFilter(Color.CYAN, PorterDuff.Mode.SRC_IN);
 
-                    Toast.makeText(root.getContext(), root.getResources().getText(R.string.advertencia_tanque_bajo_bajo), Toast.LENGTH_LONG).show();
-                    SimpleDateFormat sdf= new SimpleDateFormat("HH:mm : dd/mm/yy");
-
-                     sdf= new SimpleDateFormat("HH:mm : dd/MM/yy");
-                    String date= sdf.format(Calendar.getInstance().getTime());
-                    DatabaseReference ref=database.getReference("Alarmas");
-                    DatabaseReference newRef= ref.push();
-                    Alarma alarma= new Alarma("Advertencia",root.getResources().getText(R.string.advertencia_tanque_bajo_bajo).toString(),date,R.drawable.tanquesbajos, newRef.getKey(),"");
-                    newRef.setValue(alarma);
-                    herramientas.generarNotifiacion(root.getContext(), "Advertencia",root.getResources().getString(R.string.advertencia_tanque_bajo_bajo),R.drawable.tanquesbajos,0);
-                    Notification_ID++;
-
                 }
                 else if(S1.equals("1") && S2.equals("1") && S3.equals("0")){
                     nivel="Medio";
                     txtNivelTanqueBajos.setText(nivel);
                     pbTanquesBajos.setProgress(50);
                     pbTanquesBajos.getProgressDrawable().setColorFilter(Color.CYAN, PorterDuff.Mode.SRC_IN);
-                    Toast.makeText(root.getContext(), root.getResources().getText(R.string.advertencia_tanque_bajo_medio), Toast.LENGTH_LONG).show();
-                    SimpleDateFormat sdf= new SimpleDateFormat("HH:mm : dd/MM/yy");
-                    String date= sdf.format(Calendar.getInstance().getTime());
-                    DatabaseReference ref=database.getReference("Alarmas");
-                    DatabaseReference newRef= ref.push();
-                    Alarma alarma= new Alarma("Advertencia",root.getResources().getText(R.string.advertencia_tanque_bajo_medio).toString(),date,R.drawable.tanquesbajos, newRef.getKey(),"");
-                    newRef.setValue(alarma);
-                    herramientas.generarNotifiacion(root.getContext(), "Advertencia",root.getResources().getString(R.string.advertencia_tanque_bajo_bajo),R.drawable.tanquesbajos,0);
-                    Notification_ID++;
+                    //Toast.makeText(root.getContext(), root.getResources().getText(R.string.advertencia_tanque_bajo_medio), Toast.LENGTH_LONG).show();
 
 
                    // herramientas.generarNotifiacion(root.getContext(), "Tanques bajos",root.getResources().getString(R.string.titulo_tanque_bajo_medio),R.drawable.tanquesbajos,Notification_ID);
@@ -216,27 +164,14 @@ public class GalleryFragment extends Fragment {
                     txtNivelTanqueBajos.setText(nivel);
                     pbTanquesBajos.setProgress(100);
                     pbTanquesBajos.getProgressDrawable().setColorFilter(Color.CYAN, PorterDuff.Mode.SRC_IN);
-                    SimpleDateFormat sdf= new SimpleDateFormat("HH:mm : dd/MM/yy");
-                    String date= sdf.format(Calendar.getInstance().getTime());
-                    DatabaseReference ref=database.getReference("Alarmas");
-                    DatabaseReference newRef= ref.push();
-                    Alarma alarma= new Alarma("Advertencia",root.getResources().getText(R.string.advertencia_tanque_bajo_bajo).toString(),date,R.drawable.tanquesbajos, newRef.getKey(),"");
-                    newRef.setValue(alarma);
-                    herramientas.generarNotifiacion(root.getContext(), "Advertencia",root.getResources().getString(R.string.advertencia_tanque_bajo_bajo),R.drawable.tanquesbajos,0);
-                    Notification_ID++;
+
                 }
                 else{
                     nivel="FALLA EN LOS SENSORES";
                     txtNivelTanqueBajos.setText(nivel);
                     pbTanquesBajos.getProgressDrawable().setColorFilter(Color.RED, PorterDuff.Mode.SRC_IN);
-                    Toast.makeText(root.getContext(), nivel, Toast.LENGTH_LONG).show();
-                    herramientas.generarNotifiacion(root.getContext(), "Tanques",nivel,R.drawable.tanquesbajos,1);
-                    SimpleDateFormat sdf= new SimpleDateFormat("HH:mm : dd/MM/yy");
-                    String date= sdf.format(Calendar.getInstance().getTime());
-                    DatabaseReference ref=database.getReference("Alarmas");
-                    DatabaseReference newRef= ref.push();
-                    Alarma alarma= new Alarma("Alarma",root.getResources().getText(R.string.advertencia_tanque_bajo_bajo).toString(),date,R.drawable.tanquesbajos, newRef.getKey(),"");
-                    newRef.setValue(alarma);
+                    //Toast.makeText(root.getContext(), nivel, Toast.LENGTH_LONG).show();
+
                 }
 
 

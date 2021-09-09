@@ -39,6 +39,9 @@
     <string name="advertencia_tiempo_bomba_a">"La bomba A, se encuentra encendida más de 8 horas "</string>
     <string name="advertencia_tiempo_bomba_b">"La bomba B, se encuentra encendida más de 8 horas "</string>
 
+    <string name="tipo_alarma_alarma">"Alarma"</string>
+    <string name="tipo_alarma_advertencia">"Advertencia"</string>
+
 
     <string name="channel_name">AguaPol Channel</string>
     <string name="channel_description">Alarm</string>
