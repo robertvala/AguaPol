@@ -215,7 +215,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
                                 android:fontFamily="@font/comfortaa_light"
-                                android:text="Presion" />
+                                android:text="Presión" />
 
                             <ProgressBar
                                 android:id="@+id/progressBarPresionA"
@@ -416,7 +416,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="10dp"
                                 android:fontFamily="@font/comfortaa_light"
-                                android:text="Presion" />
+                                android:text="Presión" />
 
                             <ProgressBar
                                 android:id="@+id/progressBarPresionB"

@@ -6,12 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.os.Bundle;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.espol.aguapol.Modelo.Alarma;
-import com.espol.aguapol.Modelo.AlarmaManejada;
 import com.espol.aguapol.R;
-import com.espol.aguapol.adapters.AlarmaSolucionadaAdapter;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,7 +20,7 @@ import java.util.List;
 
 public class HistorialAlarmasActivity extends AppCompatActivity {
     FirebaseDatabase database;
-     List<AlarmaManejada> alarmas;
+
      ListView listAlarmas;
      Context context=this;
 
@@ -35,12 +31,12 @@ public class HistorialAlarmasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_historial_alarmas);
         listAlarmas=findViewById(R.id.lvAlarmasGuardadas);
         database=FirebaseDatabase.getInstance();
-        alarmas=new ArrayList<>();
-        loadAlarmas();
+
+        //loadAlarmas();
 
     }
 
-    void loadAlarmas(){
+   /* void loadAlarmas(){
         DatabaseReference ref= database.getReference("Alarmas solucionadas");
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -62,6 +58,8 @@ public class HistorialAlarmasActivity extends AppCompatActivity {
             }
         });
     }
+
+    */
 
     @Override
     public boolean onSupportNavigateUp() {

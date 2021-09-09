@@ -9,34 +9,27 @@ public class Alarma implements Serializable {
     String fechaHora;
     int urlIcon;
     String id;
-    String estado;
+    String correoUsuario;
 
-    public Alarma(String titulo, String mensaje, String fechaHora, int urlIcon,String id) {
-        this.titulo = titulo;
-        this.mensaje = mensaje;
-        this.fechaHora = fechaHora;
-        this.urlIcon = urlIcon;
-        this.id=id;
-    }
 
-    public Alarma() {
-    }
-
-    public Alarma(String titulo, String mensaje, String fechaHora, int urlIcon, String id, String estado) {
+    public Alarma(String titulo, String mensaje, String fechaHora, int urlIcon, String id, String correoUsuario) {
         this.titulo = titulo;
         this.mensaje = mensaje;
         this.fechaHora = fechaHora;
         this.urlIcon = urlIcon;
         this.id = id;
-        this.estado = estado;
+        this.correoUsuario = correoUsuario;
     }
 
-    public String getEstado() {
-        return estado;
+    public Alarma() {
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public String getCorreoUsuario() {
+        return correoUsuario;
+    }
+
+    public void setCorreoUsuario(String correoUsuario) {
+        this.correoUsuario = correoUsuario;
     }
 
     public String getTitulo() {

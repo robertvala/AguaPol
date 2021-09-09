@@ -97,6 +97,13 @@
         <item>FIMCM</item>
     </string-array>
 
+    <string-array name="tramosRiego">
+        <item>Salida del lago</item>
+        <item>Canchas ingeniería</item>
+        <item>Tecnologías</item>
+        <item>Rectorado</item>
+    </string-array>
+
     <string-array name="tramosFireStore">
         <item>tramo 1</item>
         <item>tramo 2</item>
@@ -123,6 +130,10 @@
     <string name="tab_datos_1">Caudal</string>
     <string name="tab_datos_2">Alarmas</string>
     <string name="tab_datos_3">Riego</string>
+
+    <string name="ref_alarmas_activas">Alarmas</string>
+    <string name="ref_alarmas_proceso">Alarmas en proceso</string>
+    <string name="ref_alarmas_solucionadas">Alarmas solucionadas</string>
 
 
 </resources>

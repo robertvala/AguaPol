@@ -11,6 +11,7 @@
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/drawable/my_btn_toogle.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/drawable/new_progress_bar.xml" value="0.1425925925925926" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/font/abeezee.xml" value="0.284375" />
+        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_alarms.xml" value="0.10235507246376811" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_datos_histoticos.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_historial_alarmas.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_historicos_caudal.xml" value="0.264" />
@@ -21,6 +22,7 @@
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_splash.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/app_bar_main.xml" value="0.264" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/content_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/fragment_alarmas_en_proceso.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/fragment_control.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/fragment_datos.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/fragment_gallery.xml" value="0.264" />
@@ -33,6 +35,7 @@
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/nav_header_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/res_alarm.xml" value="0.536" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/res_alarm_solucionada.xml" value="0.536" />
+        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/res_alarmas_activas.xml" value="0.72" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/res_pin.xml" value="0.264" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/menu/activity_main_drawer.xml" value="0.4" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/menu/main.xml" value="0.25416666666666665" />
