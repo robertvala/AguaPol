@@ -49,6 +49,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             notificationManager.notify ( 1, notificationBuilder.build () );
         }
 
+        generarAlarmas(remoteMessage);
+
+
 
         // [START_EXCLUDE]
         // There are two types of messages data messages and notification messages. Data messages
@@ -92,6 +95,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
         // Also if you intend on generating your own notifications as a result of a received FCM
         // message, here is where that should be initiated. See sendNotification method below.
+    }
+
+    private void generarAlarmas(RemoteMessage remoteMessage) {
+        
     }
     // [END receive_message]
 
