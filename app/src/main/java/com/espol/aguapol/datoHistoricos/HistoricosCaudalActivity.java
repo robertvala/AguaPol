@@ -20,6 +20,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import lecho.lib.hellocharts.gesture.ContainerScrollType;
 import lecho.lib.hellocharts.gesture.ZoomType;
@@ -40,9 +41,11 @@ public class HistoricosCaudalActivity extends AppCompatActivity {
     List<String> tramosSeleccionados;
     FirebaseFirestore firebaseFirestore;
     HashMap<String,List<Float>> valores;
-    List<String> date = new ArrayList<>();
-    List<Float> score= new ArrayList<>();
-    private List<PointValue> mPointValues = new ArrayList<PointValue>();
+    List<Float> score;
+    List<String> date;
+    List<Line> lines;
+
+    //private List<PointValue> mPointValues = new ArrayList<PointValue>();
     private List<AxisValue> mAxisXValues = new ArrayList<AxisValue>();
 
     @Override
@@ -54,6 +57,7 @@ public class HistoricosCaudalActivity extends AppCompatActivity {
         fechaInicio=getIntent().getStringExtra("fechaInicio");
         tramosSeleccionados=getIntent().getStringArrayListExtra("tramos");
         firebaseFirestore=FirebaseFirestore.getInstance();
+
         Toast.makeText(context, fechaInicio, Toast.LENGTH_SHORT).show();
         Toast.makeText(context, fechaFin, Toast.LENGTH_SHORT).show();
         Toast.makeText(context, tramosSeleccionados.toString(), Toast.LENGTH_SHORT).show();
@@ -64,7 +68,10 @@ public class HistoricosCaudalActivity extends AppCompatActivity {
     }
 
     private void getData() {
+        valores=new HashMap<>();
         for(String i : tramosSeleccionados){
+            date = new ArrayList<>();
+            score= new ArrayList<>();
             CollectionReference refTramo=firebaseFirestore.collection(i);
             refTramo.whereGreaterThanOrEqualTo("date",fechaInicio).whereLessThanOrEqualTo("date",fechaFin).orderBy("date", Query.Direction.ASCENDING).get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                 @Override
@@ -74,18 +81,21 @@ public class HistoricosCaudalActivity extends AppCompatActivity {
                         String fecha=snap.getData().get("date").toString();
                         score.add(valor);
                         date.add(fecha);
+                        valores.put(obtenerNombreTramo(i),score);
+                        Toast.makeText(context, String.valueOf(valores.size()), Toast.LENGTH_SHORT).show();
                     }
 
-                    valores.put(obtenerNombreTramo(i),score);
+
 
                 }
 
             });
-            getAxisXLables();
-            getAxisPoints();
-            initLineChart();
+
+            getAxisXLables(date);
+            //initLineChart();
 
         }
+
 
 
 
@@ -102,7 +112,7 @@ public class HistoricosCaudalActivity extends AppCompatActivity {
 
     }
 
-    public void getAxisXLables() {
+    public void getAxisXLables(List<String> date) {
         int cont=0;
         for (String i: date) {
             mAxisXValues.add(new AxisValue(cont).setLabel(i));
@@ -113,25 +123,30 @@ public class HistoricosCaudalActivity extends AppCompatActivity {
     /**
      * Display of each point in the chart
      */
-    private void getAxisPoints() {
+    private List<PointValue> getAxisPoints(List<Float> score) {
+        List<PointValue> mPointValues= new ArrayList<>();
         int cont=0;
         for (float i:score) {
             mPointValues.add(new PointValue(cont, i));
             cont++;
         }
+        return mPointValues;
     }
 
     private void initLineChart() {
-        Line line = new Line(mPointValues).setColor(Color.parseColor("#FFCD41"));  //The color of the broken line (orange)
-        List<Line> lines = new ArrayList<Line>();
-        line.setShape(ValueShape.CIRCLE);//The shape of each data point on a broken line chart is circular here (there are three kinds: ValueShape. SQUARE ValueShape. CIRCLE ValueShape. DIAMOND)
-        line.setCubic(false);//Whether the curve is smooth, that is, whether it is a curve or a broken line
-        line.setFilled(false);//Whether or not to fill the area of the curve
-        line.setHasLabels(true);//Whether to add notes to the data coordinates of curves
+        Toast.makeText(context, String.valueOf(valores.size()), Toast.LENGTH_SHORT).show();
+        
+        for(String i: tramosSeleccionados){
+            Line line = new Line(getAxisPoints(valores.get(obtenerNombreTramo(i)))).setColor(Color.parseColor("#FFCD41"));  //The color of the broken line (orange)
+            line.setShape(ValueShape.CIRCLE);//The shape of each data point on a broken line chart is circular here (there are three kinds: ValueShape. SQUARE ValueShape. CIRCLE ValueShape. DIAMOND)
+            line.setCubic(false);//Whether the curve is smooth, that is, whether it is a curve or a broken line
+            line.setFilled(false);//Whether or not to fill the area of the curve
+            line.setHasLabels(true);//Whether to add notes to the data coordinates of curves
 //      Line. setHasLabels OnlyForSelected (true); // Click on the data coordinates to prompt the data (set this line.setHasLabels(true); invalid)
-        line.setHasLines(true);//Whether to display with line or not. If it is false, there is no curve but point display
-        line.setHasPoints(true);//Whether to display a dot if it is false, there is no origin but only a dot (each data point is a large dot)
-        lines.add(line);
+            line.setHasLines(true);//Whether to display with line or not. If it is false, there is no curve but point display
+            line.setHasPoints(true);//Whether to display a dot if it is false, there is no origin but only a dot (each data point is a large dot)
+            lines.add(line);
+        }
         LineChartData data = new LineChartData();
         data.setLines(lines);
 
