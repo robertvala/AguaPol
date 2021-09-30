@@ -11,19 +11,29 @@ public class Alarma implements Serializable {
     String id;
     String correoUsuario;
     String tipo;
+    String fecha;
 
 
-    public Alarma(String titulo, String mensaje, String fechaHora, int urlIcon, String id, String correoUsuario,String tipo) {
+    public Alarma(String titulo, String mensaje, String fechaHora, int urlIcon, String id, String correoUsuario, String tipo, String fecha) {
         this.titulo = titulo;
         this.mensaje = mensaje;
         this.fechaHora = fechaHora;
         this.urlIcon = urlIcon;
         this.id = id;
         this.correoUsuario = correoUsuario;
-        this.tipo=tipo;
+        this.tipo = tipo;
+        this.fecha = fecha;
     }
 
     public Alarma() {
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
     public String getTipo() {

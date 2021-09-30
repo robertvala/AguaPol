@@ -51,8 +51,7 @@ public class adapterListCaudal extends BaseAdapter implements Serializable {
         TextView hora,valor;
         hora=convertView.findViewById(R.id.fechatxtCaudal);
         valor=convertView.findViewById(R.id.txtvalorCaudal);
-        hora.setText(currentItem.getHora());
-        valor.setText(currentItem.getValor());
+
         return convertView;
     }
 

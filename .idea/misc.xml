@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/drawable/alarm_main_shape.xml" value="0.25" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/drawable/background_item.xml" value="0.2703125" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/drawable/card_view_border.xml" value="0.2703125" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/drawable/card_view_border_@.xml" value="0.16302083333333334" />
@@ -11,9 +12,10 @@
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/drawable/my_btn_toogle.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/drawable/new_progress_bar.xml" value="0.1425925925925926" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/font/abeezee.xml" value="0.284375" />
-        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_alarms.xml" value="0.10235507246376811" />
+        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_alarms.xml" value="0.2" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_datos_histoticos.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_historial_alarmas.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_historial_alarmas2.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_historicos_caudal.xml" value="0.264" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_importar_csv.xml" value="0.21557971014492755" />
         <entry key="..\:/Users/rober/Documents/AguaPol/AguaPol/app/src/main/res/layout/activity_login2.xml" value="0.25416666666666665" />

@@ -44,6 +44,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 NotificationChannel notificationChannel = new NotificationChannel ( NOTIFICATION_CHANNEL_ID, NOTIFICATION_CHANNEL_NAME, NotificationManager.IMPORTANCE_HIGH );
                 notificationManager.createNotificationChannel ( notificationChannel );
+                notificationChannel.setShowBadge(true);
+
             }
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder ( this, NOTIFICATION_CHANNEL_ID );
             notificationBuilder.setAutoCancel ( true )
@@ -52,9 +54,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     .setWhen ( System.currentTimeMillis () )
                     .setSmallIcon (R.drawable.aguapol_logo)
                     .setTicker ( remoteMessage.getNotification ().getTitle () )
-                    .setPriority ( Notification.PRIORITY_MAX )
+                    .setPriority ( Notification.PRIORITY_HIGH )
                     .setContentTitle ( remoteMessage.getNotification ().getTitle () )
-                    .setContentText ( remoteMessage.getNotification ().getBody () );
+                    .setContentText ( remoteMessage.getNotification ().getBody () )
+                    .setNumber(3);
             notificationManager.notify ( 1, notificationBuilder.build () );
         }
 
@@ -112,8 +115,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             DatabaseReference ref=database.getReference("Alarmas");
             DatabaseReference newRef= ref.push();
             SimpleDateFormat sdf= new SimpleDateFormat("HH:mm : dd/MM/yy");
+            SimpleDateFormat sdf2=new SimpleDateFormat("dd/MM/yy");
             String date= sdf.format(Calendar.getInstance().getTime());
-            Alarma alarma= new Alarma(context.getResources().getString(R.string.tipo_alarma_advertencia),context.getResources().getText(R.string.advertencia_tanque_elevado_alto).toString(),date,R.drawable.icono_2,newRef.getKey(),"",context.getResources().getString(R.string.tipo_alarma_advertencia));
+            Alarma alarma= new Alarma(context.getResources().getString(R.string.tipo_alarma_advertencia),context.getResources().getText(R.string.advertencia_tanque_elevado_alto).toString(),date,R.drawable.icono_2,newRef.getKey(),"",context.getResources().getString(R.string.tipo_alarma_advertencia),sdf2.format(Calendar.getInstance().getTime()));
             newRef.setValue(alarma).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void unused) {
@@ -215,8 +219,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     public Alarma generAlarma(String mensaje,int Icono,String id,String tipo){
         SimpleDateFormat sdf= new SimpleDateFormat("HH:mm : dd/MM/yy");
+        SimpleDateFormat sdf2= new SimpleDateFormat("dd/MM/yy");
         String date= sdf.format(Calendar.getInstance().getTime());
-        Alarma alarma= new Alarma("Alarma",mensaje,date, Icono,id,"",tipo);
+        Alarma alarma= new Alarma("Alarma",mensaje,date, Icono,id,"",tipo,sdf2.format(Calendar.getInstance().getTime()));
         return alarma;
     }
     // [END receive_message]

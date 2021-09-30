@@ -16,6 +16,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AguaPol">
         <activity
+            android:name=".datoHistoricos.HistorialAlarmasActivity"
+            android:exported="true" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.espol.aguapol"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <!-- ressource file to create -->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
             android:name=".Riego.RiegoActivity"
             android:exported="true"
             android:label="@string/title_activity_riego"

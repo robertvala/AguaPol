@@ -71,6 +71,7 @@ public class sAdapterAlarmasActivas extends RecyclerView.Adapter<sAdapterAlarmas
         super.onViewRecycled(holder);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onBindViewHolder(@NonNull sAdapterAlarmasActivas.SwipeViewHolder holder, int position) {
         viewBinderHelper.setOpenOnlyOne(true);
@@ -120,6 +121,7 @@ public class sAdapterAlarmasActivas extends RecyclerView.Adapter<sAdapterAlarmas
                 });
             }
             else if(tipoAlarma.equals(context.getResources().getString(R.string.tab_text_2))){
+                txtCambio.setText("Solucionada");
                 txtPerfil.setVisibility(View.VISIBLE);
                 FirebaseDatabase database=FirebaseDatabase.getInstance();
                 DatabaseReference ref=database.getReference(context.getString(R.string.ref_alarmas_proceso)).child(item.getId());
@@ -184,8 +186,11 @@ public class sAdapterAlarmasActivas extends RecyclerView.Adapter<sAdapterAlarmas
                 String oldId=item.getId();
                 String oldEmail=item.getCorreoUsuario();
                 String oldHora=item.getFechaHora();
+                String oldFecha= item.getFecha();
                 SimpleDateFormat sdf= new SimpleDateFormat("HH:mm : dd/MM/yy");
+                SimpleDateFormat sdf2= new SimpleDateFormat("dd/MM/yy");
                 String date= sdf.format(Calendar.getInstance().getTime());
+                item.setFecha(sdf2.format(Calendar.getInstance().getTime()));
                 item.setFechaHora(date);
                 item.setId(newRef.getKey());
                 String correo= FirebaseAuth.getInstance().getCurrentUser().getEmail();
@@ -201,6 +206,7 @@ public class sAdapterAlarmasActivas extends RecyclerView.Adapter<sAdapterAlarmas
                                 newRef.removeValue();
                                 item.setFechaHora(oldHora);
                                 item.setId(oldId);
+                                item.setFecha(oldFecha);
                                 item.setCorreoUsuario(oldEmail);
                                 refActivas.child(oldId).setValue(item);
                             }
@@ -230,6 +236,16 @@ public class sAdapterAlarmasActivas extends RecyclerView.Adapter<sAdapterAlarmas
             else{
                 horas=horas/60;
                 unidad="hrs";
+
+                if(horas>=24){
+                    horas=horas/24;
+                    if(horas>1){
+                        unidad="dias";
+                    }
+                    else{
+                        unidad="dia";
+                    }
+                }
             }
 
 

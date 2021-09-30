@@ -33,6 +33,7 @@ import com.espol.aguapol.Modelo.HistorialCaudal;
 import com.espol.aguapol.R;
 import com.espol.aguapol.adapters.adapterListCaudal;
 import com.espol.aguapol.adapters.adapterlista;
+import com.espol.aguapol.datoHistoricos.HistorialAlarmasActivity;
 import com.espol.aguapol.datoHistoricos.HistoricosCaudalActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
@@ -321,7 +322,7 @@ public class DatosFragment extends Fragment {
                        tilFechaFin.setError(mensaje);
                     }
 
-                    if(selectIndex.size()<=0){
+                    if(selectIndex.size()<=0&& !mParam1.equals("Alarmas")){
                         String mensaje="Porfavor seleccionar al menos un tramo";
                         error=error+"\n"+mensaje;
                         tilTramos.setError(mensaje);
@@ -344,7 +345,13 @@ public class DatosFragment extends Fragment {
             Intent intent= new Intent(root.getContext(), HistoricosCaudalActivity.class);
             intent.putExtra("fechaInicio",fechaInicio);
             intent.putExtra("fechaFin",fechaFin);
-            intent.putStringArrayListExtra("tramos", (ArrayList<String>) cambiarNombreTramos());
+            intent.putStringArrayListExtra("tramos", (ArrayList<String>) tramosSeleccionados);
+            startActivity(intent);
+        }
+        else if( mParam1.equals("Alarmas")){
+            Intent intent= new Intent(root.getContext(), HistorialAlarmasActivity.class);
+            intent.putExtra("fechaInicio",fechaInicio);
+            intent.putExtra("fechaFin",fechaFin);
             startActivity(intent);
         }
     }
